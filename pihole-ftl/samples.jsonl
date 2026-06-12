@@ -1,0 +1,8 @@
+{"line":"2026-06-12 13:39:15.537 BST [68/T168] INFO: Reloading config due to pihole.toml change","path":"ftl_log"}
+{"line":"2026-06-12 13:39:15.540 BST [68/T168] INFO: 1 FTLCONF environment variable found (1 used, 0 invalid, 0 ignored)","path":"ftl_log"}
+{"line":"2026-06-12 13:39:15.541 BST [68/T168] INFO:    [✓] FTLCONF_webserver_port is used","path":"ftl_log"}
+{"line":"2026-06-12 13:39:15.547 BST [68/T168] INFO: Wrote config file:","path":"ftl_log"}
+{"line":"2026-06-12 13:39:15.547 BST [68/T168] INFO:  - 162 total entries","path":"ftl_log"}
+{"line":"2026-06-12 13:39:15.547 BST [68/T168] INFO:  - 155 entries are default","path":"ftl_log"}
+{"line":"2026-06-12 13:39:15.547 BST [68/T168] INFO:  - 7 entries are modified","path":"ftl_log"}
+{"line":"2026-06-12 13:39:15.547 BST [68/T168] INFO:  - 1 entry is forced through environment","path":"ftl_log"}

@@ -1,0 +1,480 @@
+{"line":"Couldn't find '/Users/richardmorgan/.ollama/id_ed25519'. Generating new private key.","path":null}
+{"line":"Your new public key is: ","path":null}
+{"line":"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPFuNOgwXGKWHJqPQ7TJLmG/4XztlLED3Mx8wJWqyal7","path":null}
+{"line":"time=2026-05-26T14:55:07.757+01:00 level=INFO source=model_recommendations.go:177 msg=\"model recommendations cache sleep scheduled\" wait=4h31m53.921976033s consecutive_failures=0","path":"builtin/logfmt"}
+{"line":"time=2025-12-07T22:27:17.426Z level=INFO source=images.go:522 msg=\"total blobs: 0\"","path":"builtin/logfmt"}
+{"line":"time=2025-12-07T22:27:17.426Z level=INFO source=images.go:529 msg=\"total unused blobs removed: 0\"","path":"builtin/logfmt"}
+{"line":"time=2025-12-07T22:27:17.427Z level=INFO source=routes.go:1597 msg=\"Listening on 127.0.0.1:11434 (version 0.13.1)\"","path":"builtin/logfmt"}
+{"line":"time=2025-12-07T22:27:17.427Z level=INFO source=runner.go:67 msg=\"discovering available GPUs...\"","path":"builtin/logfmt"}
+{"line":"time=2025-12-07T22:27:17.428Z level=INFO source=server.go:392 msg=\"starting runner\" cmd=\"/opt/homebrew/Cellar/ollama/0.13.1/bin/ollama runner --ollama-engine --port 58868\"","path":"builtin/logfmt"}
+{"line":"time=2025-12-07T22:27:21.971Z level=INFO source=types.go:42 msg=\"inference compute\" id=0 filter_id=0 library=Metal compute=0.0 name=Metal description=\"Apple M5\" libdirs=\"\" driver=0.0 pci_id=\"\" type=discrete total=\"25.0 GiB\" available=\"25.0 GiB\"","path":"builtin/logfmt"}
+{"line":"[GIN] 2025/12/07 - 22:27:25 | 200 |     120.416µs |       127.0.0.1 | HEAD     \"/\"","path":"mined__gin__4"}
+{"line":"time=2025-12-07T22:27:25.902Z level=INFO source=download.go:177 msg=\"downloading dde5aa3fc5ff in 16 126 MB part(s)\"","path":"builtin/logfmt"}
+{"line":"time=2025-12-07T22:28:05.253Z level=INFO source=download.go:177 msg=\"downloading 966de95ca8a6 in 1 1.4 KB part(s)\"","path":"builtin/logfmt"}
+{"line":"time=2025-12-07T22:28:06.577Z level=INFO source=download.go:177 msg=\"downloading fcc5a6bec9da in 1 7.7 KB part(s)\"","path":"builtin/logfmt"}
+{"line":"time=2025-12-07T22:28:07.882Z level=INFO source=download.go:177 msg=\"downloading a70ff7e570d9 in 1 6.0 KB part(s)\"","path":"builtin/logfmt"}
+{"line":"time=2025-12-07T22:28:09.195Z level=INFO source=download.go:177 msg=\"downloading 56bb8bd477a5 in 1 96 B part(s)\"","path":"builtin/logfmt"}
+{"line":"time=2025-12-07T22:28:10.527Z level=INFO source=download.go:177 msg=\"downloading 34bb5ab01051 in 1 561 B part(s)\"","path":"builtin/logfmt"}
+{"line":"[GIN] 2025/12/07 - 22:28:12 | 200 |  47.30341275s |       127.0.0.1 | POST     \"/api/pull\"","path":"mined__gin__4"}
+{"line":"[GIN] 2025/12/07 - 22:28:20 | 200 |      17.709µs |       127.0.0.1 | HEAD     \"/\"","path":"mined__gin__4"}
+{"line":"[GIN] 2025/12/07 - 22:28:20 | 200 |   46.371708ms |       127.0.0.1 | POST     \"/api/show\"","path":"mined__gin__4"}
+{"line":"ggml_metal_library_init: using embedded metal library","path":null}
+{"line":"ggml_metal_library_init: loaded in 4.691 sec","path":null}
+{"line":"ggml_metal_device_init: GPU name:   Apple M5","path":"mined_ggml_metal_device_init__5"}
+{"line":"ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)","path":"mined_ggml_metal_device_init__5"}
+{"line":"ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)","path":"mined_ggml_metal_device_init__5"}
+{"line":"ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)","path":"mined_ggml_metal_device_init__5"}
+{"line":"ggml_metal_device_init: simdgroup reduction   = true","path":"mined_ggml_metal_device_init__5"}
+{"line":"ggml_metal_device_init: simdgroup matrix mul. = true","path":null}
+{"line":"ggml_metal_device_init: has unified memory    = true","path":null}
+{"line":"ggml_metal_device_init: has bfloat            = true","path":"mined_ggml_metal_device_init__5"}
+{"line":"ggml_metal_device_init: use residency sets    = true","path":null}
+{"line":"ggml_metal_device_init: use shared buffers    = true","path":null}
+{"line":"ggml_metal_device_init: recommendedMaxWorkingSetSize  = 26800.60 MB","path":"mined_ggml_metal_device_init__5"}
+{"line":"llama_model_load_from_file_impl: using device Metal (Apple M5) (unknown id) - 25558 MiB free","path":null}
+{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/richardmorgan/.ollama/models/blobs/sha256-dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff (version GGUF V3 (latest))","path":null}
+{"line":"llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.","path":null}
+{"line":"llama_model_loader: - kv   0:                       general.architecture str              = llama","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - kv   1:                               general.type str              = model","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - kv   2:                               general.name str              = Llama 3.2 3B Instruct","path":null}
+{"line":"llama_model_loader: - kv   3:                           general.finetune str              = Instruct","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - kv   4:                           general.basename str              = Llama-3.2","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - kv   5:                         general.size_label str              = 3B","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - kv   6:                               general.tags arr[str,6]       = [\"facebook\", \"meta\", \"pytorch\", \"llam...","path":null}
+{"line":"llama_model_loader: - kv   7:                          general.languages arr[str,8]       = [\"en\", \"de\", \"fr\", \"it\", \"pt\", \"hi\", ...","path":null}
+{"line":"llama_model_loader: - kv   8:                          llama.block_count u32              = 28","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - kv   9:                       llama.context_length u32              = 131072","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - kv  10:                     llama.embedding_length u32              = 3072","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - kv  11:                  llama.feed_forward_length u32              = 8192","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - kv  12:                 llama.attention.head_count u32              = 24","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - kv  13:              llama.attention.head_count_kv u32              = 8","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - kv  14:                       llama.rope.freq_base f32              = 500000.000000","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - kv  15:     llama.attention.layer_norm_rms_epsilon f32              = 0.000010","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - kv  16:                 llama.attention.key_length u32              = 128","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - kv  17:               llama.attention.value_length u32              = 128","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - kv  18:                          general.file_type u32              = 15","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - kv  19:                           llama.vocab_size u32              = 128256","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - kv  20:                 llama.rope.dimension_count u32              = 128","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - kv  21:                       tokenizer.ggml.model str              = gpt2","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - kv  22:                         tokenizer.ggml.pre str              = llama-bpe","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - kv  23:                      tokenizer.ggml.tokens arr[str,128256]  = [\"!\", \"\\\"\", \"#\", \"$\", \"%\", \"&\", \"'\", ...","path":null}
+{"line":"llama_model_loader: - kv  24:                  tokenizer.ggml.token_type arr[i32,128256]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...","path":null}
+{"line":"llama_model_loader: - kv  25:                      tokenizer.ggml.merges arr[str,280147]  = [\"Ġ Ġ\", \"Ġ ĠĠĠ\", \"ĠĠ ĠĠ\", \"...","path":null}
+{"line":"llama_model_loader: - kv  26:                tokenizer.ggml.bos_token_id u32              = 128000","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - kv  27:                tokenizer.ggml.eos_token_id u32              = 128009","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - kv  28:                    tokenizer.chat_template str              = {{- bos_token }}\\n{%- if custom_tools ...","path":null}
+{"line":"llama_model_loader: - kv  29:               general.quantization_version u32              = 2","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - type  f32:   58 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"llama_model_loader: - type q4_K:  168 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"llama_model_loader: - type q6_K:   29 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"print_info: file format = GGUF V3 (latest)","path":null}
+{"line":"print_info: file type   = Q4_K - Medium","path":null}
+{"line":"print_info: file size   = 1.87 GiB (5.01 BPW) ","path":null}
+{"line":"load: printing all EOG tokens:","path":null}
+{"line":"load:   - 128001 ('<|end_of_text|>')","path":"mined_load__9"}
+{"line":"load:   - 128008 ('<|eom_id|>')","path":"mined_load__9"}
+{"line":"load:   - 128009 ('<|eot_id|>')","path":"mined_load__9"}
+{"line":"load: special tokens cache size = 256","path":null}
+{"line":"load: token to piece cache size = 0.7999 MB","path":null}
+{"line":"print_info: arch             = llama","path":"mined_print_info__2"}
+{"line":"print_info: vocab_only       = 1","path":"mined_print_info__2"}
+{"line":"print_info: model type       = ?B","path":"mined_print_info__6"}
+{"line":"print_info: model params     = 3.21 B","path":null}
+{"line":"print_info: general.name     = Llama 3.2 3B Instruct","path":null}
+{"line":"print_info: vocab type       = BPE","path":"mined_print_info__6"}
+{"line":"print_info: n_vocab          = 128256","path":"mined_print_info__2"}
+{"line":"print_info: n_merges         = 280147","path":"mined_print_info__2"}
+{"line":"print_info: BOS token        = 128000 '<|begin_of_text|>'","path":"mined_print_info__token_3"}
+{"line":"print_info: EOS token        = 128009 '<|eot_id|>'","path":"mined_print_info__token_3"}
+{"line":"print_info: EOT token        = 128001 '<|end_of_text|>'","path":"mined_print_info__token_3"}
+{"line":"print_info: EOM token        = 128008 '<|eom_id|>'","path":"mined_print_info__token_3"}
+{"line":"print_info: LF token         = 198 'Ċ'","path":"mined_print_info__token_3"}
+{"line":"print_info: EOG token        = 128001 '<|end_of_text|>'","path":"mined_print_info__token_3"}
+{"line":"print_info: EOG token        = 128008 '<|eom_id|>'","path":"mined_print_info__token_3"}
+{"line":"print_info: EOG token        = 128009 '<|eot_id|>'","path":"mined_print_info__token_3"}
+{"line":"print_info: max token length = 256","path":"mined_print_info__token_3"}
+{"line":"llama_model_load: vocab only - skipping tensors","path":null}
+{"line":"time=2025-12-07T22:28:25.883Z level=INFO source=server.go:209 msg=\"enabling flash attention\"","path":"builtin/logfmt"}
+{"line":"time=2025-12-07T22:28:25.883Z level=INFO source=server.go:392 msg=\"starting runner\" cmd=\"/opt/homebrew/Cellar/ollama/0.13.1/bin/ollama runner --model /Users/richardmorgan/.ollama/models/blobs/sha256-dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff --port 58912\"","path":"builtin/logfmt"}
+{"line":"time=2025-12-07T22:28:25.886Z level=INFO source=sched.go:443 msg=\"system memory\" total=\"32.0 GiB\" free=\"11.9 GiB\" free_swap=\"0 B\"","path":"builtin/logfmt"}
+{"line":"time=2025-12-07T22:28:25.886Z level=INFO source=sched.go:450 msg=\"gpu memory\" id=0 library=Metal available=\"24.5 GiB\" free=\"25.0 GiB\" minimum=\"512.0 MiB\" overhead=\"0 B\"","path":"builtin/logfmt"}
+{"line":"time=2025-12-07T22:28:25.886Z level=INFO source=server.go:459 msg=\"loading model\" \"model layers\"=29 requested=-1","path":"builtin/logfmt"}
+{"line":"time=2025-12-07T22:28:25.886Z level=INFO source=device.go:240 msg=\"model weights\" device=Metal size=\"1.9 GiB\"","path":"builtin/logfmt"}
+{"line":"time=2025-12-07T22:28:25.886Z level=INFO source=device.go:251 msg=\"kv cache\" device=Metal size=\"224.0 MiB\"","path":"builtin/logfmt"}
+{"line":"time=2025-12-07T22:28:25.886Z level=INFO source=device.go:262 msg=\"compute graph\" device=Metal size=\"256.5 MiB\"","path":"builtin/logfmt"}
+{"line":"time=2025-12-07T22:28:25.886Z level=INFO source=device.go:272 msg=\"total memory\" size=\"2.3 GiB\"","path":"builtin/logfmt"}
+{"line":"time=2025-12-07T22:28:25.896Z level=INFO source=runner.go:963 msg=\"starting go runner\"","path":"builtin/logfmt"}
+{"line":"ggml_metal_library_init: using embedded metal library","path":null}
+{"line":"ggml_metal_library_init: loaded in 5.042 sec","path":null}
+{"line":"ggml_metal_device_init: GPU name:   Apple M5","path":"mined_ggml_metal_device_init__5"}
+{"line":"ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)","path":"mined_ggml_metal_device_init__5"}
+{"line":"ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)","path":"mined_ggml_metal_device_init__5"}
+{"line":"ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)","path":"mined_ggml_metal_device_init__5"}
+{"line":"ggml_metal_device_init: simdgroup reduction   = true","path":"mined_ggml_metal_device_init__5"}
+{"line":"ggml_metal_device_init: simdgroup matrix mul. = true","path":null}
+{"line":"ggml_metal_device_init: has unified memory    = true","path":null}
+{"line":"ggml_metal_device_init: has bfloat            = true","path":"mined_ggml_metal_device_init__5"}
+{"line":"ggml_metal_device_init: use residency sets    = true","path":null}
+{"line":"ggml_metal_device_init: use shared buffers    = true","path":null}
+{"line":"ggml_metal_device_init: recommendedMaxWorkingSetSize  = 26800.60 MB","path":"mined_ggml_metal_device_init__5"}
+{"line":"time=2025-12-07T22:28:25.899Z level=INFO source=ggml.go:104 msg=system Metal.0.EMBED_LIBRARY=1 CPU.0.NEON=1 CPU.0.ARM_FMA=1 CPU.0.FP16_VA=1 CPU.0.DOTPROD=1 CPU.0.LLAMAFILE=1 CPU.0.ACCELERATE=1 compiler=cgo(clang)","path":"builtin/logfmt"}
+{"line":"llama_model_load_from_file_impl: using device Metal (Apple M5) (unknown id) - 25558 MiB free","path":null}
+{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/richardmorgan/.ollama/models/blobs/sha256-dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff (version GGUF V3 (latest))","path":null}
+{"line":"llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.","path":null}
+{"line":"llama_model_loader: - kv   0:                       general.architecture str              = llama","path":"mined_llama_model_loader__kv_1"}
+{"line":"llama_model_loader: - kv   2:                               general.name str              = Llama 3.2 3B Instruct","path":null}
+{"line":"llama_model_loader: - kv   6:                               general.tags arr[str,6]       = [\"facebook\", \"meta\", \"pytorch\", \"llam...","path":null}
+{"line":"llama_model_loader: - kv   7:                          general.languages arr[str,8]       = [\"en\", \"de\", \"fr\", \"it\", \"pt\", \"hi\", ...","path":null}
+{"line":"llama_model_loader: - kv  23:                      tokenizer.ggml.tokens arr[str,128256]  = [\"!\", \"\\\"\", \"#\", \"$\", \"%\", \"&\", \"'\", ...","path":null}
+{"line":"llama_model_loader: - kv  24:                  tokenizer.ggml.token_type arr[i32,128256]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...","path":null}
+{"line":"llama_model_loader: - kv  25:                      tokenizer.ggml.merges arr[str,280147]  = [\"Ġ Ġ\", \"Ġ ĠĠĠ\", \"ĠĠ ĠĠ\", \"...","path":null}
+{"line":"llama_model_loader: - kv  28:                    tokenizer.chat_template str              = {{- bos_token }}\\n{%- if custom_tools ...","path":null}
+{"line":"llama_model_loader: - type  f32:   58 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"llama_model_loader: - type q4_K:  168 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"llama_model_loader: - type q6_K:   29 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"print_info: file format = GGUF V3 (latest)","path":null}
+{"line":"print_info: file type   = Q4_K - Medium","path":null}
+{"line":"print_info: file size   = 1.87 GiB (5.01 BPW) ","path":null}
+{"line":"load: printing all EOG tokens:","path":null}
+{"line":"load:   - 128001 ('<|end_of_text|>')","path":"mined_load__9"}
+{"line":"load:   - 128008 ('<|eom_id|>')","path":"mined_load__9"}
+{"line":"load:   - 128009 ('<|eot_id|>')","path":"mined_load__9"}
+{"line":"load: special tokens cache size = 256","path":null}
+{"line":"load: token to piece cache size = 0.7999 MB","path":null}
+{"line":"print_info: arch             = llama","path":"mined_print_info__2"}
+{"line":"print_info: vocab_only       = 0","path":"mined_print_info__2"}
+{"line":"print_info: n_ctx_train      = 131072","path":"mined_print_info__2"}
+{"line":"print_info: n_embd           = 3072","path":"mined_print_info__2"}
+{"line":"print_info: n_layer          = 28","path":"mined_print_info__2"}
+{"line":"print_info: n_head           = 24","path":"mined_print_info__2"}
+{"line":"print_info: n_head_kv        = 8","path":"mined_print_info__2"}
+{"line":"print_info: n_rot            = 128","path":"mined_print_info__2"}
+{"line":"print_info: n_swa            = 0","path":"mined_print_info__2"}
+{"line":"print_info: is_swa_any       = 0","path":"mined_print_info__2"}
+{"line":"print_info: n_embd_head_k    = 128","path":"mined_print_info__2"}
+{"line":"print_info: n_embd_head_v    = 128","path":"mined_print_info__2"}
+{"line":"print_info: n_gqa            = 3","path":"mined_print_info__2"}
+{"line":"print_info: n_embd_k_gqa     = 1024","path":"mined_print_info__2"}
+{"line":"print_info: n_embd_v_gqa     = 1024","path":"mined_print_info__2"}
+{"line":"print_info: f_norm_eps       = 0.0e+00","path":"mined_print_info__2"}
+{"line":"print_info: f_norm_rms_eps   = 1.0e-05","path":"mined_print_info__2"}
+{"line":"print_info: f_clamp_kqv      = 0.0e+00","path":"mined_print_info__2"}
+{"line":"print_info: f_max_alibi_bias = 0.0e+00","path":"mined_print_info__2"}
+{"line":"print_info: f_logit_scale    = 0.0e+00","path":"mined_print_info__2"}
+{"line":"print_info: causal attn      = 1","path":"mined_print_info__6"}
+{"line":"print_info: pooling type     = 0","path":"mined_print_info__6"}
+{"line":"print_info: rope type        = 0","path":"mined_print_info__6"}
+{"line":"print_info: rope scaling     = linear","path":"mined_print_info__6"}
+{"line":"print_info: model type       = 3B","path":"mined_print_info__6"}
+{"line":"print_info: model params     = 3.21 B","path":null}
+{"line":"print_info: general.name     = Llama 3.2 3B Instruct","path":null}
+{"line":"print_info: vocab type       = BPE","path":"mined_print_info__6"}
+{"line":"print_info: BOS token        = 128000 '<|begin_of_text|>'","path":"mined_print_info__token_3"}
+{"line":"print_info: EOS token        = 128009 '<|eot_id|>'","path":"mined_print_info__token_3"}
+{"line":"print_info: EOT token        = 128001 '<|end_of_text|>'","path":"mined_print_info__token_3"}
+{"line":"print_info: EOM token        = 128008 '<|eom_id|>'","path":"mined_print_info__token_3"}
+{"line":"print_info: LF token         = 198 'Ċ'","path":"mined_print_info__token_3"}
+{"line":"print_info: EOG token        = 128001 '<|end_of_text|>'","path":"mined_print_info__token_3"}
+{"line":"print_info: EOG token        = 128008 '<|eom_id|>'","path":"mined_print_info__token_3"}
+{"line":"print_info: EOG token        = 128009 '<|eot_id|>'","path":"mined_print_info__token_3"}
+{"line":"print_info: max token length = 256","path":"mined_print_info__token_3"}
+{"line":"load_tensors: loading model tensors, this can take a while... (mmap = true)","path":null}
+{"line":"load_tensors: offloading 28 repeating layers to GPU","path":null}
+{"line":"load_tensors: offloading output layer to GPU","path":null}
+{"line":"load_tensors: offloaded 29/29 layers to GPU","path":null}
+{"line":"load_tensors:   CPU_Mapped model buffer size =   308.23 MiB","path":null}
+{"line":"load_tensors: Metal_Mapped model buffer size =  1918.35 MiB","path":null}
+{"line":"llama_context: constructing llama_context","path":null}
+{"line":"llama_context: n_seq_max     = 1","path":"mined_llama_context__7"}
+{"line":"llama_context: n_ctx         = 4096","path":"mined_llama_context__7"}
+{"line":"llama_context: n_ctx_per_seq = 4096","path":"mined_llama_context__7"}
+{"line":"llama_context: n_batch       = 512","path":"mined_llama_context__7"}
+{"line":"llama_context: n_ubatch      = 512","path":"mined_llama_context__7"}
+{"line":"llama_context: causal_attn   = 1","path":"mined_llama_context__7"}
+{"line":"llama_context: flash_attn    = enabled","path":"mined_llama_context__7"}
+{"line":"llama_context: kv_unified    = false","path":"mined_llama_context__7"}
+{"line":"llama_context: freq_base     = 500000.0","path":"mined_llama_context__7"}
+{"line":"llama_context: freq_scale    = 1","path":"mined_llama_context__7"}
+{"line":"llama_context: n_ctx_per_seq (4096) < n_ctx_train (131072) -- the full capacity of the model will not be utilized","path":null}
+{"line":"ggml_metal_init: allocating","path":null}
+{"line":"ggml_metal_init: picking default device: Apple M5","path":null}
+{"line":"ggml_metal_init: use bfloat         = true","path":null}
+{"line":"ggml_metal_init: use fusion         = true","path":null}
+{"line":"ggml_metal_init: use concurrency    = true","path":null}
+{"line":"ggml_metal_init: use graph optimize = true","path":null}
+{"line":"llama_context:        CPU  output buffer size =     0.50 MiB","path":null}
+{"line":"llama_kv_cache:      Metal KV buffer size =   238.00 MiB","path":null}
+{"line":"llama_kv_cache: size =  238.00 MiB (  4096 cells,  28 layers,  1/1 seqs), K (q8_0):  119.00 MiB, V (q8_0):  119.00 MiB","path":null}
+{"line":"llama_context:      Metal compute buffer size =   256.50 MiB","path":null}
+{"line":"llama_context:        CPU compute buffer size =    14.01 MiB","path":null}
+{"line":"llama_context: graph nodes  = 875","path":null}
+{"line":"llama_context: graph splits = 2","path":null}
+{"line":"[GIN] 2025/12/07 - 22:28:32 | 200 | 11.262037708s |       127.0.0.1 | POST     \"/api/generate\"","path":"mined__gin__4"}
+{"line":"[GIN] 2025/12/07 - 22:29:18 | 200 |      61.208µs |       127.0.0.1 | HEAD     \"/\"","path":"mined__gin__4"}
+{"line":"[GIN] 2025/12/07 - 22:29:18 | 200 |   64.931583ms |       127.0.0.1 | POST     \"/api/show\"","path":"mined__gin__4"}
+{"line":"[GIN] 2025/12/07 - 22:29:25 | 200 |  7.304313208s |       127.0.0.1 | POST     \"/api/generate\"","path":"mined__gin__4"}
+{"line":"[GIN] 2025/12/07 - 22:29:39 | 200 |      57.667µs |       127.0.0.1 | HEAD     \"/\"","path":"mined__gin__4"}
+{"line":"[GIN] 2025/12/07 - 22:29:39 | 200 |   62.434792ms |       127.0.0.1 | POST     \"/api/show\"","path":"mined__gin__4"}
+{"line":"[GIN] 2025/12/07 - 22:29:48 | 200 |    8.7794575s |       127.0.0.1 | POST     \"/api/generate\"","path":"mined__gin__4"}
+{"line":"[GIN] 2025/12/07 - 22:33:51 | 200 |      37.708µs |       127.0.0.1 | HEAD     \"/\"","path":"mined__gin__4"}
+{"line":"[GIN] 2025/12/07 - 22:33:51 | 200 |   56.194875ms |       127.0.0.1 | POST     \"/api/show\"","path":"mined__gin__4"}
+{"line":"[GIN] 2025/12/07 - 22:33:51 | 200 |   31.561583ms |       127.0.0.1 | POST     \"/api/show\"","path":"mined__gin__4"}
+{"line":"[GIN] 2025/12/07 - 22:33:51 | 200 |   48.096125ms |       127.0.0.1 | POST     \"/api/generate\"","path":"mined__gin__4"}
+{"line":"[GIN] 2025/12/07 - 22:34:11 | 200 |  4.635118125s |       127.0.0.1 | POST     \"/api/chat\"","path":"mined__gin__4"}
+{"line":"[GIN] 2025/12/07 - 22:35:00 | 200 |  7.186111459s |       127.0.0.1 | POST     \"/api/chat\"","path":"mined__gin__4"}
+{"line":"[GIN] 2025/12/07 - 22:35:43 | 200 |  9.782556459s |       127.0.0.1 | POST     \"/api/chat\"","path":"mined__gin__4"}
+{"line":"[GIN] 2025/12/07 - 22:37:00 | 200 |  8.312725875s |       127.0.0.1 | POST     \"/api/chat\"","path":"mined__gin__4"}
+{"line":"[GIN] 2025/12/07 - 22:38:15 | 200 |  6.541046917s |       127.0.0.1 | POST     \"/api/chat\"","path":"mined__gin__4"}
+{"line":"llama_model_load_from_file_impl: using device Metal (Apple M5) (unknown id) - 25558 MiB free","path":null}
+{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/richardmorgan/.ollama/models/blobs/sha256-dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff (version GGUF V3 (latest))","path":null}
+{"line":"llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.","path":null}
+{"line":"llama_model_loader: - kv   2:                               general.name str              = Llama 3.2 3B Instruct","path":null}
+{"line":"llama_model_loader: - kv   6:                               general.tags arr[str,6]       = [\"facebook\", \"meta\", \"pytorch\", \"llam...","path":null}
+{"line":"llama_model_loader: - kv   7:                          general.languages arr[str,8]       = [\"en\", \"de\", \"fr\", \"it\", \"pt\", \"hi\", ...","path":null}
+{"line":"llama_model_loader: - kv  23:                      tokenizer.ggml.tokens arr[str,128256]  = [\"!\", \"\\\"\", \"#\", \"$\", \"%\", \"&\", \"'\", ...","path":null}
+{"line":"llama_model_loader: - kv  24:                  tokenizer.ggml.token_type arr[i32,128256]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...","path":null}
+{"line":"llama_model_loader: - kv  25:                      tokenizer.ggml.merges arr[str,280147]  = [\"Ġ Ġ\", \"Ġ ĠĠĠ\", \"ĠĠ ĠĠ\", \"...","path":null}
+{"line":"llama_model_loader: - kv  28:                    tokenizer.chat_template str              = {{- bos_token }}\\n{%- if custom_tools ...","path":null}
+{"line":"llama_model_loader: - type  f32:   58 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"llama_model_loader: - type q4_K:  168 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"llama_model_loader: - type q6_K:   29 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"print_info: file format = GGUF V3 (latest)","path":null}
+{"line":"print_info: file type   = Q4_K - Medium","path":null}
+{"line":"print_info: file size   = 1.87 GiB (5.01 BPW) ","path":null}
+{"line":"load: printing all EOG tokens:","path":null}
+{"line":"load:   - 128001 ('<|end_of_text|>')","path":"mined_load__9"}
+{"line":"load:   - 128008 ('<|eom_id|>')","path":"mined_load__9"}
+{"line":"load:   - 128009 ('<|eot_id|>')","path":"mined_load__9"}
+{"line":"load: special tokens cache size = 256","path":null}
+{"line":"load: token to piece cache size = 0.7999 MB","path":null}
+{"line":"print_info: model type       = ?B","path":"mined_print_info__6"}
+{"line":"print_info: model params     = 3.21 B","path":null}
+{"line":"print_info: general.name     = Llama 3.2 3B Instruct","path":null}
+{"line":"print_info: vocab type       = BPE","path":"mined_print_info__6"}
+{"line":"print_info: BOS token        = 128000 '<|begin_of_text|>'","path":"mined_print_info__token_3"}
+{"line":"print_info: EOS token        = 128009 '<|eot_id|>'","path":"mined_print_info__token_3"}
+{"line":"print_info: EOT token        = 128001 '<|end_of_text|>'","path":"mined_print_info__token_3"}
+{"line":"print_info: EOM token        = 128008 '<|eom_id|>'","path":"mined_print_info__token_3"}
+{"line":"print_info: LF token         = 198 'Ċ'","path":"mined_print_info__token_3"}
+{"line":"print_info: EOG token        = 128001 '<|end_of_text|>'","path":"mined_print_info__token_3"}
+{"line":"llama_model_load: vocab only - skipping tensors","path":null}
+{"line":"ggml_metal_library_init: using embedded metal library","path":null}
+{"line":"ggml_metal_library_init: loaded in 0.005 sec","path":null}
+{"line":"ggml_metal_device_init: GPU name:   Apple M5","path":"mined_ggml_metal_device_init__5"}
+{"line":"ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)","path":"mined_ggml_metal_device_init__5"}
+{"line":"ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)","path":"mined_ggml_metal_device_init__5"}
+{"line":"ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)","path":"mined_ggml_metal_device_init__5"}
+{"line":"ggml_metal_device_init: simdgroup reduction   = true","path":"mined_ggml_metal_device_init__5"}
+{"line":"ggml_metal_device_init: simdgroup matrix mul. = true","path":null}
+{"line":"ggml_metal_device_init: has unified memory    = true","path":null}
+{"line":"ggml_metal_device_init: has bfloat            = true","path":"mined_ggml_metal_device_init__5"}
+{"line":"ggml_metal_device_init: use residency sets    = true","path":null}
+{"line":"ggml_metal_device_init: use shared buffers    = true","path":null}
+{"line":"ggml_metal_device_init: recommendedMaxWorkingSetSize  = 26800.60 MB","path":"mined_ggml_metal_device_init__5"}
+{"line":"llama_model_load_from_file_impl: using device Metal (Apple M5) (unknown id) - 25558 MiB free","path":null}
+{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/richardmorgan/.ollama/models/blobs/sha256-dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff (version GGUF V3 (latest))","path":null}
+{"line":"llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.","path":null}
+{"line":"llama_model_loader: - kv   2:                               general.name str              = Llama 3.2 3B Instruct","path":null}
+{"line":"llama_model_loader: - kv   6:                               general.tags arr[str,6]       = [\"facebook\", \"meta\", \"pytorch\", \"llam...","path":null}
+{"line":"llama_model_loader: - kv   7:                          general.languages arr[str,8]       = [\"en\", \"de\", \"fr\", \"it\", \"pt\", \"hi\", ...","path":null}
+{"line":"llama_model_loader: - kv  23:                      tokenizer.ggml.tokens arr[str,128256]  = [\"!\", \"\\\"\", \"#\", \"$\", \"%\", \"&\", \"'\", ...","path":null}
+{"line":"llama_model_loader: - kv  24:                  tokenizer.ggml.token_type arr[i32,128256]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...","path":null}
+{"line":"llama_model_loader: - kv  25:                      tokenizer.ggml.merges arr[str,280147]  = [\"Ġ Ġ\", \"Ġ ĠĠĠ\", \"ĠĠ ĠĠ\", \"...","path":null}
+{"line":"llama_model_loader: - kv  28:                    tokenizer.chat_template str              = {{- bos_token }}\\n{%- if custom_tools ...","path":null}
+{"line":"llama_model_loader: - type  f32:   58 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"llama_model_loader: - type q4_K:  168 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"llama_model_loader: - type q6_K:   29 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"print_info: file format = GGUF V3 (latest)","path":null}
+{"line":"print_info: file type   = Q4_K - Medium","path":null}
+{"line":"print_info: file size   = 1.87 GiB (5.01 BPW) ","path":null}
+{"line":"load: printing all EOG tokens:","path":null}
+{"line":"load:   - 128001 ('<|end_of_text|>')","path":"mined_load__9"}
+{"line":"load:   - 128008 ('<|eom_id|>')","path":"mined_load__9"}
+{"line":"load:   - 128009 ('<|eot_id|>')","path":"mined_load__9"}
+{"line":"load: special tokens cache size = 256","path":null}
+{"line":"load: token to piece cache size = 0.7999 MB","path":null}
+{"line":"print_info: causal attn      = 1","path":"mined_print_info__6"}
+{"line":"print_info: pooling type     = 0","path":"mined_print_info__6"}
+{"line":"print_info: rope type        = 0","path":"mined_print_info__6"}
+{"line":"print_info: rope scaling     = linear","path":"mined_print_info__6"}
+{"line":"print_info: model type       = 3B","path":"mined_print_info__6"}
+{"line":"print_info: model params     = 3.21 B","path":null}
+{"line":"print_info: general.name     = Llama 3.2 3B Instruct","path":null}
+{"line":"print_info: vocab type       = BPE","path":"mined_print_info__6"}
+{"line":"load_tensors: loading model tensors, this can take a while... (mmap = true)","path":null}
+{"line":"load_tensors: offloading 28 repeating layers to GPU","path":null}
+{"line":"load_tensors: offloading output layer to GPU","path":null}
+{"line":"load_tensors: offloaded 29/29 layers to GPU","path":null}
+{"line":"load_tensors:   CPU_Mapped model buffer size =   308.23 MiB","path":null}
+{"line":"load_tensors: Metal_Mapped model buffer size =  1918.35 MiB","path":null}
+{"line":"llama_context: constructing llama_context","path":null}
+{"line":"llama_context: n_seq_max     = 1","path":"mined_llama_context__7"}
+{"line":"llama_context: n_ctx         = 4096","path":"mined_llama_context__7"}
+{"line":"llama_context: n_ctx_per_seq = 4096","path":"mined_llama_context__7"}
+{"line":"llama_context: n_batch       = 512","path":"mined_llama_context__7"}
+{"line":"llama_context: n_ubatch      = 512","path":"mined_llama_context__7"}
+{"line":"llama_context: causal_attn   = 1","path":"mined_llama_context__7"}
+{"line":"llama_context: flash_attn    = enabled","path":"mined_llama_context__7"}
+{"line":"llama_context: kv_unified    = false","path":"mined_llama_context__7"}
+{"line":"llama_context: freq_base     = 500000.0","path":"mined_llama_context__7"}
+{"line":"llama_context: freq_scale    = 1","path":"mined_llama_context__7"}
+{"line":"llama_context: n_ctx_per_seq (4096) < n_ctx_train (131072) -- the full capacity of the model will not be utilized","path":null}
+{"line":"ggml_metal_init: allocating","path":null}
+{"line":"ggml_metal_init: picking default device: Apple M5","path":null}
+{"line":"ggml_metal_init: use bfloat         = true","path":null}
+{"line":"ggml_metal_init: use fusion         = true","path":null}
+{"line":"ggml_metal_init: use concurrency    = true","path":null}
+{"line":"ggml_metal_init: use graph optimize = true","path":null}
+{"line":"llama_context:        CPU  output buffer size =     0.50 MiB","path":null}
+{"line":"llama_kv_cache:      Metal KV buffer size =   238.00 MiB","path":null}
+{"line":"llama_kv_cache: size =  238.00 MiB (  4096 cells,  28 layers,  1/1 seqs), K (q8_0):  119.00 MiB, V (q8_0):  119.00 MiB","path":null}
+{"line":"llama_context:      Metal compute buffer size =   256.50 MiB","path":null}
+{"line":"llama_context:        CPU compute buffer size =    14.01 MiB","path":null}
+{"line":"llama_context: graph nodes  = 875","path":null}
+{"line":"llama_context: graph splits = 2","path":null}
+{"line":"[GIN] 2025/12/07 - 22:50:48 | 200 |  9.467637125s |       127.0.0.1 | POST     \"/api/chat\"","path":"mined__gin__4"}
+{"line":"[GIN] 2025/12/07 - 22:52:17 | 200 |  3.672455333s |       127.0.0.1 | POST     \"/api/chat\"","path":"mined__gin__4"}
+{"line":"[GIN] 2025/12/07 - 22:53:30 | 200 |  6.137946875s |       127.0.0.1 | POST     \"/api/chat\"","path":"mined__gin__4"}
+{"line":"[GIN] 2025/12/07 - 22:55:12 | 200 |  5.713059416s |       127.0.0.1 | POST     \"/api/chat\"","path":"mined__gin__4"}
+{"line":"llama_model_load_from_file_impl: using device Metal (Apple M5) (unknown id) - 25558 MiB free","path":null}
+{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/richardmorgan/.ollama/models/blobs/sha256-dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff (version GGUF V3 (latest))","path":null}
+{"line":"llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.","path":null}
+{"line":"llama_model_loader: - kv   2:                               general.name str              = Llama 3.2 3B Instruct","path":null}
+{"line":"llama_model_loader: - kv   6:                               general.tags arr[str,6]       = [\"facebook\", \"meta\", \"pytorch\", \"llam...","path":null}
+{"line":"llama_model_loader: - kv   7:                          general.languages arr[str,8]       = [\"en\", \"de\", \"fr\", \"it\", \"pt\", \"hi\", ...","path":null}
+{"line":"llama_model_loader: - kv  23:                      tokenizer.ggml.tokens arr[str,128256]  = [\"!\", \"\\\"\", \"#\", \"$\", \"%\", \"&\", \"'\", ...","path":null}
+{"line":"llama_model_loader: - kv  24:                  tokenizer.ggml.token_type arr[i32,128256]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...","path":null}
+{"line":"llama_model_loader: - kv  25:                      tokenizer.ggml.merges arr[str,280147]  = [\"Ġ Ġ\", \"Ġ ĠĠĠ\", \"ĠĠ ĠĠ\", \"...","path":null}
+{"line":"llama_model_loader: - kv  28:                    tokenizer.chat_template str              = {{- bos_token }}\\n{%- if custom_tools ...","path":null}
+{"line":"llama_model_loader: - type  f32:   58 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"llama_model_loader: - type q4_K:  168 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"llama_model_loader: - type q6_K:   29 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"print_info: file format = GGUF V3 (latest)","path":null}
+{"line":"print_info: file type   = Q4_K - Medium","path":null}
+{"line":"print_info: file size   = 1.87 GiB (5.01 BPW) ","path":null}
+{"line":"load: printing all EOG tokens:","path":null}
+{"line":"load:   - 128001 ('<|end_of_text|>')","path":"mined_load__9"}
+{"line":"load:   - 128008 ('<|eom_id|>')","path":"mined_load__9"}
+{"line":"load:   - 128009 ('<|eot_id|>')","path":"mined_load__9"}
+{"line":"load: special tokens cache size = 256","path":null}
+{"line":"load: token to piece cache size = 0.7999 MB","path":null}
+{"line":"print_info: model type       = ?B","path":"mined_print_info__6"}
+{"line":"print_info: model params     = 3.21 B","path":null}
+{"line":"print_info: general.name     = Llama 3.2 3B Instruct","path":null}
+{"line":"print_info: vocab type       = BPE","path":"mined_print_info__6"}
+{"line":"llama_model_load: vocab only - skipping tensors","path":null}
+{"line":"ggml_metal_library_init: using embedded metal library","path":null}
+{"line":"ggml_metal_library_init: loaded in 0.019 sec","path":null}
+{"line":"ggml_metal_device_init: GPU name:   Apple M5","path":"mined_ggml_metal_device_init__5"}
+{"line":"ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)","path":"mined_ggml_metal_device_init__5"}
+{"line":"ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)","path":"mined_ggml_metal_device_init__5"}
+{"line":"ggml_metal_device_init: simdgroup matrix mul. = true","path":null}
+{"line":"ggml_metal_device_init: has unified memory    = true","path":null}
+{"line":"ggml_metal_device_init: use residency sets    = true","path":null}
+{"line":"ggml_metal_device_init: use shared buffers    = true","path":null}
+{"line":"llama_model_load_from_file_impl: using device Metal (Apple M5) (unknown id) - 25558 MiB free","path":null}
+{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/richardmorgan/.ollama/models/blobs/sha256-dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff (version GGUF V3 (latest))","path":null}
+{"line":"llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.","path":null}
+{"line":"llama_model_loader: - kv   2:                               general.name str              = Llama 3.2 3B Instruct","path":null}
+{"line":"llama_model_loader: - kv   6:                               general.tags arr[str,6]       = [\"facebook\", \"meta\", \"pytorch\", \"llam...","path":null}
+{"line":"llama_model_loader: - kv   7:                          general.languages arr[str,8]       = [\"en\", \"de\", \"fr\", \"it\", \"pt\", \"hi\", ...","path":null}
+{"line":"llama_model_loader: - kv  23:                      tokenizer.ggml.tokens arr[str,128256]  = [\"!\", \"\\\"\", \"#\", \"$\", \"%\", \"&\", \"'\", ...","path":null}
+{"line":"llama_model_loader: - kv  24:                  tokenizer.ggml.token_type arr[i32,128256]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...","path":null}
+{"line":"llama_model_loader: - kv  25:                      tokenizer.ggml.merges arr[str,280147]  = [\"Ġ Ġ\", \"Ġ ĠĠĠ\", \"ĠĠ ĠĠ\", \"...","path":null}
+{"line":"llama_model_loader: - kv  28:                    tokenizer.chat_template str              = {{- bos_token }}\\n{%- if custom_tools ...","path":null}
+{"line":"llama_model_loader: - type  f32:   58 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"llama_model_loader: - type q4_K:  168 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"llama_model_loader: - type q6_K:   29 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"print_info: file format = GGUF V3 (latest)","path":null}
+{"line":"print_info: file type   = Q4_K - Medium","path":null}
+{"line":"print_info: file size   = 1.87 GiB (5.01 BPW) ","path":null}
+{"line":"load: printing all EOG tokens:","path":null}
+{"line":"load:   - 128001 ('<|end_of_text|>')","path":"mined_load__9"}
+{"line":"load:   - 128008 ('<|eom_id|>')","path":"mined_load__9"}
+{"line":"load:   - 128009 ('<|eot_id|>')","path":"mined_load__9"}
+{"line":"load: special tokens cache size = 256","path":null}
+{"line":"load: token to piece cache size = 0.7999 MB","path":null}
+{"line":"print_info: causal attn      = 1","path":"mined_print_info__6"}
+{"line":"print_info: pooling type     = 0","path":"mined_print_info__6"}
+{"line":"print_info: rope type        = 0","path":"mined_print_info__6"}
+{"line":"print_info: rope scaling     = linear","path":"mined_print_info__6"}
+{"line":"print_info: model type       = 3B","path":"mined_print_info__6"}
+{"line":"print_info: model params     = 3.21 B","path":null}
+{"line":"print_info: general.name     = Llama 3.2 3B Instruct","path":null}
+{"line":"print_info: vocab type       = BPE","path":"mined_print_info__6"}
+{"line":"load_tensors: loading model tensors, this can take a while... (mmap = true)","path":null}
+{"line":"load_tensors: offloading 28 repeating layers to GPU","path":null}
+{"line":"load_tensors: offloading output layer to GPU","path":null}
+{"line":"load_tensors: offloaded 29/29 layers to GPU","path":null}
+{"line":"load_tensors:   CPU_Mapped model buffer size =   308.23 MiB","path":null}
+{"line":"load_tensors: Metal_Mapped model buffer size =  1918.35 MiB","path":null}
+{"line":"llama_context: constructing llama_context","path":null}
+{"line":"llama_context: n_seq_max     = 1","path":"mined_llama_context__7"}
+{"line":"llama_context: n_ctx         = 4096","path":"mined_llama_context__7"}
+{"line":"llama_context: n_ctx_per_seq = 4096","path":"mined_llama_context__7"}
+{"line":"llama_context: n_batch       = 512","path":"mined_llama_context__7"}
+{"line":"llama_context: n_ctx_per_seq (4096) < n_ctx_train (131072) -- the full capacity of the model will not be utilized","path":null}
+{"line":"ggml_metal_init: allocating","path":null}
+{"line":"ggml_metal_init: picking default device: Apple M5","path":null}
+{"line":"ggml_metal_init: use bfloat         = true","path":null}
+{"line":"ggml_metal_init: use fusion         = true","path":null}
+{"line":"ggml_metal_init: use concurrency    = true","path":null}
+{"line":"ggml_metal_init: use graph optimize = true","path":null}
+{"line":"llama_context:        CPU  output buffer size =     0.50 MiB","path":null}
+{"line":"llama_kv_cache:      Metal KV buffer size =   238.00 MiB","path":null}
+{"line":"llama_kv_cache: size =  238.00 MiB (  4096 cells,  28 layers,  1/1 seqs), K (q8_0):  119.00 MiB, V (q8_0):  119.00 MiB","path":null}
+{"line":"llama_context:      Metal compute buffer size =   256.50 MiB","path":null}
+{"line":"llama_context:        CPU compute buffer size =    14.01 MiB","path":null}
+{"line":"llama_context: graph nodes  = 875","path":null}
+{"line":"llama_context: graph splits = 2","path":null}
+{"line":"[GIN] 2025/12/16 - 20:52:49 | 200 |  7.361296125s |       127.0.0.1 | POST     \"/api/chat\"","path":null}
+{"line":"[GIN] 2025/12/16 - 20:53:12 | 200 |  2.121908792s |       127.0.0.1 | POST     \"/api/chat\"","path":null}
+{"line":"llama_model_load_from_file_impl: using device Metal (Apple M5) (unknown id) - 25558 MiB free","path":null}
+{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/richardmorgan/.ollama/models/blobs/sha256-dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff (version GGUF V3 (latest))","path":null}
+{"line":"llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.","path":null}
+{"line":"llama_model_loader: - kv   2:                               general.name str              = Llama 3.2 3B Instruct","path":null}
+{"line":"llama_model_loader: - kv   6:                               general.tags arr[str,6]       = [\"facebook\", \"meta\", \"pytorch\", \"llam...","path":null}
+{"line":"llama_model_loader: - kv   7:                          general.languages arr[str,8]       = [\"en\", \"de\", \"fr\", \"it\", \"pt\", \"hi\", ...","path":null}
+{"line":"llama_model_loader: - kv  23:                      tokenizer.ggml.tokens arr[str,128256]  = [\"!\", \"\\\"\", \"#\", \"$\", \"%\", \"&\", \"'\", ...","path":null}
+{"line":"llama_model_loader: - kv  24:                  tokenizer.ggml.token_type arr[i32,128256]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...","path":null}
+{"line":"llama_model_loader: - kv  25:                      tokenizer.ggml.merges arr[str,280147]  = [\"Ġ Ġ\", \"Ġ ĠĠĠ\", \"ĠĠ ĠĠ\", \"...","path":null}
+{"line":"llama_model_loader: - kv  28:                    tokenizer.chat_template str              = {{- bos_token }}\\n{%- if custom_tools ...","path":null}
+{"line":"llama_model_loader: - type  f32:   58 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"llama_model_loader: - type q4_K:  168 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"llama_model_loader: - type q6_K:   29 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"print_info: file format = GGUF V3 (latest)","path":null}
+{"line":"print_info: file type   = Q4_K - Medium","path":null}
+{"line":"print_info: file size   = 1.87 GiB (5.01 BPW) ","path":null}
+{"line":"load: printing all EOG tokens:","path":null}
+{"line":"load:   - 128001 ('<|end_of_text|>')","path":"mined_load__9"}
+{"line":"load:   - 128008 ('<|eom_id|>')","path":"mined_load__9"}
+{"line":"load:   - 128009 ('<|eot_id|>')","path":"mined_load__9"}
+{"line":"load: special tokens cache size = 256","path":null}
+{"line":"load: token to piece cache size = 0.7999 MB","path":null}
+{"line":"print_info: model params     = 3.21 B","path":null}
+{"line":"print_info: general.name     = Llama 3.2 3B Instruct","path":null}
+{"line":"llama_model_load: vocab only - skipping tensors","path":null}
+{"line":"ggml_metal_library_init: using embedded metal library","path":null}
+{"line":"ggml_metal_library_init: loaded in 0.015 sec","path":null}
+{"line":"ggml_metal_device_init: simdgroup matrix mul. = true","path":null}
+{"line":"ggml_metal_device_init: has unified memory    = true","path":null}
+{"line":"ggml_metal_device_init: use residency sets    = true","path":null}
+{"line":"ggml_metal_device_init: use shared buffers    = true","path":null}
+{"line":"llama_model_load_from_file_impl: using device Metal (Apple M5) (unknown id) - 25558 MiB free","path":null}
+{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/richardmorgan/.ollama/models/blobs/sha256-dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff (version GGUF V3 (latest))","path":null}
+{"line":"llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.","path":null}
+{"line":"llama_model_loader: - kv   2:                               general.name str              = Llama 3.2 3B Instruct","path":null}
+{"line":"llama_model_loader: - kv   6:                               general.tags arr[str,6]       = [\"facebook\", \"meta\", \"pytorch\", \"llam...","path":null}
+{"line":"llama_model_loader: - kv   7:                          general.languages arr[str,8]       = [\"en\", \"de\", \"fr\", \"it\", \"pt\", \"hi\", ...","path":null}
+{"line":"llama_model_loader: - kv  23:                      tokenizer.ggml.tokens arr[str,128256]  = [\"!\", \"\\\"\", \"#\", \"$\", \"%\", \"&\", \"'\", ...","path":null}
+{"line":"llama_model_loader: - kv  24:                  tokenizer.ggml.token_type arr[i32,128256]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...","path":null}
+{"line":"llama_model_loader: - kv  25:                      tokenizer.ggml.merges arr[str,280147]  = [\"Ġ Ġ\", \"Ġ ĠĠĠ\", \"ĠĠ ĠĠ\", \"...","path":null}
+{"line":"llama_model_loader: - kv  28:                    tokenizer.chat_template str              = {{- bos_token }}\\n{%- if custom_tools ...","path":null}
+{"line":"llama_model_loader: - type  f32:   58 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"llama_model_loader: - type q4_K:  168 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"llama_model_loader: - type q6_K:   29 tensors","path":"mined_llama_model_loader__type_tensors_8"}
+{"line":"print_info: file format = GGUF V3 (latest)","path":null}
+{"line":"print_info: file type   = Q4_K - Medium","path":null}
+{"line":"load:   - 128001 ('<|end_of_text|>')","path":"mined_load__9"}
+{"line":"load:   - 128008 ('<|eom_id|>')","path":"mined_load__9"}
+{"line":"load:   - 128009 ('<|eot_id|>')","path":"mined_load__9"}

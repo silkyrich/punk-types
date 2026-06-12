@@ -1,0 +1,520 @@
+{
+  "name": "bsd-syslog",
+  "ts": {
+    "banks": [
+      "iso",
+      "syslog",
+      "clf",
+      "epoch"
+    ],
+    "custom": []
+  },
+  "brk": {
+    "mode": "line",
+    "start": null,
+    "max_lines": 100,
+    "max_bytes": 32768
+  },
+  "snapshot": {
+    "epoch": 1,
+    "lines_seen": 0,
+    "nodes": [
+      {
+        "name": "syslog",
+        "origin": "seed",
+        "pattern": "^(?P<ts>[A-Z][a-z]{2}\\s+\\d{1,2} \\d{2}:\\d{2}:\\d{2}) (?P<host>\\S+) (?P<proc>[\\w.\\-/]+)(?:\\[(?P<pid>\\d+)\\])?: (?P<msg>.*)$",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "pid": "int"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Jun 11 00:00:17 Richards-MacBook-Pro syslogd[371]: ASL Sender Statistics",
+          "Jun 11 00:10:22 Richards-MacBook-Pro syslogd[371]: ASL Sender Statistics",
+          "Jun 11 00:20:42 Richards-MacBook-Pro syslogd[371]: ASL Sender Statistics",
+          "Jun 11 00:30:04 Richards-MacBook-Pro syslogd[371]: Configuration Notice:"
+        ]
+      },
+      {
+        "name": "sshd_auth",
+        "origin": "seed",
+        "pattern": "sshd\\[\\d+\\]: (?P<auth_result>Accepted|Failed) (?P<auth_method>\\w+) for (?:invalid user )?(?P<user>\\S+) from (?P<src_ip>\\d{1,3}(?:\\.\\d{1,3}){3}) port (?P<src_port>\\d+)",
+        "parent": 0,
+        "state": "active",
+        "types": {
+          "src_ip": "ip",
+          "src_port": "int"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "cron_session",
+        "origin": "seed",
+        "pattern": "CRON\\[\\d+\\]: pam_unix\\(cron:session\\): session (?P<session_action>opened|closed) for user (?P<user>\\S+)",
+        "parent": 0,
+        "state": "active",
+        "types": {},
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "oom_kill",
+        "origin": "seed",
+        "pattern": "Out of memory: Killed process (?P<oom_pid>\\d+) \\((?P<oom_proc>[^)]+)\\)",
+        "parent": 0,
+        "state": "active",
+        "types": {
+          "oom_pid": "int"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "access_log",
+        "origin": "seed",
+        "pattern": "^(?P<client_ip>\\S+) \\S+ (?P<auth_user>\\S+) \\[(?P<ts>[^\\]]+)\\] \"(?P<method>[A-Z]+) (?P<path>\\S+)(?: (?P<proto>[^\"]*))?\" (?P<status>\\d{3}) (?P<bytes>\\d+|-)",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "status": "int"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "access_combined",
+        "origin": "seed",
+        "pattern": "\" \\d{3} (?:\\d+|-) \"(?P<referer>[^\"]*)\" \"(?P<user_agent>[^\"]*)\"",
+        "parent": 4,
+        "state": "active",
+        "types": {},
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "klog",
+        "origin": "seed",
+        "pattern": "^(?P<level>[IWEF])(?P<mmdd>\\d{4} \\d{2}:\\d{2}:\\d{2}\\.\\d+)\\s+(?P<tid>\\d+) (?P<src_file>[\\w.\\-]+):(?P<src_line>\\d+)\\] (?P<msg>.*)$",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "src_line": "int",
+          "tid": "int"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "app_iso",
+        "origin": "seed",
+        "pattern": "^(?P<ts>\\d{4}-\\d{2}-\\d{2}[T ]\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?(?:Z|[+-][\\d:]{4,5})?)\\s+\\[?(?P<level>TRACE|DEBUG|INFO|WARN|WARNING|ERROR|FATAL|CRITICAL)\\]?\\s+(?P<msg>.*)$",
+        "parent": null,
+        "state": "active",
+        "types": {},
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "exception",
+        "origin": "seed",
+        "pattern": "(?P<exception>[\\w.$]+(?:Exception|Error)): (?P<exc_msg>.*)$",
+        "parent": 7,
+        "state": "active",
+        "types": {},
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "http_request",
+        "origin": "seed",
+        "pattern": "(?P<method>GET|POST|PUT|PATCH|DELETE|HEAD) (?P<path>/\\S*) (?:HTTP/[\\d.]+ )?(?P<status>\\d{3}) (?P<latency_ms>\\d+(?:\\.\\d+)?)ms",
+        "parent": 7,
+        "state": "active",
+        "types": {
+          "latency_ms": "float",
+          "status": "int"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "journald",
+        "origin": "seed",
+        "pattern": "^(?P<ts>\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?(?:Z|[+-][\\d:]{4,5})?) (?P<proc>[\\w.\\-/@]+)(?:\\[(?P<pid>\\d+)\\])?: (?P<msg>.*)$",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "pid": "int"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "cron_cmd",
+        "origin": "seed",
+        "pattern": "CROND\\[\\d+\\]: \\((?P<cron_user>[^)]+)\\) (?P<cron_action>CMD|CMDEND|CMDOUT|CMDERR) \\((?P<cron_cmd>.*)\\)$",
+        "parent": 10,
+        "state": "active",
+        "types": {},
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "sshd_auth_j",
+        "origin": "seed",
+        "pattern": "sshd\\[\\d+\\]: (?P<auth_result>Accepted|Failed) (?P<auth_method>\\w+) for (?:invalid user )?(?P<user>\\S+) from (?P<src_ip>\\S+) port (?P<src_port>\\d+)",
+        "parent": 10,
+        "state": "active",
+        "types": {
+          "src_port": "int"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "systemd_unit",
+        "origin": "seed",
+        "pattern": "systemd\\[\\d+\\]: (?P<sysd_action>Started|Starting|Stopped|Stopping|Finished|Failed|Reloading|Reached) (?P<unit>.*)$",
+        "parent": 10,
+        "state": "active",
+        "types": {},
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "pacman",
+        "origin": "seed",
+        "pattern": "^\\[(?P<ts>[\\dT:+\\-]+)\\] \\[(?P<component>[A-Z][A-Z\\-]+)\\] (?P<msg>.*)$",
+        "parent": null,
+        "state": "active",
+        "types": {},
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "pkg_op",
+        "origin": "seed",
+        "pattern": "\\] (?P<pkg_action>installed|upgraded|removed|reinstalled|downgraded) (?P<pkg>\\S+) \\((?P<pkg_version>[^)]+)\\)$",
+        "parent": 14,
+        "state": "active",
+        "types": {},
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "pacman_hook",
+        "origin": "seed",
+        "pattern": "running '(?P<hook>[^']+)'",
+        "parent": 14,
+        "state": "active",
+        "types": {},
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "tplink",
+        "origin": "seed",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2}) (?P<time>\\d{2}:\\d{2}:\\d{2}) (?P<facility>.+?) (?P<level>DEBUG|INFO|NOTICE|WARNING|ERROR|CRITICAL) \\[(?P<msg_id>\\d+)\\] (?P<msg>.*)$",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "date": "date",
+          "msg_id": "int",
+          "time": "time"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "device_seen",
+        "origin": "seed",
+        "pattern": "Insert device, MAC is (?P<mac>[0-9A-Fa-f]{2}(?:[:\\-][0-9A-Fa-f]{2}){5})",
+        "parent": 17,
+        "state": "active",
+        "types": {
+          "mac": "mac"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "dhcp_ack",
+        "origin": "seed",
+        "pattern": "receive ack from server with ip (?P<server_ip>[\\d.]+)(?:, options\\(serverid=(?P<dhcp_server>[\\d.]+);lease=(?P<lease_s>\\d+);subnet=(?P<subnet>[\\d.]+);router=(?P<gateway>[\\d.]+);dns=(?P<dns>[^;)]*))?",
+        "parent": 17,
+        "state": "active",
+        "types": {
+          "dhcp_server": "ip",
+          "gateway": "ip",
+          "lease_s": "int",
+          "server_ip": "ip",
+          "subnet": "ip"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      }
+    ]
+  }
+}

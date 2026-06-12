@@ -1,0 +1,52 @@
+{"line":"2026-06-12T13:13:50+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 159 bytes)","path":"journald"}
+{"line":"2026-06-12T12:31:49+00:00 sh[598974]: [punk-it fwd] send failed: Connection refused (os error 111) (attempt 2)","path":"journald"}
+{"line":"2026-06-12T12:31:50+00:00 sh[598974]: [punk-it fwd] send failed: Connection refused (os error 111) (attempt 3)","path":"journald"}
+{"line":"2026-06-12T12:31:53+00:00 sh[598974]: [punk-it fwd] DROPPED batch of 1 lines after retries","path":"journald"}
+{"line":"2026-06-12T12:31:54+00:00 sh[598974]: [punk-it fwd] shipped 4 lines (760 -> 235 bytes)","path":"journald"}
+{"line":"2026-06-12T12:31:55+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 161 bytes)","path":"journald"}
+{"line":"2026-06-12T12:31:56+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 160 bytes)","path":"journald"}
+{"line":"2026-06-12T12:31:57+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 161 bytes)","path":"journald"}
+{"line":"2026-06-12T12:31:58+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 160 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:00+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 160 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:01+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 161 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:02+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 160 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:03+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 159 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:04+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 159 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:05+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 160 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:06+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 159 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:08+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 159 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:09+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 160 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:10+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 160 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:11+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 160 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:12+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 160 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:14+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 159 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:15+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 161 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:16+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 159 bytes)","path":"journald"}
+{"line":"2026-06-12T12:35:00+00:00 CROND[701606]: (claude) CMD (/home/claude/media-stack/drive-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:35:00+00:00 CROND[701604]: (claude) CMDEND (/home/claude/media-stack/drive-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:37:59+00:00 systemd[1]: Started Session 25714 of User claude.","path":"journald/systemd_unit"}
+{"line":"2026-06-12T12:38:50+00:00 systemd[1]: Started Session 25715 of User claude.","path":"journald/systemd_unit"}
+{"line":"2026-06-12T12:39:15+00:00 systemd[1]: Started Session 25716 of User claude.","path":"journald/systemd_unit"}
+{"line":"2026-06-12T12:40:00+00:00 CROND[706048]: (claude) CMD (/home/claude/media-stack/drive-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:40:00+00:00 CROND[706049]: (claude) CMD (/home/claude/scripts/plex-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:40:00+00:00 CROND[706044]: (claude) CMDEND (/home/claude/media-stack/drive-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:40:01+00:00 CROND[706043]: (claude) CMDEND (/home/claude/scripts/plex-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:45:00+00:00 CROND[710357]: (claude) CMD (/home/claude/media-stack/container-monitor.sh >> /home/claude/media-stack/container-monitor.log 2>&1)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:45:00+00:00 CROND[710360]: (claude) CMD (/home/claude/media-stack/drive-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:45:00+00:00 CROND[710354]: (claude) CMDEND (/home/claude/media-stack/drive-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:45:01+00:00 CROND[710355]: (claude) CMDEND (/home/claude/media-stack/container-monitor.sh >> /home/claude/media-stack/container-monitor.log 2>&1)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:50:00+00:00 CROND[714815]: (claude) CMD (/home/claude/media-stack/drive-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:50:00+00:00 CROND[714816]: (claude) CMD (/home/claude/scripts/plex-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:50:00+00:00 CROND[714812]: (claude) CMDEND (/home/claude/media-stack/drive-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:50:01+00:00 plex-monitor[714881]: OK: cert_days=51 mapping=Mapped remote=200 ipv6=0","path":"builtin/logfmt"}
+{"line":"2026-06-12T12:50:01+00:00 CROND[714811]: (claude) CMDEND (/home/claude/scripts/plex-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:55:00+00:00 CROND[719206]: (claude) CMD (/home/claude/media-stack/drive-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:55:00+00:00 CROND[719204]: (claude) CMDEND (/home/claude/media-stack/drive-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T13:00:00+00:00 CROND[723487]: (claude) CMD (/home/claude/media-stack/drive-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T13:00:00+00:00 CROND[723491]: (claude) CMD (/home/claude/scripts/plex-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T13:00:00+00:00 CROND[723494]: (claude) CMD (/home/claude/media-stack/container-monitor.sh >> /home/claude/media-stack/container-monitor.log 2>&1)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T13:00:01+00:00 CROND[723482]: (claude) CMDEND (/home/claude/media-stack/drive-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T13:00:01+00:00 CROND[723483]: (claude) CMDEND (/home/claude/media-stack/container-monitor.sh >> /home/claude/media-stack/container-monitor.log 2>&1)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T13:00:03+00:00 CROND[723481]: (claude) CMDEND (/home/claude/scripts/plex-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T13:01:00+00:00 CROND[724539]: (root) CMD (run-parts /etc/cron.hourly)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T13:01:00+00:00 CROND[724538]: (root) CMDEND (run-parts /etc/cron.hourly)","path":"journald/cron_cmd"}

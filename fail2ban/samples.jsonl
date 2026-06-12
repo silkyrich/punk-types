@@ -1,0 +1,30 @@
+{"line":"2026-06-12 12:34:08,426 fail2ban.filter         [542]: INFO    [sshd] Found 45.148.10.141 - 2026-06-12 12:34:08","path":"mined_fail2ban_filter_info__sshd__1"}
+{"line":"2026-06-12 12:35:31,420 fail2ban.filter         [542]: INFO    [sshd] Found 45.148.10.121 - 2026-06-12 12:35:31","path":"mined_fail2ban_filter_info__sshd__1"}
+{"line":"2026-06-12 12:35:31,421 fail2ban.filter         [542]: INFO    [sshd] Found 45.148.10.121 - 2026-06-12 12:35:31","path":"mined_fail2ban_filter_info__sshd__1"}
+{"line":"2026-06-12 12:40:58,430 fail2ban.filter         [542]: INFO    [sshd] Found 45.148.10.157 - 2026-06-12 12:40:58","path":"mined_fail2ban_filter_info__sshd__1"}
+{"line":"2026-06-12 12:43:09,670 fail2ban.filter         [542]: INFO    [sshd] Found 121.78.125.123 - 2026-06-12 12:43:09","path":"mined_fail2ban_filter_info__sshd__1"}
+{"line":"2026-06-12 12:43:11,421 fail2ban.filter         [542]: INFO    [sshd] Found 121.78.125.123 - 2026-06-12 12:43:10","path":"mined_fail2ban_filter_info__sshd__1"}
+{"line":"2026-06-12 12:44:14,658 fail2ban.filter         [542]: INFO    [sshd] Found 2.57.121.25 - 2026-06-12 12:44:14","path":"mined_fail2ban_filter_info__sshd__1"}
+{"line":"2026-06-12 12:44:14,920 fail2ban.filter         [542]: INFO    [sshd] Found 2.57.121.25 - 2026-06-12 12:44:14","path":"mined_fail2ban_filter_info__sshd__1"}
+{"line":"2026-06-12 12:47:51,926 fail2ban.filter         [542]: INFO    [sshd] Found 45.148.10.152 - 2026-06-12 12:47:51","path":"mined_fail2ban_filter_info__sshd__1"}
+{"line":"2026-06-12 12:50:07,170 fail2ban.filter         [542]: INFO    [sshd] Found 213.209.159.56 - 2026-06-12 12:50:06","path":"mined_fail2ban_filter_info__sshd__1"}
+{"line":"2026-06-12 12:50:07,631 fail2ban.filter         [542]: INFO    [sshd] Found 213.209.159.56 - 2026-06-12 12:50:07","path":"mined_fail2ban_filter_info__sshd__1"}
+{"line":"2026-06-12 12:51:15,420 fail2ban.filter         [542]: INFO    [sshd] Found 160.238.24.130 - 2026-06-12 12:51:15","path":"mined_fail2ban_filter_info__sshd__1"}
+{"line":"2026-06-12 12:51:16,213 fail2ban.filter         [542]: INFO    [sshd] Found 160.238.24.130 - 2026-06-12 12:51:16","path":"mined_fail2ban_filter_info__sshd__1"}
+{"line":"2026-06-12 12:52:46,670 fail2ban.filter         [542]: INFO    [sshd] Found 188.64.139.147 - 2026-06-12 12:52:46","path":"mined_fail2ban_filter_info__sshd__1"}
+{"line":"2026-06-12 12:52:46,671 fail2ban.filter         [542]: INFO    [sshd] Found 188.64.139.147 - 2026-06-12 12:52:46","path":"mined_fail2ban_filter_info__sshd__1"}
+{"line":"2026-06-12 12:52:47,784 fail2ban.filter         [542]: INFO    [sshd] Found 188.64.139.147 - 2026-06-12 12:52:47","path":"mined_fail2ban_filter_info__sshd__1"}
+{"line":"2026-06-12 12:52:47,785 fail2ban.filter         [542]: INFO    [sshd] Found 188.64.139.147 - 2026-06-12 12:52:47","path":"mined_fail2ban_filter_info__sshd__1"}
+{"line":"2026-06-12 12:52:48,285 fail2ban.actions        [542]: NOTICE  [sshd] Ban 188.64.139.147","path":"mined_fail2ban_actions_notice__sshd__2"}
+{"line":"2026-06-12 12:53:19,422 fail2ban.ipdns          [542]: WARNING Unable to find a corresponding IP address for connection: [Errno -2] Name or service not known","path":null}
+{"line":"2026-06-12 12:54:42,425 fail2ban.filter         [542]: INFO    [sshd] Found 45.148.10.141 - 2026-06-12 12:54:41","path":"mined_fail2ban_filter_info__sshd__1"}
+{"line":"2026-06-12 12:55:38,354 fail2ban.actions        [542]: NOTICE  [sshd] Unban 125.212.244.35","path":"mined_fail2ban_actions_notice__sshd__2"}
+{"line":"2026-06-12 12:55:54,383 fail2ban.actions        [542]: NOTICE  [sshd] Unban 14.103.71.220","path":"mined_fail2ban_actions_notice__sshd__2"}
+{"line":"2026-06-12 13:03:12,845 fail2ban.filter         [542]: INFO    [sshd] Found 2.57.121.112 - 2026-06-12 13:03:12","path":"mined_fail2ban_filter_info__sshd__1"}
+{"line":"2026-06-12 13:03:13,171 fail2ban.filter         [542]: INFO    [sshd] Found 2.57.121.112 - 2026-06-12 13:03:13","path":"mined_fail2ban_filter_info__sshd__1"}
+{"line":"2026-06-12 13:07:27,421 fail2ban.filter         [542]: INFO    [sshd] Found 45.148.10.121 - 2026-06-12 13:07:26","path":"mined_fail2ban_filter_info__sshd__1"}
+{"line":"2026-06-12 13:07:27,422 fail2ban.filter         [542]: INFO    [sshd] Found 45.148.10.121 - 2026-06-12 13:07:26","path":"mined_fail2ban_filter_info__sshd__1"}
+{"line":"2026-06-12 13:13:11,671 fail2ban.ipdns          [542]: WARNING Unable to find a corresponding IP address for connection: [Errno -2] Name or service not known","path":null}
+{"line":"2026-06-12 13:13:34,752 fail2ban.actions        [542]: NOTICE  [sshd] Unban 80.94.92.182","path":"mined_fail2ban_actions_notice__sshd__2"}
+{"line":"2026-06-12 13:14:30,176 fail2ban.filter         [542]: INFO    [sshd] Found 80.94.92.182 - 2026-06-12 13:14:29","path":"mined_fail2ban_filter_info__sshd__1"}
+{"line":"2026-06-12 13:14:30,177 fail2ban.filter         [542]: INFO    [sshd] Found 80.94.92.182 - 2026-06-12 13:14:30","path":"mined_fail2ban_filter_info__sshd__1"}

@@ -1,0 +1,1449 @@
+{
+  "name": "mac-installer",
+  "ts": {
+    "banks": [
+      "iso",
+      "syslog",
+      "clf",
+      "epoch"
+    ],
+    "custom": []
+  },
+  "brk": {
+    "mode": "timestamp",
+    "start": null,
+    "max_lines": 100,
+    "max_bytes": 32768
+  },
+  "snapshot": {
+    "epoch": 49,
+    "lines_seen": 0,
+    "nodes": [
+      {
+        "name": "syslog",
+        "origin": "seed",
+        "pattern": "^(?P<ts>[A-Z][a-z]{2}\\s+\\d{1,2} \\d{2}:\\d{2}:\\d{2}) (?P<host>\\S+) (?P<proc>[\\w.\\-/]+)(?:\\[(?P<pid>\\d+)\\])?: (?P<msg>.*)$",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "pid": "int"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Jun  4 15:17:32 Richards-MacBook-Pro opendirectoryd[69]: [session] UID: 0, EUID: 0, GID: 0, EGID: 0, PID: 90, PROC: templateMigrator ODQueryCreateWithNode request, NodeID: 6EEAEF77-5EE1-4BDC-8693-E714FAC4B9A8, RecordType(s): dsRecTypeStandard:Groups, Attribute: dsAttrTypeStandard:GeneratedUID, MatchType: EqualTo, Equality: CaseExact, Value(s): ABCDEFAB-CDEF-ABCD-EFAB-CDEF0000000D, Requested Attributes: dsAttrTypeStandard:RecordType,dsAttrTypeStandard:GroupMembership,dsAttrTypeStandard:RecordName,dsAttrTypeStandard:GeneratedUID,dsAttrTypeStandard:AppleMetaRecordName,dsAttrTypeStandard:AppleMetaNodeLocation, Max Results: 1",
+          "Jun  4 15:17:32 Richards-MacBook-Pro opendirectoryd[69]: [session] UID: 0, EUID: 0, GID: 0, EGID: 0, PID: 90, PROC: templateMigrator ODQueryCreateWithNode request, NodeID: DD0F1263-2D02-4948-8356-9ECFEE74385B, RecordType(s): dsRecTypeStandard:Groups, Attribute: dsAttrTypeStandard:GeneratedUID, MatchType: EqualTo, Equality: CaseExact, Value(s): ABCDEFAB-CDEF-ABCD-EFAB-CDEF00000046, Requested Attributes: dsAttrTypeStandard:RecordType,dsAttrTypeStandard:GroupMembership,dsAttrTypeStandard:RecordName,dsAttrTypeStandard:GeneratedUID,dsAttrTypeStandard:AppleMetaRecordName,dsAttrTypeStandard:AppleMetaNodeLocation, Max Results: 1",
+          "Jun  4 15:17:33 Richards-MacBook-Pro opendirectoryd[69]: [session] initiating reconnect for AF3D912D-57FE-46B2-8361-190A26BECD8D",
+          "Jun  4 15:17:33 Richards-MacBook-Pro opendirectoryd[69]: [session] UID: 0, EUID: 0, GID: 0, EGID: 0, PID: 90, PROC: templateMigrator ODNodeRelease request, NodeID: 936C9E17-5DEB-4803-8010-3A4AC25FBA50"
+        ]
+      },
+      {
+        "name": "sshd_auth",
+        "origin": "seed",
+        "pattern": "sshd\\[\\d+\\]: (?P<auth_result>Accepted|Failed) (?P<auth_method>\\w+) for (?:invalid user )?(?P<user>\\S+) from (?P<src_ip>\\d{1,3}(?:\\.\\d{1,3}){3}) port (?P<src_port>\\d+)",
+        "parent": 0,
+        "state": "active",
+        "types": {
+          "src_ip": "ip",
+          "src_port": "int"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "cron_session",
+        "origin": "seed",
+        "pattern": "CRON\\[\\d+\\]: pam_unix\\(cron:session\\): session (?P<session_action>opened|closed) for user (?P<user>\\S+)",
+        "parent": 0,
+        "state": "active",
+        "types": {},
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "oom_kill",
+        "origin": "seed",
+        "pattern": "Out of memory: Killed process (?P<oom_pid>\\d+) \\((?P<oom_proc>[^)]+)\\)",
+        "parent": 0,
+        "state": "active",
+        "types": {
+          "oom_pid": "int"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "access_log",
+        "origin": "seed",
+        "pattern": "^(?P<client_ip>\\S+) \\S+ (?P<auth_user>\\S+) \\[(?P<ts>[^\\]]+)\\] \"(?P<method>[A-Z]+) (?P<path>\\S+)(?: (?P<proto>[^\"]*))?\" (?P<status>\\d{3}) (?P<bytes>\\d+|-)",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "status": "int"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "access_combined",
+        "origin": "seed",
+        "pattern": "\" \\d{3} (?:\\d+|-) \"(?P<referer>[^\"]*)\" \"(?P<user_agent>[^\"]*)\"",
+        "parent": 4,
+        "state": "active",
+        "types": {},
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "klog",
+        "origin": "seed",
+        "pattern": "^(?P<level>[IWEF])(?P<mmdd>\\d{4} \\d{2}:\\d{2}:\\d{2}\\.\\d+)\\s+(?P<tid>\\d+) (?P<src_file>[\\w.\\-]+):(?P<src_line>\\d+)\\] (?P<msg>.*)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "src_line": "int",
+          "tid": "int"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "journald",
+        "origin": "seed",
+        "pattern": "^(?P<ts>\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?(?:Z|[+-][\\d:]{4,5})?) (?P<proc>[\\w.\\-/@]+)(?:\\[(?P<pid>\\d+)\\])?: (?P<msg>.*)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "pid": "int"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "cron_cmd",
+        "origin": "seed",
+        "pattern": "CROND\\[\\d+\\]: \\((?P<cron_user>[^)]+)\\) (?P<cron_action>CMD|CMDEND|CMDOUT|CMDERR) \\((?P<cron_cmd>.*)\\)$",
+        "parent": 7,
+        "state": "active",
+        "types": {},
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "sshd_auth_j",
+        "origin": "seed",
+        "pattern": "sshd\\[\\d+\\]: (?P<auth_result>Accepted|Failed) (?P<auth_method>\\w+) for (?:invalid user )?(?P<user>\\S+) from (?P<src_ip>\\S+) port (?P<src_port>\\d+)",
+        "parent": 7,
+        "state": "active",
+        "types": {
+          "src_port": "int"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "systemd_unit",
+        "origin": "seed",
+        "pattern": "systemd\\[\\d+\\]: (?P<sysd_action>Started|Starting|Stopped|Stopping|Finished|Failed|Reloading|Reached) (?P<unit>.*)$",
+        "parent": 7,
+        "state": "active",
+        "types": {},
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "pacman",
+        "origin": "seed",
+        "pattern": "^\\[(?P<ts>[\\dT:+\\-]+)\\] \\[(?P<component>[A-Z][A-Z\\-]+)\\] (?P<msg>.*)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {},
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "pkg_op",
+        "origin": "seed",
+        "pattern": "\\] (?P<pkg_action>installed|upgraded|removed|reinstalled|downgraded) (?P<pkg>\\S+) \\((?P<pkg_version>[^)]+)\\)$",
+        "parent": 11,
+        "state": "active",
+        "types": {},
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "pacman_hook",
+        "origin": "seed",
+        "pattern": "running '(?P<hook>[^']+)'",
+        "parent": 11,
+        "state": "active",
+        "types": {},
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "app_iso",
+        "origin": "seed",
+        "pattern": "^(?P<ts>\\d{4}-\\d{2}-\\d{2}[T ]\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?(?:Z|[+-][\\d:]{4,5})?)\\s+\\[?(?P<level>TRACE|DEBUG|INFO|WARN|WARNING|ERROR|FATAL|CRITICAL)\\]?\\s+(?P<msg>.*)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {},
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "exception",
+        "origin": "seed",
+        "pattern": "(?P<exception>[\\w.$]+(?:Exception|Error)): (?P<exc_msg>.*)$",
+        "parent": 14,
+        "state": "active",
+        "types": {},
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "http_request",
+        "origin": "seed",
+        "pattern": "(?P<method>GET|POST|PUT|PATCH|DELETE|HEAD) (?P<path>/\\S*) (?:HTTP/[\\d.]+ )?(?P<status>\\d{3}) (?P<latency_ms>\\d+(?:\\.\\d+)?)ms",
+        "parent": 14,
+        "state": "active",
+        "types": {
+          "latency_ms": "float",
+          "status": "int"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "mined_macbook_pro_installer_749___packagekit__3",
+        "origin": "mined",
+        "pattern": "^(?P<f1>\\d{4}-\\d{2}-\\d{2})\\s+22:30:08\\-08\\s+MacBook\\-Pro\\s+installer\\[749\\]:\\s+PackageKit:\\s+Bundle\\s+(?P<f2>\\S+)\\s+is\\s+nested\\s+inside\\s+upgrade\\-bundle\\s+or\\s+atomic\\-update\\-bundle\\s+and\\s+will\\s+not\\s+be\\s+version\\-checked$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "date",
+          "f2": "any"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-11-22 22:30:08-08 MacBook-Pro installer[749]: PackageKit: Bundle com.apple.music.apps.MAPlaySurface is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:08-08 MacBook-Pro installer[749]: PackageKit: Bundle com.apple.music.apps.MAPlugInGUI is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:08-08 MacBook-Pro installer[749]: PackageKit: Bundle com.apple.music.apps.MAPlugInGUISwift is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:08-08 MacBook-Pro installer[749]: PackageKit: Bundle com.apple.music.apps.MAResources is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked"
+        ]
+      },
+      {
+        "name": "mined_macbook_pro_installer_759___packagekit__4",
+        "origin": "mined",
+        "pattern": "^(?P<f1>\\d{4}-\\d{2}-\\d{2})\\s+22:30:30\\-08\\s+MacBook\\-Pro\\s+installer\\[759\\]:\\s+PackageKit:\\s+Bundle\\s+(?P<f2>\\S+)\\s+is\\s+nested\\s+inside\\s+upgrade\\-bundle\\s+or\\s+atomic\\-update\\-bundle\\s+and\\s+will\\s+not\\s+be\\s+version\\-checked$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "date",
+          "f2": "any"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-11-22 22:30:30-08 MacBook-Pro installer[759]: PackageKit: Bundle com.apple.flexo.FCPAEHelper is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:30-08 MacBook-Pro installer[759]: PackageKit: Bundle com.apple.ProExtension.ProExtensionHost is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:30-08 MacBook-Pro installer[759]: PackageKit: Bundle com.apple.videoapps.OOPProResRawService is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:30-08 MacBook-Pro installer[759]: PackageKit: Bundle com.apple.fxplugframework is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked"
+        ]
+      },
+      {
+        "name": "mined_macbook_pro_installd_750___packagekit__5",
+        "origin": "mined",
+        "pattern": "^(?P<f1>\\d{4}-\\d{2}-\\d{2})\\s+22:30:31\\-08\\s+MacBook\\-Pro\\s+installd\\[750\\]:\\s+PackageKit:\\s+Bundle\\s+(?P<f2>\\S+)\\s+is\\s+nested\\s+inside\\s+upgrade\\-bundle\\s+or\\s+atomic\\-update\\-bundle\\s+and\\s+will\\s+not\\s+be\\s+version\\-checked$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "date",
+          "f2": "any"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-11-22 22:30:31-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.flexo.FCPAEHelper is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:31-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.videoapps.OOPDebayerService is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:31-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.videoapps.OOPProResRawService is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:31-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.fxplugframework is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked"
+        ]
+      },
+      {
+        "name": "mined_macbook_pro_packagekit__bundle_6",
+        "origin": "mined",
+        "pattern": "^(?P<f1>\\d{4}-\\d{2}-\\d{2})\\s+22:31:05\\-08\\s+MacBook\\-Pro\\s+(?P<f2>\\S+)\\s+PackageKit:\\s+Bundle\\s+(?P<f3>\\S+)\\s+is\\s+nested\\s+inside\\s+upgrade\\-bundle\\s+or\\s+atomic\\-update\\-bundle\\s+and\\s+will\\s+not\\s+be\\s+version\\-checked$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "date",
+          "f2": "any",
+          "f3": "any"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-11-22 22:31:05-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.AppleMediaServicesKit is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:31:05-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.iWork.EquationKit is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:31:05-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.iWork.KNAnimation is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:31:05-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.iWork.TSAccessibility is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked"
+        ]
+      },
+      {
+        "name": "mined_macbook_pro_packagekit__bundle_7",
+        "origin": "mined",
+        "pattern": "^(?P<f1>\\d{4}-\\d{2}-\\d{2})\\s+22:31:21\\-08\\s+MacBook\\-Pro\\s+(?P<f2>\\S+)\\s+PackageKit:\\s+Bundle\\s+(?P<f3>\\S+)\\s+is\\s+nested\\s+inside\\s+upgrade\\-bundle\\s+or\\s+atomic\\-update\\-bundle\\s+and\\s+will\\s+not\\s+be\\s+version\\-checked$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "date",
+          "f2": "any",
+          "f3": "any"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-11-22 22:31:21-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.iWork.EquationKit is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:31:21-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.iWork.TSAccessibility is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:31:21-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.iWork.TSApplication is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:31:21-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.iWork.TSCalculationEngine is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked"
+        ]
+      },
+      {
+        "name": "mined_macbook_pro_19",
+        "origin": "mined",
+        "pattern": "^(?P<f1>\\d{4}-\\d{2}-\\d{2})\\s+02:01:20\\-08\\s+MacBook\\-Pro\\s+(?P<f2>\\S+)\\s+(?P<f3>\\S+)\\s+(?P<f4>\\S+)\\s+(?P<f5>\\S+)\\s+(?P<f6>\\S+)\\s+(?P<f7>\\S+)\\s+(?P<f8>\\S+)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "date",
+          "f2": "any",
+          "f3": "any",
+          "f4": "any",
+          "f5": "any",
+          "f6": "any",
+          "f7": "any",
+          "f8": "any"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-12-04 02:01:20-08 MacBook-Pro Installer Progress[1166]: IASSetCurrentInstallPhaseList: phases set to (",
+          "2025-12-04 02:01:20-08 MacBook-Pro Software Update[1173]: SUOSUUpdateController: Sending authorization to softwareupdated",
+          "2025-12-04 02:01:20-08 MacBook-Pro Software Update[1173]: SUOSUUpdateController: Successfully authorized with softwareupdated",
+          "2025-12-04 02:01:20-08 MacBook-Pro Software Update[1173]: SUOSUPostLogoutInstallOperation: Prevented further scans: 1"
+        ]
+      },
+      {
+        "name": "mined_richards_macbook_pro_softwareupdated_545___package_24",
+        "origin": "mined",
+        "pattern": "^(?P<f1>\\d{4}-\\d{2}-\\d{2})\\s+02:10:29\\-08\\s+Richards\\-MacBook\\-Pro\\s+softwareupdated\\[545\\]:\\s+Package\\s+Authoring:\\s+error\\s+running\\s+installation\\-check\\s+script:\\s+TypeError:\\s+null\\s+is\\s+not\\s+an\\s+object\\s+\\(evaluating\\s+'cpuFeatures\\.split'\\)\\s+at\\s+x\\-distribution:///installer\\-gui\\-script%5B1%5D/installation\\-check%5B1%5D/@script$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "f1": "date"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-12-04 02:10:29-08 Richards-MacBook-Pro softwareupdated[545]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-04 02:10:29-08 Richards-MacBook-Pro softwareupdated[545]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-04 02:10:29-08 Richards-MacBook-Pro softwareupdated[545]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-04 02:10:29-08 Richards-MacBook-Pro softwareupdated[545]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script"
+        ]
+      },
+      {
+        "name": "mined_richards_macbook_pro_softwareupdated_553___package_25",
+        "origin": "mined",
+        "pattern": "^(?P<f1>\\d{4}-\\d{2}-\\d{2})\\s+11:25:44\\+00\\s+Richards\\-MacBook\\-Pro\\s+softwareupdated\\[553\\]:\\s+Package\\s+Authoring:\\s+error\\s+running\\s+installation\\-check\\s+script:\\s+TypeError:\\s+null\\s+is\\s+not\\s+an\\s+object\\s+\\(evaluating\\s+'cpuFeatures\\.split'\\)\\s+at\\s+x\\-distribution:///installer\\-gui\\-script%5B1%5D/installation\\-check%5B1%5D/@script$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "date"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-12-04 11:25:44+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-04 11:25:44+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-04 11:25:44+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-04 11:25:44+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script"
+        ]
+      },
+      {
+        "name": "mined_richards_macbook_pro_softwareupdated_553___package_26",
+        "origin": "mined",
+        "pattern": "^(?P<f1>\\d{4}-\\d{2}-\\d{2})\\s+11:42:49\\+00\\s+Richards\\-MacBook\\-Pro\\s+softwareupdated\\[553\\]:\\s+Package\\s+Authoring:\\s+error\\s+running\\s+installation\\-check\\s+script:\\s+TypeError:\\s+null\\s+is\\s+not\\s+an\\s+object\\s+\\(evaluating\\s+'cpuFeatures\\.split'\\)\\s+at\\s+x\\-distribution:///installer\\-gui\\-script%5B1%5D/installation\\-check%5B1%5D/@script$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "date"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-12-04 11:42:49+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-04 11:42:49+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-04 11:42:49+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-04 11:42:49+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script"
+        ]
+      },
+      {
+        "name": "mined_richards_macbook_pro_softwareupdated_553___package_27",
+        "origin": "mined",
+        "pattern": "^(?P<f1>\\d{4}-\\d{2}-\\d{2})\\s+12:40:36\\+00\\s+Richards\\-MacBook\\-Pro\\s+softwareupdated\\[553\\]:\\s+Package\\s+Authoring:\\s+error\\s+running\\s+installation\\-check\\s+script:\\s+TypeError:\\s+null\\s+is\\s+not\\s+an\\s+object\\s+\\(evaluating\\s+(?P<f2>\\S+)\\s+at\\s+x\\-distribution:///installer\\-gui\\-script%5B1%5D/installation\\-check%5B1%5D/@script$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "date",
+          "f2": "any"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-12-05 12:40:36+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-05 12:40:36+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-05 12:40:36+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-05 12:40:36+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script"
+        ]
+      },
+      {
+        "name": "tplink",
+        "origin": "seed",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2}) (?P<time>\\d{2}:\\d{2}:\\d{2}) (?P<facility>.+?) (?P<level>DEBUG|INFO|NOTICE|WARNING|ERROR|CRITICAL) \\[(?P<msg_id>\\d+)\\] (?P<msg>.*)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "date": "date",
+          "msg_id": "int",
+          "time": "time"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "device_seen",
+        "origin": "seed",
+        "pattern": "Insert device, MAC is (?P<mac>[0-9A-Fa-f]{2}(?:[:\\-][0-9A-Fa-f]{2}){5})",
+        "parent": 27,
+        "state": "active",
+        "types": {
+          "mac": "mac"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "dhcp_ack",
+        "origin": "seed",
+        "pattern": "receive ack from server with ip (?P<server_ip>[\\d.]+)(?:, options\\(serverid=(?P<dhcp_server>[\\d.]+);lease=(?P<lease_s>\\d+);subnet=(?P<subnet>[\\d.]+);router=(?P<gateway>[\\d.]+);dns=(?P<dns>[^;)]*))?",
+        "parent": 27,
+        "state": "active",
+        "types": {
+          "dhcp_server": "ip",
+          "gateway": "ip",
+          "lease_s": "int",
+          "server_ip": "ip",
+          "subnet": "ip"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "mined_macbook_pro_installd_750___packagekit__3",
+        "origin": "mined",
+        "pattern": "^(?P<f1>\\d{4}-\\d{2}-\\d{2})\\s+22:30:08\\-08\\s+MacBook\\-Pro\\s+installd\\[750\\]:\\s+PackageKit:\\s+Bundle\\s+(?P<f2>\\S+)\\s+is\\s+nested\\s+inside\\s+upgrade\\-bundle\\s+or\\s+atomic\\-update\\-bundle\\s+and\\s+will\\s+not\\s+be\\s+version\\-checked$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "date",
+          "f2": "any"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-11-22 22:30:08-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.music.apps.MAPlaySurface is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:08-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.music.apps.MAPlugInGUI is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:08-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.music.apps.MAPlugInGUISwift is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:08-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.music.apps.MAResources is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked"
+        ]
+      },
+      {
+        "name": "mined_macbook_pro_installer_759___packagekit__4",
+        "origin": "mined",
+        "pattern": "^(?P<f1>\\d{4}-\\d{2}-\\d{2})\\s+22:30:30\\-08\\s+MacBook\\-Pro\\s+installer\\[759\\]:\\s+PackageKit:\\s+Bundle\\s+(?P<f2>\\S+)\\s+is\\s+nested\\s+inside\\s+upgrade\\-bundle\\s+or\\s+atomic\\-update\\-bundle\\s+and\\s+will\\s+not\\s+be\\s+version\\-checked$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "date",
+          "f2": "any"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-11-22 22:30:30-08 MacBook-Pro installer[759]: PackageKit: Bundle com.apple.flexo.FCPAEHelper is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:30-08 MacBook-Pro installer[759]: PackageKit: Bundle com.apple.ProExtension.ProExtensionHost is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:30-08 MacBook-Pro installer[759]: PackageKit: Bundle com.apple.videoapps.OOPProResRawService is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:30-08 MacBook-Pro installer[759]: PackageKit: Bundle com.apple.fxplugframework is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked"
+        ]
+      },
+      {
+        "name": "mined_macbook_pro_installd_750___packagekit__5",
+        "origin": "mined",
+        "pattern": "^(?P<f1>\\d{4}-\\d{2}-\\d{2})\\s+22:30:31\\-08\\s+MacBook\\-Pro\\s+installd\\[750\\]:\\s+PackageKit:\\s+Bundle\\s+(?P<f2>\\S+)\\s+is\\s+nested\\s+inside\\s+upgrade\\-bundle\\s+or\\s+atomic\\-update\\-bundle\\s+and\\s+will\\s+not\\s+be\\s+version\\-checked$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "date",
+          "f2": "any"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-11-22 22:30:31-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.flexo.FCPAEHelper is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:31-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.videoapps.OOPDebayerService is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:31-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.videoapps.OOPProResRawService is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:31-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.fxplugframework is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked"
+        ]
+      },
+      {
+        "name": "mined_richards_macbook_pro_softwareupdated_545___package_21",
+        "origin": "mined",
+        "pattern": "^(?P<f1>\\d{4}-\\d{2}-\\d{2})\\s+02:10:29\\-08\\s+Richards\\-MacBook\\-Pro\\s+softwareupdated\\[545\\]:\\s+Package\\s+Authoring:\\s+error\\s+running\\s+installation\\-check\\s+script:\\s+TypeError:\\s+null\\s+is\\s+not\\s+an\\s+object\\s+\\(evaluating\\s+'cpuFeatures\\.split'\\)\\s+at\\s+x\\-distribution:///installer\\-gui\\-script%5B1%5D/installation\\-check%5B1%5D/@script$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "f1": "date"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "mined_macbook_pro_installer_749___packagekit__3",
+        "origin": "mined",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2})\\s+22:30:08\\-08\\s+MacBook\\-Pro\\s+installer\\[749\\]:\\s+PackageKit:\\s+Bundle\\s+(?P<f1>\\S+)\\s+is\\s+nested\\s+inside\\s+upgrade\\-bundle\\s+or\\s+atomic\\-update\\-bundle\\s+and\\s+will\\s+not\\s+be\\s+version\\-checked$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "date": "date",
+          "f1": "any"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-11-22 22:30:08-08 MacBook-Pro installer[749]: PackageKit: Bundle com.apple.music.apps.MAPlaySurface is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:08-08 MacBook-Pro installer[749]: PackageKit: Bundle com.apple.music.apps.MAPlugInGUI is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:08-08 MacBook-Pro installer[749]: PackageKit: Bundle com.apple.music.apps.MAPlugInGUISwift is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:08-08 MacBook-Pro installer[749]: PackageKit: Bundle com.apple.music.apps.MAResources is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked"
+        ]
+      },
+      {
+        "name": "mined_macbook_pro_installer_759___packagekit__4",
+        "origin": "mined",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2})\\s+22:30:30\\-08\\s+MacBook\\-Pro\\s+installer\\[759\\]:\\s+PackageKit:\\s+Bundle\\s+(?P<f1>\\S+)\\s+is\\s+nested\\s+inside\\s+upgrade\\-bundle\\s+or\\s+atomic\\-update\\-bundle\\s+and\\s+will\\s+not\\s+be\\s+version\\-checked$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "date": "date",
+          "f1": "any"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-11-22 22:30:30-08 MacBook-Pro installer[759]: PackageKit: Bundle com.apple.flexo.FCPAEHelper is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:30-08 MacBook-Pro installer[759]: PackageKit: Bundle com.apple.ProExtension.ProExtensionHost is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:30-08 MacBook-Pro installer[759]: PackageKit: Bundle com.apple.videoapps.OOPProResRawService is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:30-08 MacBook-Pro installer[759]: PackageKit: Bundle com.apple.fxplugframework is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked"
+        ]
+      },
+      {
+        "name": "mined_macbook_pro_installd_750___packagekit__5",
+        "origin": "mined",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2})\\s+22:30:31\\-08\\s+MacBook\\-Pro\\s+installd\\[750\\]:\\s+PackageKit:\\s+Bundle\\s+(?P<f1>\\S+)\\s+is\\s+nested\\s+inside\\s+upgrade\\-bundle\\s+or\\s+atomic\\-update\\-bundle\\s+and\\s+will\\s+not\\s+be\\s+version\\-checked$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "date": "date",
+          "f1": "any"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-11-22 22:30:31-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.flexo.FCPAEHelper is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:31-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.videoapps.OOPDebayerService is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:31-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.videoapps.OOPProResRawService is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:31-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.fxplugframework is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked"
+        ]
+      },
+      {
+        "name": "mined_macbook_pro_packagekit__bundle_6",
+        "origin": "mined",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2})\\s+22:31:05\\-08\\s+MacBook\\-Pro\\s+(?P<f1>\\S+)\\s+PackageKit:\\s+Bundle\\s+(?P<f2>\\S+)\\s+is\\s+nested\\s+inside\\s+upgrade\\-bundle\\s+or\\s+atomic\\-update\\-bundle\\s+and\\s+will\\s+not\\s+be\\s+version\\-checked$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "date": "date",
+          "f1": "any",
+          "f2": "any"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-11-22 22:31:05-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.AppleMediaServicesKit is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:31:05-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.iWork.EquationKit is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:31:05-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.iWork.KNAnimation is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:31:05-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.iWork.TSAccessibility is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked"
+        ]
+      },
+      {
+        "name": "mined_macbook_pro_packagekit__bundle_7",
+        "origin": "mined",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2})\\s+22:31:21\\-08\\s+MacBook\\-Pro\\s+(?P<f1>\\S+)\\s+PackageKit:\\s+Bundle\\s+(?P<f2>\\S+)\\s+is\\s+nested\\s+inside\\s+upgrade\\-bundle\\s+or\\s+atomic\\-update\\-bundle\\s+and\\s+will\\s+not\\s+be\\s+version\\-checked$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "date": "date",
+          "f1": "any",
+          "f2": "any"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-11-22 22:31:21-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.iWork.EquationKit is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:31:21-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.iWork.TSAccessibility is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:31:21-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.iWork.TSApplication is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:31:21-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.iWork.TSCalculationEngine is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked"
+        ]
+      },
+      {
+        "name": "mined_richards_macbook_pro_softwareupdated_545___package_24",
+        "origin": "mined",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2})\\s+02:10:29\\-08\\s+Richards\\-MacBook\\-Pro\\s+softwareupdated\\[545\\]:\\s+Package\\s+Authoring:\\s+(?P<level>(?i:TRACE|DEBUG|INFO|NOTICE|WARNING|WARN|ERROR|CRITICAL|FATAL|ERR|WRN|INF|DBG|TRC|PANIC|SEVERE|ALERT|EMERG))\\s+running\\s+installation\\-check\\s+script:\\s+TypeError:\\s+null\\s+is\\s+not\\s+an\\s+object\\s+\\(evaluating\\s+'cpuFeatures\\.split'\\)\\s+at\\s+x\\-distribution:///installer\\-gui\\-script%5B1%5D/installation\\-check%5B1%5D/@script$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "date": "date",
+          "level": "level"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "mined_macbook_pro_installd_750___packagekit__1",
+        "origin": "mined",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2})\\s+22:30:08\\-08\\s+MacBook\\-Pro\\s+installd\\[750\\]:\\s+PackageKit:\\s+Bundle\\s+(?P<f1>\\S+)\\s+is\\s+nested\\s+inside\\s+upgrade\\-bundle\\s+or\\s+atomic\\-update\\-bundle\\s+and\\s+will\\s+not\\s+be\\s+version\\-checked$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "date": "date",
+          "f1": "any"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-11-22 22:30:08-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.music.apps.MAPlaySurface is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:08-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.music.apps.MAPlugInGUI is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:08-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.music.apps.MAPlugInGUISwift is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:08-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.music.apps.MAResources is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked"
+        ]
+      },
+      {
+        "name": "mined_macbook_pro_installer_759___packagekit__2",
+        "origin": "mined",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2})\\s+22:30:30\\-08\\s+MacBook\\-Pro\\s+installer\\[759\\]:\\s+PackageKit:\\s+Bundle\\s+(?P<f1>\\S+)\\s+is\\s+nested\\s+inside\\s+upgrade\\-bundle\\s+or\\s+atomic\\-update\\-bundle\\s+and\\s+will\\s+not\\s+be\\s+version\\-checked$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "date": "date",
+          "f1": "any"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-11-22 22:30:30-08 MacBook-Pro installer[759]: PackageKit: Bundle com.apple.flexo.FCPAEHelper is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:30-08 MacBook-Pro installer[759]: PackageKit: Bundle com.apple.ProExtension.ProExtensionHost is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:30-08 MacBook-Pro installer[759]: PackageKit: Bundle com.apple.videoapps.OOPProResRawService is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:30-08 MacBook-Pro installer[759]: PackageKit: Bundle com.apple.fxplugframework is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked"
+        ]
+      },
+      {
+        "name": "mined_macbook_pro_installd_750___packagekit__3",
+        "origin": "mined",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2})\\s+22:30:31\\-08\\s+MacBook\\-Pro\\s+installd\\[750\\]:\\s+PackageKit:\\s+Bundle\\s+(?P<f1>\\S+)\\s+is\\s+nested\\s+inside\\s+upgrade\\-bundle\\s+or\\s+atomic\\-update\\-bundle\\s+and\\s+will\\s+not\\s+be\\s+version\\-checked$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "date": "date",
+          "f1": "any"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-11-22 22:30:31-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.flexo.FCPAEHelper is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:31-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.videoapps.OOPDebayerService is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:31-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.videoapps.OOPProResRawService is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:31-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.fxplugframework is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked"
+        ]
+      },
+      {
+        "name": "mined_richards_macbook_pro_softwareupdated_553___package_4",
+        "origin": "mined",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2})\\s+11:25:44\\+00\\s+Richards\\-MacBook\\-Pro\\s+softwareupdated\\[553\\]:\\s+Package\\s+Authoring:\\s+(?P<level>(?i:TRACE|DEBUG|INFO|NOTICE|WARNING|WARN|ERROR|CRITICAL|FATAL|ERR|WRN|INF|DBG|TRC|PANIC|SEVERE|ALERT|EMERG))\\s+running\\s+installation\\-check\\s+script:\\s+TypeError:\\s+null\\s+is\\s+not\\s+an\\s+object\\s+\\(evaluating\\s+'cpuFeatures\\.split'\\)\\s+at\\s+x\\-distribution:///installer\\-gui\\-script%5B1%5D/installation\\-check%5B1%5D/@script$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "date": "date",
+          "level": "level"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-12-04 11:25:44+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-04 11:25:44+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-04 11:25:44+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-04 11:25:44+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script"
+        ]
+      },
+      {
+        "name": "mined_richards_macbook_pro_softwareupdated_553___package_5",
+        "origin": "mined",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2})\\s+11:42:49\\+00\\s+Richards\\-MacBook\\-Pro\\s+softwareupdated\\[553\\]:\\s+Package\\s+Authoring:\\s+(?P<level>(?i:TRACE|DEBUG|INFO|NOTICE|WARNING|WARN|ERROR|CRITICAL|FATAL|ERR|WRN|INF|DBG|TRC|PANIC|SEVERE|ALERT|EMERG))\\s+running\\s+installation\\-check\\s+script:\\s+TypeError:\\s+null\\s+is\\s+not\\s+an\\s+object\\s+\\(evaluating\\s+'cpuFeatures\\.split'\\)\\s+at\\s+x\\-distribution:///installer\\-gui\\-script%5B1%5D/installation\\-check%5B1%5D/@script$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "date": "date",
+          "level": "level"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-12-04 11:42:49+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-04 11:42:49+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-04 11:42:49+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-04 11:42:49+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script"
+        ]
+      },
+      {
+        "name": "mined_richards_macbook_pro_softwareupdated_553___package_6",
+        "origin": "mined",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2})\\s+12:40:36\\+00\\s+Richards\\-MacBook\\-Pro\\s+softwareupdated\\[553\\]:\\s+Package\\s+Authoring:\\s+(?P<level>(?i:TRACE|DEBUG|INFO|NOTICE|WARNING|WARN|ERROR|CRITICAL|FATAL|ERR|WRN|INF|DBG|TRC|PANIC|SEVERE|ALERT|EMERG))\\s+running\\s+installation\\-check\\s+script:\\s+TypeError:\\s+null\\s+is\\s+not\\s+an\\s+object\\s+\\(evaluating\\s+(?P<f1>\\S+)\\s+at\\s+x\\-distribution:///installer\\-gui\\-script%5B1%5D/installation\\-check%5B1%5D/@script$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "date": "date",
+          "f1": "any",
+          "level": "level"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-12-05 12:40:36+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-05 12:40:36+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-05 12:40:36+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-05 12:40:36+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script"
+        ]
+      },
+      {
+        "name": "mined_richards_macbook_pro_softwareupdated_553___package_7",
+        "origin": "mined",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2})\\s+12:33:15\\+00\\s+Richards\\-MacBook\\-Pro\\s+softwareupdated\\[553\\]:\\s+Package\\s+Authoring:\\s+(?P<level>(?i:TRACE|DEBUG|INFO|NOTICE|WARNING|WARN|ERROR|CRITICAL|FATAL|ERR|WRN|INF|DBG|TRC|PANIC|SEVERE|ALERT|EMERG))\\s+running\\s+installation\\-check\\s+script:\\s+TypeError:\\s+null\\s+is\\s+not\\s+an\\s+object\\s+\\(evaluating\\s+'cpuFeatures\\.split'\\)\\s+at\\s+x\\-distribution:///installer\\-gui\\-script%5B1%5D/installation\\-check%5B1%5D/@script$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "date": "date",
+          "level": "level"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-12-09 12:33:15+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-09 12:33:15+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-09 12:33:15+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script",
+          "2025-12-09 12:33:15+00 Richards-MacBook-Pro softwareupdated[553]: Package Authoring: error running installation-check script: TypeError: null is not an object (evaluating 'cpuFeatures.split') at x-distribution:///installer-gui-script%5B1%5D/installation-check%5B1%5D/@script"
+        ]
+      },
+      {
+        "name": "mined_macbook_pro_installer_749___packagekit__1",
+        "origin": "mined",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2})\\s+22:30:08\\-08\\s+MacBook\\-Pro\\s+installer\\[749\\]:\\s+PackageKit:\\s+Bundle\\s+(?P<is>\\S+)\\s+is\\s+nested\\s+inside\\s+upgrade\\-bundle\\s+or\\s+atomic\\-update\\-bundle\\s+and\\s+will\\s+not\\s+be\\s+version\\-checked$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "date": "date",
+          "is": "any"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-11-22 22:30:08-08 MacBook-Pro installer[749]: PackageKit: Bundle com.apple.music.apps.MAPlaySurface is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:08-08 MacBook-Pro installer[749]: PackageKit: Bundle com.apple.music.apps.MAPlugInGUI is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:08-08 MacBook-Pro installer[749]: PackageKit: Bundle com.apple.music.apps.MAPlugInGUISwift is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:30:08-08 MacBook-Pro installer[749]: PackageKit: Bundle com.apple.music.apps.MAResources is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked"
+        ]
+      },
+      {
+        "name": "mined_macbook_pro_packagekit__bundle_2",
+        "origin": "mined",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2})\\s+22:31:05\\-08\\s+MacBook\\-Pro\\s+(?P<packagekit>\\S+)\\s+PackageKit:\\s+Bundle\\s+(?P<is>\\S+)\\s+is\\s+nested\\s+inside\\s+upgrade\\-bundle\\s+or\\s+atomic\\-update\\-bundle\\s+and\\s+will\\s+not\\s+be\\s+version\\-checked$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "date": "date",
+          "is": "any",
+          "packagekit": "any"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-11-22 22:31:05-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.AppleMediaServicesKit is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:31:05-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.iWork.EquationKit is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:31:05-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.iWork.KNAnimation is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:31:05-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.iWork.TSAccessibility is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked"
+        ]
+      },
+      {
+        "name": "mined_macbook_pro_packagekit__bundle_3",
+        "origin": "mined",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2})\\s+22:31:21\\-08\\s+MacBook\\-Pro\\s+(?P<packagekit>\\S+)\\s+PackageKit:\\s+Bundle\\s+(?P<is>\\S+)\\s+is\\s+nested\\s+inside\\s+upgrade\\-bundle\\s+or\\s+atomic\\-update\\-bundle\\s+and\\s+will\\s+not\\s+be\\s+version\\-checked$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "date": "date",
+          "is": "any",
+          "packagekit": "any"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2025-11-22 22:31:21-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.iWork.EquationKit is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:31:21-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.iWork.TSAccessibility is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:31:21-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.iWork.TSApplication is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked",
+          "2025-11-22 22:31:21-08 MacBook-Pro installd[750]: PackageKit: Bundle com.apple.iWork.TSCalculationEngine is nested inside upgrade-bundle or atomic-update-bundle and will not be version-checked"
+        ]
+      }
+    ]
+  }
+}

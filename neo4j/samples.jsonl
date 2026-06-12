@@ -1,0 +1,119 @@
+{"line":"Directories in use:","path":null}
+{"line":"home:         /opt/homebrew/Cellar/neo4j/2026.04.0/libexec","path":null}
+{"line":"config:       /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/conf","path":null}
+{"line":"logs:         /opt/homebrew/var/log/neo4j","path":null}
+{"line":"plugins:      /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/plugins","path":null}
+{"line":"import:       /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/import","path":null}
+{"line":"data:         /opt/homebrew/var/neo4j/data","path":null}
+{"line":"certificates: /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/certificates","path":null}
+{"line":"licenses:     /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/licenses","path":null}
+{"line":"run:          /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/run","path":null}
+{"line":"Starting Neo4j.","path":null}
+{"line":"2026-05-21 21:55:08.983+0000 INFO  Logging config in use: File '/opt/homebrew/Cellar/neo4j/2026.04.0/libexec/conf/user-logs.xml'","path":"app_iso"}
+{"line":"2026-05-21 21:55:08.987+0000 INFO  Starting...","path":"app_iso"}
+{"line":"2026-05-21 21:55:09.397+0000 INFO  This instance is ServerId{e5b49d16} (e5b49d16-eeb2-4fa2-8b2c-059dc2ec94d9)","path":"app_iso"}
+{"line":"2026-05-21 21:55:09.921+0000 INFO  ======== Neo4j 2026.04.0 ========","path":"app_iso"}
+{"line":"2026-05-21 21:55:10.268+0000 INFO  X-Forward header processing enabled with security controls","path":"app_iso"}
+{"line":"2026-05-21 21:55:10.268+0000 WARN  SECURITY WARNING: X-Forward headers accepted from any source - configure allow_proxies","path":"app_iso"}
+{"line":"2026-05-21 21:55:10.268+0000 WARN  SECURITY WARNING: X-Forward headers accept any hostname - configure allow_hosts","path":"app_iso"}
+{"line":"2026-05-21 21:55:10.940+0000 INFO  Anonymous Usage Data is being sent to Neo4j, see https://neo4j.com/docs/usage-data/","path":"app_iso"}
+{"line":"2026-05-21 21:55:11.700+0000 INFO  Bolt enabled on localhost:7687.","path":"app_iso"}
+{"line":"2026-05-21 21:55:11.942+0000 INFO  This server has built-in support for online monitoring through Fleet Manager. Visit https://console.neo4j.io to get started!","path":"app_iso"}
+{"line":"2026-05-21 21:55:12.333+0000 INFO  HTTP enabled on localhost:7474.","path":"app_iso"}
+{"line":"2026-05-21 21:55:12.334+0000 INFO  Remote interface available at http://localhost:7474/","path":"app_iso"}
+{"line":"2026-05-21 21:55:12.334+0000 INFO  id: ABD6DA2A73B8FCF4D0072284B4E334B33CFD1D10BC545309567FF4E2EF05D5B0","path":"app_iso"}
+{"line":"2026-05-21 21:55:12.334+0000 INFO  name: system","path":"app_iso"}
+{"line":"2026-05-21 21:55:12.334+0000 INFO  creationDate: 2026-05-21T21:55:10.523Z","path":"app_iso"}
+{"line":"2026-05-21 21:55:12.334+0000 INFO  Started.","path":"app_iso"}
+{"line":"2026-05-29 10:16:04.512+0000 WARN  [bolt-43] The client is unauthorized due to authentication failure.","path":"app_iso"}
+{"line":"2026-05-31 00:03:32.733+0000 INFO  Neo4j Server shutdown initiated by request","path":"app_iso"}
+{"line":"2026-05-31 00:03:32.764+0000 INFO  Stopping...","path":"app_iso"}
+{"line":"Directories in use:","path":null}
+{"line":"home:         /opt/homebrew/Cellar/neo4j/2026.04.0/libexec","path":null}
+{"line":"config:       /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/conf","path":null}
+{"line":"logs:         /opt/homebrew/var/log/neo4j","path":null}
+{"line":"plugins:      /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/plugins","path":null}
+{"line":"import:       /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/import","path":null}
+{"line":"data:         /opt/homebrew/var/neo4j/data","path":null}
+{"line":"certificates: /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/certificates","path":null}
+{"line":"licenses:     /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/licenses","path":null}
+{"line":"run:          /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/run","path":null}
+{"line":"Starting Neo4j.","path":null}
+{"line":"2026-05-31 00:12:13.813+0000 INFO  Logging config in use: File '/opt/homebrew/Cellar/neo4j/2026.04.0/libexec/conf/user-logs.xml'","path":"app_iso"}
+{"line":"2026-05-31 00:12:13.850+0000 INFO  Starting...","path":"app_iso"}
+{"line":"2026-05-31 00:12:15.483+0000 INFO  This instance is ServerId{e5b49d16} (e5b49d16-eeb2-4fa2-8b2c-059dc2ec94d9)","path":"app_iso"}
+{"line":"2026-05-31 00:12:27.924+0000 INFO  ======== Neo4j 2026.04.0 ========","path":"app_iso"}
+{"line":"2026-05-31 00:12:29.433+0000 INFO  X-Forward header processing enabled with security controls","path":"app_iso"}
+{"line":"Directories in use:","path":null}
+{"line":"home:         /opt/homebrew/Cellar/neo4j/2026.04.0/libexec","path":null}
+{"line":"config:       /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/conf","path":null}
+{"line":"logs:         /opt/homebrew/var/log/neo4j","path":null}
+{"line":"plugins:      /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/plugins","path":null}
+{"line":"import:       /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/import","path":null}
+{"line":"data:         /opt/homebrew/var/neo4j/data","path":null}
+{"line":"certificates: /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/certificates","path":null}
+{"line":"licenses:     /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/licenses","path":null}
+{"line":"run:          /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/run","path":null}
+{"line":"Starting Neo4j.","path":null}
+{"line":"-----------------------------------------------------","path":null}
+{"line":"Command Failed","path":null}
+{"line":"Neo4j is already running (pid:1512).","path":null}
+{"line":"-----------------------------------------------------","path":null}
+{"line":"Directories in use:","path":null}
+{"line":"home:         /opt/homebrew/Cellar/neo4j/2026.04.0/libexec","path":null}
+{"line":"config:       /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/conf","path":null}
+{"line":"logs:         /opt/homebrew/var/log/neo4j","path":null}
+{"line":"plugins:      /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/plugins","path":null}
+{"line":"import:       /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/import","path":null}
+{"line":"data:         /opt/homebrew/var/neo4j/data","path":null}
+{"line":"certificates: /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/certificates","path":null}
+{"line":"licenses:     /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/licenses","path":null}
+{"line":"run:          /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/run","path":null}
+{"line":"Starting Neo4j.","path":null}
+{"line":"-----------------------------------------------------","path":null}
+{"line":"Command Failed","path":null}
+{"line":"Neo4j is already running (pid:1260).","path":null}
+{"line":"-----------------------------------------------------","path":null}
+{"line":"Directories in use:","path":null}
+{"line":"home:         /opt/homebrew/Cellar/neo4j/2026.04.0/libexec","path":null}
+{"line":"config:       /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/conf","path":null}
+{"line":"logs:         /opt/homebrew/var/log/neo4j","path":null}
+{"line":"plugins:      /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/plugins","path":null}
+{"line":"import:       /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/import","path":null}
+{"line":"data:         /opt/homebrew/var/neo4j/data","path":null}
+{"line":"certificates: /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/certificates","path":null}
+{"line":"licenses:     /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/licenses","path":null}
+{"line":"run:          /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/run","path":null}
+{"line":"Starting Neo4j.","path":null}
+{"line":"-----------------------------------------------------","path":null}
+{"line":"Command Failed","path":null}
+{"line":"Neo4j is already running (pid:98296).","path":null}
+{"line":"-----------------------------------------------------","path":null}
+{"line":"Directories in use:","path":null}
+{"line":"home:         /opt/homebrew/Cellar/neo4j/2026.04.0/libexec","path":null}
+{"line":"config:       /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/conf","path":null}
+{"line":"logs:         /opt/homebrew/var/log/neo4j","path":null}
+{"line":"plugins:      /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/plugins","path":null}
+{"line":"import:       /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/import","path":null}
+{"line":"data:         /opt/homebrew/var/neo4j/data","path":null}
+{"line":"certificates: /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/certificates","path":null}
+{"line":"licenses:     /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/licenses","path":null}
+{"line":"run:          /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/run","path":null}
+{"line":"Starting Neo4j.","path":null}
+{"line":"-----------------------------------------------------","path":null}
+{"line":"Command Failed","path":null}
+{"line":"Neo4j is already running (pid:1143).","path":null}
+{"line":"-----------------------------------------------------","path":null}
+{"line":"Directories in use:","path":null}
+{"line":"home:         /opt/homebrew/Cellar/neo4j/2026.04.0/libexec","path":null}
+{"line":"config:       /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/conf","path":null}
+{"line":"logs:         /opt/homebrew/var/log/neo4j","path":null}
+{"line":"plugins:      /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/plugins","path":null}
+{"line":"import:       /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/import","path":null}
+{"line":"data:         /opt/homebrew/var/neo4j/data","path":null}
+{"line":"certificates: /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/certificates","path":null}
+{"line":"licenses:     /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/licenses","path":null}
+{"line":"run:          /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/run","path":null}
+{"line":"Starting Neo4j.","path":null}
+{"line":"Directories in use:\nhome:         /opt/homebrew/Cellar/neo4j/2026.04.0/libexec\nconfig:       /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/conf\nlogs:         /opt/homebrew/var/log/neo4j\nplugins:      /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/plugins\nimport:       /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/import\ndata:         /opt/homebrew/var/neo4j/data\ncertificates: /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/certificates\nlicenses:     /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/licenses\nrun:          /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/run\nStarting Neo4j.","path":null}
+{"line":"Directories in use:\nhome:         /opt/homebrew/Cellar/neo4j/2026.04.0/libexec\nconfig:       /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/conf\nlogs:         /opt/homebrew/var/log/neo4j\nplugins:      /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/plugins\nimport:       /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/import\ndata:         /opt/homebrew/var/neo4j/data\ncertificates: /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/certificates\nlicenses:     /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/licenses\nrun:          /opt/homebrew/Cellar/neo4j/2026.04.0/libexec/run\nStarting Neo4j.","path":null}
