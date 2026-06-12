@@ -17,7 +17,7 @@
     "max_bytes": 32768
   },
   "snapshot": {
-    "epoch": 0,
+    "epoch": 1,
     "lines_seen": 0,
     "nodes": [
       {
@@ -30,7 +30,9 @@
           "pid": "int"
         },
         "input": null,
+        "guard": [],
         "ops": [],
+        "otherwise_ops": [],
         "stats": {
           "attempts": 0,
           "hits": 0,
@@ -58,7 +60,9 @@
           "src_port": "int"
         },
         "input": null,
+        "guard": [],
         "ops": [],
+        "otherwise_ops": [],
         "stats": {
           "attempts": 0,
           "hits": 0,
@@ -83,7 +87,9 @@
         "state": "active",
         "types": {},
         "input": null,
+        "guard": [],
         "ops": [],
+        "otherwise_ops": [],
         "stats": {
           "attempts": 0,
           "hits": 0,
@@ -110,7 +116,9 @@
           "oom_pid": "int"
         },
         "input": null,
+        "guard": [],
         "ops": [],
+        "otherwise_ops": [],
         "stats": {
           "attempts": 0,
           "hits": 0,
@@ -137,7 +145,9 @@
           "status": "int"
         },
         "input": null,
+        "guard": [],
         "ops": [],
+        "otherwise_ops": [],
         "stats": {
           "attempts": 0,
           "hits": 0,
@@ -162,7 +172,9 @@
         "state": "active",
         "types": {},
         "input": null,
+        "guard": [],
         "ops": [],
+        "otherwise_ops": [],
         "stats": {
           "attempts": 0,
           "hits": 0,
@@ -190,7 +202,9 @@
           "tid": "int"
         },
         "input": null,
+        "guard": [],
         "ops": [],
+        "otherwise_ops": [],
         "stats": {
           "attempts": 0,
           "hits": 0,
@@ -217,7 +231,9 @@
           "pid": "int"
         },
         "input": null,
+        "guard": [],
         "ops": [],
+        "otherwise_ops": [],
         "stats": {
           "attempts": 0,
           "hits": 0,
@@ -242,7 +258,9 @@
         "state": "active",
         "types": {},
         "input": null,
+        "guard": [],
         "ops": [],
+        "otherwise_ops": [],
         "stats": {
           "attempts": 0,
           "hits": 0,
@@ -269,7 +287,9 @@
           "src_port": "int"
         },
         "input": null,
+        "guard": [],
         "ops": [],
+        "otherwise_ops": [],
         "stats": {
           "attempts": 0,
           "hits": 0,
@@ -294,7 +314,9 @@
         "state": "active",
         "types": {},
         "input": null,
+        "guard": [],
         "ops": [],
+        "otherwise_ops": [],
         "stats": {
           "attempts": 0,
           "hits": 0,
@@ -319,7 +341,9 @@
         "state": "active",
         "types": {},
         "input": null,
+        "guard": [],
         "ops": [],
+        "otherwise_ops": [],
         "stats": {
           "attempts": 0,
           "hits": 0,
@@ -344,7 +368,9 @@
         "state": "active",
         "types": {},
         "input": null,
+        "guard": [],
         "ops": [],
+        "otherwise_ops": [],
         "stats": {
           "attempts": 0,
           "hits": 0,
@@ -369,7 +395,9 @@
         "state": "active",
         "types": {},
         "input": null,
+        "guard": [],
         "ops": [],
+        "otherwise_ops": [],
         "stats": {
           "attempts": 0,
           "hits": 0,
@@ -389,16 +417,63 @@
       {
         "name": "tplink",
         "origin": "seed",
-        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2}) (?P<time>\\d{2}:\\d{2}:\\d{2}) (?P<facility>.+?) (?P<level>DEBUG|INFO|NOTICE|WARNING|ERROR|CRITICAL) \\[(?P<msg_id>\\d+)\\] (?P<msg>.*)$",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2}) (?P<time>\\d{2}:\\d{2}:\\d{2}) (?P<proc>[\\w-]+)(?:\\[(?P<pid>\\d+)\\])?: <(?P<prio>\\d)> (?P<seq>\\d+) (?P<msg>.*)$",
         "parent": null,
         "state": "active",
         "types": {
           "date": "date",
-          "msg_id": "int",
+          "msg": "any",
+          "pid": "int",
+          "prio": "any",
+          "proc": "any",
+          "seq": "any",
           "time": "time"
         },
         "input": null,
-        "ops": [],
+        "guard": [],
+        "ops": [
+          {
+            "op": "set",
+            "field": "level",
+            "value": "ERROR",
+            "when": {
+              "field": "prio",
+              "op": "eq",
+              "value": "3"
+            }
+          },
+          {
+            "op": "set",
+            "field": "level",
+            "value": "WARNING",
+            "when": {
+              "field": "prio",
+              "op": "eq",
+              "value": "4"
+            }
+          },
+          {
+            "op": "set",
+            "field": "level",
+            "value": "NOTICE",
+            "when": {
+              "field": "prio",
+              "op": "eq",
+              "value": "5"
+            }
+          },
+          {
+            "op": "set",
+            "field": "level",
+            "value": "INFO",
+            "when": {
+              "field": "prio",
+              "op": "eq",
+              "value": "6"
+            }
+          }
+        ],
+        "otherwise_ops": [],
         "stats": {
           "attempts": 0,
           "hits": 0,
@@ -429,8 +504,32 @@
         "types": {
           "mac": "mac"
         },
-        "input": null,
-        "ops": [],
+        "input": "msg",
+        "guard": [],
+        "ops": [
+          {
+            "op": "set",
+            "field": "subsystem",
+            "value": "lan-clients",
+            "when": null
+          },
+          {
+            "op": "set_from",
+            "field": "alert",
+            "parts": [
+              {
+                "p": "lit",
+                "v": "device-joined-"
+              },
+              {
+                "p": "field",
+                "v": "mac"
+              }
+            ],
+            "when": null
+          }
+        ],
+        "otherwise_ops": [],
         "stats": {
           "attempts": 0,
           "hits": 0,
@@ -454,18 +553,28 @@
       {
         "name": "dhcp_ack",
         "origin": "seed",
-        "pattern": "receive ack from server with ip (?P<server_ip>[\\d.]+)(?:, options\\(serverid=(?P<dhcp_server>[\\d.]+);lease=(?P<lease_s>\\d+);subnet=(?P<subnet>[\\d.]+);router=(?P<gateway>[\\d.]+);dns=(?P<dns>[^;)]*))?",
+        "pattern": "receive ack from server with ip (?P<server_ip>[\\d.]+), options\\(serverid=(?P<dhcp_server>[\\d.]+);lease=(?P<lease_s>\\d+);subnet=(?P<subnet>[\\d.]+);router=(?P<gateway>[\\d.]+);dns=(?P<dns>[^;)]*)",
         "parent": 14,
         "state": "active",
         "types": {
-          "dhcp_server": "ip",
-          "gateway": "ip",
-          "lease_s": "int",
+          "dhcp_server": "any",
+          "dns": "any",
+          "gateway": "any",
+          "lease_s": "any",
           "server_ip": "ip",
-          "subnet": "ip"
+          "subnet": "any"
         },
-        "input": null,
-        "ops": [],
+        "input": "msg",
+        "guard": [],
+        "ops": [
+          {
+            "op": "set",
+            "field": "subsystem",
+            "value": "wan-dhcp",
+            "when": null
+          }
+        ],
+        "otherwise_ops": [],
         "stats": {
           "attempts": 0,
           "hits": 0,
@@ -494,7 +603,9 @@
         "state": "active",
         "types": {},
         "input": null,
+        "guard": [],
         "ops": [],
+        "otherwise_ops": [],
         "stats": {
           "attempts": 0,
           "hits": 0,
@@ -519,7 +630,9 @@
         "state": "active",
         "types": {},
         "input": null,
+        "guard": [],
         "ops": [],
+        "otherwise_ops": [],
         "stats": {
           "attempts": 0,
           "hits": 0,
@@ -547,7 +660,45 @@
           "status": "int"
         },
         "input": null,
+        "guard": [],
         "ops": [],
+        "otherwise_ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "dhcp_lifecycle",
+        "origin": "curated",
+        "pattern": "(?P<dhcp_event>send select request|lease passed, enter renewing state)",
+        "parent": 14,
+        "state": "active",
+        "types": {
+          "dhcp_event": "any"
+        },
+        "input": "msg",
+        "guard": [],
+        "ops": [
+          {
+            "op": "set",
+            "field": "subsystem",
+            "value": "wan-dhcp",
+            "when": null
+          }
+        ],
+        "otherwise_ops": [],
         "stats": {
           "attempts": 0,
           "hits": 0,
