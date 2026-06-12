@@ -17,7 +17,7 @@
     "max_bytes": 32768
   },
   "snapshot": {
-    "epoch": 37,
+    "epoch": 38,
     "lines_seen": 0,
     "nodes": [
       {
@@ -1401,6 +1401,464 @@
           "93529  EAUpdaterService 0.0  2896K 2   sleeping",
           "93529  EAUpdaterService 0.0  2896K 2   sleeping"
         ]
+      },
+      {
+        "name": "top_processes",
+        "origin": "curated",
+        "pattern": "^Processes: (?P<procs_total>\\d+) total, (?P<procs_running>\\d+) running,(?: (?P<procs_stuck>\\d+) stuck,)? (?P<procs_sleeping>\\d+) sleeping, (?P<threads_total>\\d+) threads\\s*$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "procs_running": "any",
+          "procs_sleeping": "any",
+          "procs_stuck": "any",
+          "procs_total": "any",
+          "threads_total": "any"
+        },
+        "input": null,
+        "ops": [
+          {
+            "op": "set",
+            "field": "subsystem",
+            "value": "process",
+            "when": null
+          },
+          {
+            "op": "set",
+            "field": "alert",
+            "value": "stuck-processes",
+            "when": {
+              "field": "procs_stuck",
+              "op": "not_empty",
+              "value": ""
+            }
+          }
+        ],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "top_load",
+        "origin": "curated",
+        "pattern": "^Load Avg: (?P<load_1m>[\\d.]+), (?P<load_5m>[\\d.]+), (?P<load_15m>[\\d.]+)\\s*$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "load_15m": "any",
+          "load_1m": "any",
+          "load_5m": "any"
+        },
+        "input": null,
+        "ops": [
+          {
+            "op": "set",
+            "field": "subsystem",
+            "value": "cpu",
+            "when": null
+          }
+        ],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "top_cpu",
+        "origin": "curated",
+        "pattern": "^CPU usage: (?P<user_pct>[\\d.]+)% user, (?P<sys_pct>[\\d.]+)% sys, (?P<idle_pct>[\\d.]+)% idle",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "idle_pct": "any",
+          "sys_pct": "any",
+          "user_pct": "any"
+        },
+        "input": null,
+        "ops": [
+          {
+            "op": "set",
+            "field": "subsystem",
+            "value": "cpu",
+            "when": null
+          },
+          {
+            "op": "set",
+            "field": "alert",
+            "value": "cpu-saturated",
+            "when": {
+              "field": "idle_pct",
+              "op": "eq",
+              "value": "0.0"
+            }
+          }
+        ],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "top_sharedlibs",
+        "origin": "curated",
+        "pattern": "^SharedLibs: (?P<libs_resident>\\S+) resident, (?P<libs_data>\\S+) data, (?P<libs_linkedit>\\S+) linkedit\\.$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "libs_data": "any",
+          "libs_linkedit": "any",
+          "libs_resident": "any"
+        },
+        "input": null,
+        "ops": [
+          {
+            "op": "set",
+            "field": "subsystem",
+            "value": "memory",
+            "when": null
+          }
+        ],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "top_memregions",
+        "origin": "curated",
+        "pattern": "^MemRegions: (?P<regions_total>\\d+) total, (?P<regions_resident>\\S+) resident, (?P<regions_private>\\S+) private, (?P<regions_shared>\\S+) shared\\.$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "regions_private": "any",
+          "regions_resident": "any",
+          "regions_shared": "any",
+          "regions_total": "any"
+        },
+        "input": null,
+        "ops": [
+          {
+            "op": "set",
+            "field": "subsystem",
+            "value": "memory",
+            "when": null
+          }
+        ],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "top_mem",
+        "origin": "curated",
+        "pattern": "^PhysMem: (?P<mem_used>\\S+) used \\((?P<mem_wired>\\S+) wired, (?P<mem_compressed>\\S+) compressor\\), (?P<mem_unused>\\S+) unused\\.$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "mem_compressed": "any",
+          "mem_unused": "any",
+          "mem_used": "any",
+          "mem_wired": "any"
+        },
+        "input": null,
+        "ops": [
+          {
+            "op": "set",
+            "field": "subsystem",
+            "value": "memory",
+            "when": null
+          }
+        ],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "top_vm",
+        "origin": "curated",
+        "pattern": "^VM: (?P<vsize>\\S+) vsize, (?P<framework_vsize>\\S+) framework vsize, (?P<swapins>\\d+)\\((?P<swapins_recent>\\d+)\\) swapins, (?P<swapouts>\\d+)\\((?P<swapouts_recent>\\d+)\\) swapouts\\.$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "framework_vsize": "any",
+          "swapins": "any",
+          "swapins_recent": "any",
+          "swapouts": "any",
+          "swapouts_recent": "any",
+          "vsize": "any"
+        },
+        "input": null,
+        "ops": [
+          {
+            "op": "set",
+            "field": "subsystem",
+            "value": "memory",
+            "when": null
+          }
+        ],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "top_networks",
+        "origin": "curated",
+        "pattern": "^Networks: packets: (?P<pkts_in>\\d+)/(?P<vol_in>\\S+) in, (?P<pkts_out>\\d+)/(?P<vol_out>\\S+) out\\.$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "pkts_in": "any",
+          "pkts_out": "any",
+          "vol_in": "any",
+          "vol_out": "any"
+        },
+        "input": null,
+        "ops": [
+          {
+            "op": "set",
+            "field": "subsystem",
+            "value": "network",
+            "when": null
+          }
+        ],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "top_disks",
+        "origin": "curated",
+        "pattern": "^Disks: (?P<read_ops>\\d+)/(?P<read_vol>\\S+) read, (?P<write_ops>\\d+)/(?P<write_vol>\\S+) written\\.$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "read_ops": "any",
+          "read_vol": "any",
+          "write_ops": "any",
+          "write_vol": "any"
+        },
+        "input": null,
+        "ops": [
+          {
+            "op": "set",
+            "field": "subsystem",
+            "value": "disk",
+            "when": null
+          }
+        ],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "top_clock",
+        "origin": "curated",
+        "pattern": "^(?P<clock>\\d{4}/\\d{2}/\\d{2} \\d{2}:\\d{2}:\\d{2})\\s*$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "clock": "any"
+        },
+        "input": null,
+        "ops": [
+          {
+            "op": "set",
+            "field": "subsystem",
+            "value": "meta",
+            "when": null
+          }
+        ],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "top_header",
+        "origin": "curated",
+        "pattern": "^PID\\s+COMMAND",
+        "parent": null,
+        "state": "candidate",
+        "types": {},
+        "input": null,
+        "ops": [
+          {
+            "op": "set",
+            "field": "subsystem",
+            "value": "meta",
+            "when": null
+          }
+        ],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "top_process_row",
+        "origin": "curated",
+        "pattern": "^(?P<pid>\\d+)\\s+(?P<command>.+?)\\s+(?P<cpu_pct>[\\d.]+)\\s+(?P<mem>\\S+)\\s+(?P<threads>\\d+(?:/\\d+)?)\\s+(?P<state>\\w+)\\s*$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "command": "any",
+          "cpu_pct": "any",
+          "mem": "any",
+          "pid": "int",
+          "state": "any",
+          "threads": "any"
+        },
+        "input": null,
+        "ops": [
+          {
+            "op": "set",
+            "field": "subsystem",
+            "value": "process",
+            "when": null
+          }
+        ],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
       }
     ]
   }
