@@ -16,7 +16,7 @@
     "max_bytes": 32768
   },
   "snapshot": {
-    "epoch": 4,
+    "epoch": 5,
     "lines_seen": 0,
     "nodes": [
       {
@@ -269,7 +269,7 @@
         "origin": "curated",
         "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2}) (?P<time>\\d{2}:\\d{2}:\\d{2}\\.\\d+) (?P<tz>[A-Z]{3,4}) \\[(?P<pid>\\d+)/(?P<tid>\\w+)\\] (?P<level>[A-Z]+): (?P<msg>.*)$",
         "parent": null,
-        "state": "candidate",
+        "state": "active",
         "types": {
           "date": "date",
           "pid": "int",
@@ -320,7 +320,12 @@
           "spot_checks": 0,
           "spot_passes": 0
         },
-        "examples": []
+        "examples": [
+          "2026-05-28 10:13:11.859 BST [474429/F68] WARNING: Connection error (203.0.113.133#53): TCP connection failed while receiving payload length from upstream (Resource temporarily unavailable)",
+          "2026-05-28 10:13:12.369 BST [474462/F68] WARNING: Connection error (203.0.113.8#53): TCP connection failed while receiving payload length from upstream (Resource temporarily unavailable)",
+          "2026-05-28 10:13:12.369 BST [474464/F68] WARNING: Connection error (203.0.113.8#53): TCP connection failed while receiving payload length from upstream (Resource temporarily unavailable)",
+          "2026-05-28 10:13:12.369 BST [474461/F68] WARNING: Connection error (203.0.113.8#53): TCP connection failed while receiving payload length from upstream (Resource temporarily unavailable)"
+        ]
       },
       {
         "name": "journald",

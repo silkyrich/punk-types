@@ -289,9 +289,9 @@
           "spot_passes": 0
         },
         "examples": [
-          "2026-06-08 03:02:22,166::INFO::[newswrapper:365] 6@news.easynews.com: Connected using TLSv1.3 (TLS_AES_256_GCM_SHA384)",
-          "2026-06-08 03:02:22,167::INFO::[newswrapper:365] 20@news.easynews.com: Connected using TLSv1.3 (TLS_AES_256_GCM_SHA384)",
-          "2026-06-08 03:02:22,168::INFO::[newswrapper:365] 45@news.easynews.com: Connected using TLSv1.3 (TLS_AES_256_GCM_SHA384)",
+          "2026-06-08 03:02:22,166::INFO::[newswrapper:365] userc11d@example.com: Connected using TLSv1.3 (TLS_AES_256_GCM_SHA384)",
+          "2026-06-08 03:02:22,167::INFO::[newswrapper:365] user658c@example.com: Connected using TLSv1.3 (TLS_AES_256_GCM_SHA384)",
+          "2026-06-08 03:02:22,168::INFO::[newswrapper:365] user513f@example.com: Connected using TLSv1.3 (TLS_AES_256_GCM_SHA384)",
           "2026-06-08 03:02:22,254::INFO::[assembler:88] Decoding finished /config/Downloads/incomplete/The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M/The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M.vol-05.par2"
         ]
       },
@@ -318,7 +318,12 @@
           "spot_checks": 0,
           "spot_passes": 0
         },
-        "examples": []
+        "examples": [
+          "2026-06-08 03:02:22,166::INFO::[newswrapper:365] userc11d@example.com: Connected using TLSv1.3 (TLS_AES_256_GCM_SHA384)",
+          "2026-06-08 03:02:22,167::INFO::[newswrapper:365] user658c@example.com: Connected using TLSv1.3 (TLS_AES_256_GCM_SHA384)",
+          "2026-06-08 03:02:22,168::INFO::[newswrapper:365] user513f@example.com: Connected using TLSv1.3 (TLS_AES_256_GCM_SHA384)",
+          "2026-06-08 03:02:22,186::INFO::[downloader:751] Connecting user79ef@example.com finished"
+        ]
       },
       {
         "name": "journald",

@@ -16,7 +16,7 @@
     "max_bytes": 32768
   },
   "snapshot": {
-    "epoch": 1,
+    "epoch": 3,
     "lines_seen": 0,
     "nodes": [
       {
@@ -412,6 +412,110 @@
         "pattern": "running '(?P<hook>[^']+)'",
         "parent": 14,
         "state": "active",
+        "types": {},
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "tplink",
+        "origin": "seed",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2}) (?P<time>\\d{2}:\\d{2}:\\d{2}) (?P<facility>.+?) (?P<level>DEBUG|INFO|NOTICE|WARNING|ERROR|CRITICAL) \\[(?P<msg_id>\\d+)\\] (?P<msg>.*)$",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "date": "date",
+          "msg_id": "int",
+          "time": "time"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "device_seen",
+        "origin": "seed",
+        "pattern": "Insert device, MAC is (?P<mac>[0-9A-Fa-f]{2}(?:[:\\-][0-9A-Fa-f]{2}){5})",
+        "parent": 17,
+        "state": "active",
+        "types": {
+          "mac": "mac"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "dhcp_ack",
+        "origin": "seed",
+        "pattern": "receive ack from server with ip (?P<server_ip>[\\d.]+)(?:, options\\(serverid=(?P<dhcp_server>[\\d.]+);lease=(?P<lease_s>\\d+);subnet=(?P<subnet>[\\d.]+);router=(?P<gateway>[\\d.]+);dns=(?P<dns>[^;)]*))?",
+        "parent": 17,
+        "state": "active",
+        "types": {
+          "dhcp_server": "ip",
+          "gateway": "ip",
+          "lease_s": "int",
+          "server_ip": "ip",
+          "subnet": "ip"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "mined_mined_1",
+        "origin": "mined",
+        "pattern": "^───────────────────────────────────────$",
+        "parent": null,
+        "state": "candidate",
         "types": {},
         "stats": {
           "attempts": 0,

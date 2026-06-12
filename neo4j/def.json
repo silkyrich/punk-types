@@ -381,7 +381,7 @@
         "examples": [
           "2026-05-21 21:55:08.983+0000 INFO  Logging config in use: File '/opt/homebrew/Cellar/neo4j/2026.04.0/libexec/conf/user-logs.xml'",
           "2026-05-21 21:55:08.987+0000 INFO  Starting...",
-          "2026-05-21 21:55:09.397+0000 INFO  This instance is ServerId{e5b49d16} (e5b49d16-eeb2-4fa2-8b2c-059dc2ec94d9)",
+          "2026-05-21 21:55:09.397+0000 INFO  This instance is ServerId{e5b49d16} (00000000-0000-4000-8000-5b0ad1e5cc65)",
           "2026-05-21 21:55:09.921+0000 INFO  ======== Neo4j 2026.04.0 ========"
         ]
       },

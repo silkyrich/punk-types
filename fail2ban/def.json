@@ -16,7 +16,7 @@
     "max_bytes": 32768
   },
   "snapshot": {
-    "epoch": 7,
+    "epoch": 9,
     "lines_seen": 0,
     "nodes": [
       {
@@ -24,7 +24,7 @@
         "origin": "seed",
         "pattern": "^(?P<ts>[A-Z][a-z]{2}\\s+\\d{1,2} \\d{2}:\\d{2}:\\d{2}) (?P<host>\\S+) (?P<proc>[\\w.\\-/]+)(?:\\[(?P<pid>\\d+)\\])?: (?P<msg>.*)$",
         "parent": null,
-        "state": "active",
+        "state": "quarantined",
         "types": {
           "pid": "int"
         },
@@ -123,7 +123,7 @@
         "origin": "seed",
         "pattern": "^(?P<client_ip>\\S+) \\S+ (?P<auth_user>\\S+) \\[(?P<ts>[^\\]]+)\\] \"(?P<method>[A-Z]+) (?P<path>\\S+)(?: (?P<proto>[^\"]*))?\" (?P<status>\\d{3}) (?P<bytes>\\d+|-)",
         "parent": null,
-        "state": "active",
+        "state": "quarantined",
         "types": {
           "status": "int"
         },
@@ -171,7 +171,7 @@
         "origin": "seed",
         "pattern": "^(?P<level>[IWEF])(?P<mmdd>\\d{4} \\d{2}:\\d{2}:\\d{2}\\.\\d+)\\s+(?P<tid>\\d+) (?P<src_file>[\\w.\\-]+):(?P<src_line>\\d+)\\] (?P<msg>.*)$",
         "parent": null,
-        "state": "active",
+        "state": "quarantined",
         "types": {
           "src_line": "int",
           "tid": "int"
@@ -197,7 +197,7 @@
         "origin": "seed",
         "pattern": "^(?P<ts>\\d{4}-\\d{2}-\\d{2}[T ]\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?(?:Z|[+-][\\d:]{4,5})?)\\s+\\[?(?P<level>TRACE|DEBUG|INFO|WARN|WARNING|ERROR|FATAL|CRITICAL)\\]?\\s+(?P<msg>.*)$",
         "parent": null,
-        "state": "active",
+        "state": "quarantined",
         "types": {},
         "stats": {
           "attempts": 0,
@@ -269,7 +269,7 @@
         "origin": "seed",
         "pattern": "^(?P<ts>\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?(?:Z|[+-][\\d:]{4,5})?) (?P<proc>[\\w.\\-/@]+)(?:\\[(?P<pid>\\d+)\\])?: (?P<msg>.*)$",
         "parent": null,
-        "state": "active",
+        "state": "quarantined",
         "types": {
           "pid": "int"
         },
@@ -365,7 +365,7 @@
         "origin": "seed",
         "pattern": "^\\[(?P<ts>[\\dT:+\\-]+)\\] \\[(?P<component>[A-Z][A-Z\\-]+)\\] (?P<msg>.*)$",
         "parent": null,
-        "state": "active",
+        "state": "quarantined",
         "types": {},
         "stats": {
           "attempts": 0,
@@ -457,10 +457,10 @@
           "spot_passes": 0
         },
         "examples": [
-          "2026-06-12 12:17:44,671 fail2ban.filter         [542]: INFO    [sshd] Found 78.111.67.242 - 2026-06-12 12:17:44",
-          "2026-06-12 04:18:42,420 fail2ban.filter         [542]: INFO    [sshd] Found 151.80.35.225 - 2026-06-12 04:18:42",
-          "2026-06-12 00:47:46,170 fail2ban.filter         [542]: INFO    [sshd] Found 87.121.69.138 - 2026-06-12 00:47:45",
-          "2026-06-12 00:47:46,171 fail2ban.filter         [542]: INFO    [sshd] Found 87.121.69.138 - 2026-06-12 00:47:45"
+          "2026-06-12 14:53:54,922 fail2ban.filter         [542]: INFO    [sshd] Found 203.0.113.172 - 2026-06-12 14:53:54",
+          "2026-06-12 04:18:42,420 fail2ban.filter         [542]: INFO    [sshd] Found 203.0.113.87 - 2026-06-12 04:18:42",
+          "2026-06-11 12:23:23,170 fail2ban.filter         [542]: INFO    [sshd] Found 203.0.113.48 - 2026-06-11 12:23:22",
+          "2026-06-12 00:47:46,171 fail2ban.filter         [542]: INFO    [sshd] Found 203.0.113.245 - 2026-06-12 00:47:45"
         ]
       },
       {
@@ -490,10 +490,10 @@
           "spot_passes": 0
         },
         "examples": [
-          "2026-06-12 04:37:25,172 fail2ban.actions        [542]: NOTICE  [sshd] Ban 47.42.131.93",
-          "2026-06-12 04:37:47,195 fail2ban.actions        [542]: NOTICE  [sshd] Ban 152.42.219.80",
-          "2026-06-12 04:38:23,418 fail2ban.actions        [542]: NOTICE  [sshd] Ban 14.225.217.138",
-          "2026-06-12 04:49:25,627 fail2ban.actions        [542]: NOTICE  [sshd] Ban 77.105.37.219"
+          "2026-06-12 04:37:25,172 fail2ban.actions        [542]: NOTICE  [sshd] Ban 203.0.113.52",
+          "2026-06-12 04:37:47,195 fail2ban.actions        [542]: NOTICE  [sshd] Ban 203.0.113.106",
+          "2026-06-12 04:38:23,418 fail2ban.actions        [542]: NOTICE  [sshd] Ban 203.0.113.5",
+          "2026-06-12 04:49:25,627 fail2ban.actions        [542]: NOTICE  [sshd] Ban 203.0.113.242"
         ]
       },
       {
@@ -576,6 +576,40 @@
           "spot_passes": 0
         },
         "examples": []
+      },
+      {
+        "name": "mined_fail2ban_ipdns_unable_to_1",
+        "origin": "mined",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2})\\s+(?P<time>\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?)\\s+fail2ban\\.ipdns\\s+\\[(?P<f1>-?\\d+)\\]:\\s+(?P<level>(?i:TRACE|DEBUG|INFO|NOTICE|WARNING|WARN|ERROR|CRITICAL|FATAL|ERR|WRN|INF|DBG|TRC|PANIC|SEVERE|ALERT|EMERG))\\s+Unable\\s+to\\s+find\\s+a\\s+corresponding\\s+IP\\s+address\\s+for\\s+connection:\\s+\\[Errno\\s+\\-(?P<name>-?\\d+)\\]\\s+Name\\s+or\\s+service\\s+not\\s+known$",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "date": "date",
+          "f1": "int",
+          "level": "level",
+          "name": "int",
+          "time": "time"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2026-06-11 21:54:21,421 fail2ban.ipdns          [542]: WARNING Unable to find a corresponding IP address for connection: [Errno -2] Name or service not known",
+          "2026-06-11 22:03:05,921 fail2ban.ipdns          [542]: WARNING Unable to find a corresponding IP address for connection: [Errno -2] Name or service not known",
+          "2026-06-11 22:54:47,151 fail2ban.ipdns          [542]: WARNING Unable to find a corresponding IP address for connection: [Errno -2] Name or service not known",
+          "2026-06-11 23:04:33,421 fail2ban.ipdns          [542]: WARNING Unable to find a corresponding IP address for connection: [Errno -2] Name or service not known"
+        ]
       }
     ]
   }

@@ -1,13 +1,13 @@
 {"line":"Processes: 1067 total, 6 running, 1061 sleeping, 5830 threads","path":"mined_processes__total__running__14"}
 {"line":"2026/06/12 13:31:50","path":"mined_mined_2"}
-{"line":"Load Avg: 5.46, 7.18, 7.01","path":"mined_load_avg__3"}
+{"line":"Load Avg: 1.52, 1.61, 1.93","path":"mined_load_avg__3"}
 {"line":"CPU usage: 32.84% user, 16.85% sys, 50.30% idle","path":"mined_cpu_usage__user__4"}
 {"line":"SharedLibs: 748M resident, 140M data, 103M linkedit.","path":"mined_sharedlibs__resident__data__5"}
-{"line":"MemRegions: 829801 total, 6340M resident, 394M private, 2400M shared.","path":"mined_memregions__total__resident__6"}
-{"line":"PhysMem: 30G used (5319M wired, 11G compressor), 1218M unused.","path":"mined_physmem__used_wired__13"}
+{"line":"MemRegions: 826589 total, 7305M resident, 433M private, 2672M shared.","path":"mined_memregions__total__resident__6"}
+{"line":"PhysMem: 31G used (4218M wired, 12G compressor), 139M unused.","path":"mined_physmem__used_wired__13"}
 {"line":"VM: 458T vsize, 6144M framework vsize, 11071(0) swapins, 56828(0) swapouts.","path":null}
 {"line":"Networks: packets: 42115949/46G in, 14232799/10G out.","path":"mined_networks__packets__in__8"}
-{"line":"Disks: 172289211/2775G read, 139625912/2740G written.","path":"mined_disks__read__written__9"}
+{"line":"Disks: 175749219/2827G read, 140566800/2752G written.","path":"mined_disks__read__written__9"}
 {"line":"PID    COMMAND %CPU MEM   #TH STATE","path":"mined_pid_command__cpu_10"}
 {"line":"99401  node    0.0  38M   7   sleeping","path":"mined_node_sleeping_1"}
 {"line":"99387  node    0.0  32M   8   sleeping","path":"mined_node_sleeping_1"}
@@ -595,3 +595,149 @@
 {"line":"99163  mdworker_shared  0.0  2816K 5   sleeping","path":"mined_mdworker_shared_sleeping_3"}
 {"line":"99153  sleep            0.0  864K  1   sleeping","path":"mined_sleep_864k_sleeping_1"}
 {"line":"99148  TVCacheExtension 0.0  2832K 2   sleeping","path":null}
+{"line":"99404  top             0.0  25M   1/1 running","path":"mined_top_25m_running_2"}
+{"line":"99396  sleep           0.0  864K  1   sleeping","path":"mined_sleep_864k_sleeping_1"}
+{"line":"99383  sleep           0.0  864K  1   sleeping","path":"mined_sleep_864k_sleeping_1"}
+{"line":"99274  biomesyncd      0.0  3936K 2   sleeping","path":null}
+{"line":"99249  mdworker_shared 0.0  2624K 3   sleeping","path":"mined_mdworker_shared_sleeping_3"}
+{"line":"99591  top             0.0  25M   1/1 running","path":"mined_top_25m_running_2"}
+{"line":"99584  sleep           0.0  864K  1   sleeping","path":"mined_sleep_864k_sleeping_1"}
+{"line":"99537  mdworker_shared 0.0  2688K 3   sleeping","path":"mined_mdworker_shared_sleeping_3"}
+{"line":"99474  mdworker_shared 0.0  2672K 3   sleeping","path":"mined_mdworker_shared_sleeping_3"}
+{"line":"99752  top             0.0  25M   1/1 running","path":"mined_top_25m_running_2"}
+{"line":"99716  mdworker_shared 0.0  2672K 3   sleeping","path":"mined_mdworker_shared_sleeping_3"}
+{"line":"99706  mdworker_shared 0.0  2688K 4   sleeping","path":"mined_mdworker_shared_sleeping_3"}
+{"line":"99537  mdworker_shared 0.0  2704K 3   sleeping","path":"mined_mdworker_shared_sleeping_3"}
+{"line":"99905  top             0.0  25M   1/1 running","path":"mined_top_25m_running_2"}
+{"line":"99894  mdmclient       0.0  3264K 8   sleeping","path":null}
+{"line":"99893  ManagedClient   0.0  2960K 3   sleeping","path":null}
+{"line":"99891  GoogleUpdater   0.0  3089K 5   sleeping","path":null}
+{"line":"99889  GoogleUpdater   0.0  3985K 10  sleeping","path":null}
+{"line":"99887  GoogleUpdater   0.0  3089K 5   sleeping","path":null}
+{"line":"99885  GoogleUpdater   0.0  3425K 9   sleeping","path":null}
+{"line":"99883  GoogleUpdater   0.0  3089K 5   sleeping","path":null}
+{"line":"99881  GoogleUpdater   0.0  3409K 9   sleeping","path":null}
+{"line":"99880  GoogleUpdater   0.0  3089K 5   sleeping","path":null}
+{"line":"99878  GoogleUpdater   0.0  3313K 9   sleeping","path":null}
+{"line":"99824  mdworker_shared 0.0  2704K 3   sleeping","path":"mined_mdworker_shared_sleeping_3"}
+{"line":"99706  mdworker_shared 0.0  2672K 3   sleeping","path":"mined_mdworker_shared_sleeping_3"}
+{"line":"Processes: 1070 total, 2 running, 1 stuck, 1067 sleeping, 5627 threads","path":null}
+{"line":"99917  mdworker_shared 0.0  2720K 3   sleeping","path":"mined_mdworker_shared_sleeping_3"}
+{"line":"99916  mdworker_shared 0.0  2640K 3   sleeping","path":"mined_mdworker_shared_sleeping_3"}
+{"line":"99824  mdworker_shared 0.0  2704K 3   sleeping","path":"mined_mdworker_shared_sleeping_3"}
+{"line":"99706  mdworker_shared 0.0  2896K 3   sleeping","path":"mined_mdworker_shared_sleeping_3"}
+{"line":"99537  mdworker_shared 0.0  2928K 3   sleeping","path":"mined_mdworker_shared_sleeping_3"}
+{"line":"Processes: 1115 total, 5 running, 1 stuck, 1109 sleeping, 6098 threads","path":null}
+{"line":"99916  mdworker_shared  0.0  3424K 3   sleeping","path":"mined_mdworker_shared_sleeping_3"}
+{"line":"99706  mdworker_shared  0.0  3792K 3   sleeping","path":"mined_mdworker_shared_sleeping_3"}
+{"line":"99537  mdworker_shared  0.0  3856K 3   sleeping","path":"mined_mdworker_shared_sleeping_3"}
+{"line":"99092  com.apple.WebKit 0.0  22M   4   sleeping","path":null}
+{"line":"96434  CallHistorySyncH 0.0  10M   2   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"96434  CallHistorySyncH 0.0  10M   2   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"96434  CallHistorySyncH 0.0  10M   2   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"96434  CallHistorySyncH 0.0  10M   2   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"96434  CallHistorySyncH 0.0  10M   2   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"96434  CallHistorySyncH 0.0  10M   2   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"96434  CallHistorySyncH 0.0  10M   2   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"96434  CallHistorySyncH 0.0  10M   2   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"96434  CallHistorySyncH 0.0  10M   2   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"96434  CallHistorySyncH 0.0  10M   2   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"96434  CallHistorySyncH 0.0  10M   2   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"96434  CallHistorySyncH 0.0  10M   2   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"96434  CallHistorySyncH 0.0  10M   2   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"96434  CallHistorySyncH 0.0  10M   2   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"96434  CallHistorySyncH 0.0  10M   2   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"96434  CallHistorySyncH 0.0  10M   3   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"96434  CallHistorySyncH 0.0  10M   2   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"99092  com.apple.WebKit 0.0  18M   9   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"96434  CallHistorySyncH 0.0  10M   2   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"96263  VTEncoderXPCServ 0.0  6049K 2   sleeping","path":"mined_vtencoderxpcserv_sleeping_6"}
+{"line":"99092  com.apple.WebKit 0.0  18M   9   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"96434  CallHistorySyncH 0.0  10M   2   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"96263  VTEncoderXPCServ 0.0  6049K 2   sleeping","path":"mined_vtencoderxpcserv_sleeping_6"}
+{"line":"96262  com.apple.audio. 0.0  2912K 2   sleeping","path":"mined_com_apple_audio__2912k_sleeping_7"}
+{"line":"99092  com.apple.WebKit 0.0  18M   9   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"96434  CallHistorySyncH 0.0  10M   2   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"96263  VTEncoderXPCServ 0.0  6049K 2   sleeping","path":"mined_vtencoderxpcserv_sleeping_6"}
+{"line":"96262  com.apple.audio. 0.0  2912K 2   sleeping","path":"mined_com_apple_audio__2912k_sleeping_7"}
+{"line":"99092  com.apple.WebKit 0.0  18M   9   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"96434  CallHistorySyncH 0.0  10M   2   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"96263  VTEncoderXPCServ 0.0  6049K 2   sleeping","path":"mined_vtencoderxpcserv_sleeping_6"}
+{"line":"96262  com.apple.audio. 0.0  2912K 2   sleeping","path":"mined_com_apple_audio__2912k_sleeping_7"}
+{"line":"99092  com.apple.WebKit 0.0  18M   9   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"96434  CallHistorySyncH 0.0  10M   2   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"96263  VTEncoderXPCServ 0.0  6049K 2   sleeping","path":"mined_vtencoderxpcserv_sleeping_6"}
+{"line":"96262  com.apple.audio. 0.0  2912K 2   sleeping","path":"mined_com_apple_audio__2912k_sleeping_7"}
+{"line":"99092  com.apple.WebKit 0.0  18M   9   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"96434  CallHistorySyncH 0.0  10M   2   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"96263  VTEncoderXPCServ 0.0  6049K 2   sleeping","path":"mined_vtencoderxpcserv_sleeping_6"}
+{"line":"96262  com.apple.audio. 0.0  2912K 2   sleeping","path":"mined_com_apple_audio__2912k_sleeping_7"}
+{"line":"99092  com.apple.WebKit 0.0  18M   9   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"96434  CallHistorySyncH 0.0  10M   2   sleeping","path":"mined_callhistorysynch_sleeping_4"}
+{"line":"96263  VTEncoderXPCServ 0.0  6049K 2   sleeping","path":"mined_vtencoderxpcserv_sleeping_6"}
+{"line":"96262  com.apple.audio. 0.0  2912K 2   sleeping","path":"mined_com_apple_audio__2912k_sleeping_7"}
+{"line":"99092  com.apple.WebKit 0.0  18M   9   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"99092  com.apple.WebKit 0.0  18M   9   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"99092  com.apple.WebKit 0.0  18M   9   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"99092  com.apple.WebKit 0.0  18M   9   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"99092  com.apple.WebKit 0.0  18M   9   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"99092  com.apple.WebKit 0.0  18M   9   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"99092  com.apple.WebKit 0.0  18M   9   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"99092  com.apple.WebKit 0.0  18M   9   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"99092  com.apple.WebKit 0.0  18M   9   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"99092  com.apple.WebKit 0.0  18M   9   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"99092  com.apple.WebKit 0.0  18M   9   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"99092  com.apple.WebKit 0.0  18M   9   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"99092  com.apple.WebKit 0.0  18M   9   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"99092  com.apple.WebKit 0.0  18M   9   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"99092  com.apple.WebKit 0.0  18M   9   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"99092  com.apple.WebKit 0.0  18M   9   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"99092  com.apple.WebKit 0.0  18M   8   sleeping","path":"mined_com_apple_webkit_sleeping_5"}
+{"line":"96221  ControlCenterHel 0.0  6544K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}
+{"line":"96221  ControlCenterHel 0.0  6544K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}
+{"line":"96221  ControlCenterHel 0.0  6544K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}
+{"line":"96221  ControlCenterHel 0.0  6544K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}
+{"line":"96221  ControlCenterHel 0.0  6544K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}
+{"line":"96221  ControlCenterHel 0.0  6544K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}
+{"line":"96221  ControlCenterHel 0.0  6544K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}
+{"line":"96221  ControlCenterHel 0.0  6544K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}
+{"line":"96221  ControlCenterHel 0.0  6512K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}
+{"line":"96221  ControlCenterHel 0.0  6512K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}
+{"line":"96221  ControlCenterHel 0.0  6512K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}
+{"line":"96221  ControlCenterHel 0.0  6512K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}
+{"line":"96221  ControlCenterHel 0.0  6512K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}
+{"line":"96221  ControlCenterHel 0.0  6512K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}
+{"line":"96221  ControlCenterHel 0.0  6512K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}
+{"line":"96221  ControlCenterHel 0.0  6512K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}
+{"line":"96221  ControlCenterHel 0.0  6512K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}
+{"line":"96221  ControlCenterHel 0.0  6512K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}
+{"line":"96221  ControlCenterHel 0.0  6512K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}
+{"line":"96221  ControlCenterHel 0.0  6480K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}
+{"line":"96221  ControlCenterHel 0.0  6480K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}
+{"line":"96221  ControlCenterHel 0.0  6784K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}
+{"line":"96221  ControlCenterHel 0.0  6816K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}
+{"line":"96221  ControlCenterHel 0.0  6816K 3   sleeping","path":"mined_controlcenterhel_sleeping_8"}
+{"line":"93853  DockHelper       0.0  20M   6   sleeping","path":"mined_dockhelper_20m_sleeping_9"}

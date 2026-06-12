@@ -16,7 +16,7 @@
     "max_bytes": 32768
   },
   "snapshot": {
-    "epoch": 2,
+    "epoch": 3,
     "lines_seen": 0,
     "nodes": [
       {
@@ -289,7 +289,7 @@
         },
         "examples": [
           "2026-03-22T09:54:40Z WRN A new release of Traefik has been found: 3.6.11. Please consider updating.",
-          "2026-03-23T03:00:07Z WRN Failed to inspect container 2298991d89e919abc4abe19c29b696a78271b7c63f12618e8575cde5bf30314d error=\"Error response from daemon: No such container: 2298991d89e919abc4abe19c29b696a78271b7c63f12618e8575cde5bf30314d\" providerName=docker",
+          "2026-03-23T03:00:07Z WRN Failed to inspect container 1203276a855f5d21 error=\"Error response from daemon: No such container: 1203276a855f5d21\" providerName=docker",
           "2026-03-23T09:54:40Z WRN A new release of Traefik has been found: 3.6.11. Please consider updating.",
           "2026-04-23T09:54:40Z WRN A new release of Traefik has been found: 3.6.14. Please consider updating."
         ]
@@ -443,6 +443,87 @@
         "parent": 15,
         "state": "active",
         "types": {},
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "tplink",
+        "origin": "seed",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2}) (?P<time>\\d{2}:\\d{2}:\\d{2}) (?P<facility>.+?) (?P<level>DEBUG|INFO|NOTICE|WARNING|ERROR|CRITICAL) \\[(?P<msg_id>\\d+)\\] (?P<msg>.*)$",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "date": "date",
+          "msg_id": "int",
+          "time": "time"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "device_seen",
+        "origin": "seed",
+        "pattern": "Insert device, MAC is (?P<mac>[0-9A-Fa-f]{2}(?:[:\\-][0-9A-Fa-f]{2}){5})",
+        "parent": 18,
+        "state": "active",
+        "types": {
+          "mac": "mac"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "dhcp_ack",
+        "origin": "seed",
+        "pattern": "receive ack from server with ip (?P<server_ip>[\\d.]+)(?:, options\\(serverid=(?P<dhcp_server>[\\d.]+);lease=(?P<lease_s>\\d+);subnet=(?P<subnet>[\\d.]+);router=(?P<gateway>[\\d.]+);dns=(?P<dns>[^;)]*))?",
+        "parent": 18,
+        "state": "active",
+        "types": {
+          "dhcp_server": "ip",
+          "gateway": "ip",
+          "lease_s": "int",
+          "server_ip": "ip",
+          "subnet": "ip"
+        },
         "stats": {
           "attempts": 0,
           "hits": 0,

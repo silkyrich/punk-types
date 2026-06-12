@@ -352,10 +352,10 @@
           "spot_passes": 0
         },
         "examples": [
-          "2026-06-12T13:00:46+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 161 bytes)",
-          "2026-06-12T13:04:17+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 159 bytes)",
-          "2026-06-12T12:34:32+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 161 bytes)",
-          "2026-06-12T13:16:42+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 160 bytes)"
+          "2026-06-12T15:15:01+00:00 punk-it[773820]: [punk-it fwd] shipped 9 lines (2085 -> 398 bytes)",
+          "2026-06-12T15:16:35+00:00 punk-it[773820]: [punk-it fwd] shipped 1 lines (207 -> 184 bytes)",
+          "2026-06-12T15:05:30+00:00 punk-it[773820]: [punk-it fwd] shipped 1 lines (207 -> 183 bytes)",
+          "2026-06-12T15:12:24+00:00 punk-it[773820]: [punk-it fwd] shipped 1 lines (207 -> 182 bytes)"
         ]
       },
       {
@@ -382,7 +382,7 @@
         "examples": [
           "2026-06-11T21:50:00+00:00 CROND[4124210]: (claude) CMD (/home/claude/scripts/plex-monitor.sh)",
           "2026-06-12T09:10:01+00:00 CROND[521781]: (claude) CMDEND (/home/claude/scripts/plex-monitor.sh)",
-          "2026-06-12T05:35:00+00:00 CROND[333340]: (claude) CMDEND (/home/claude/media-stack/drive-monitor.sh)",
+          "2026-06-12T14:00:00+00:00 CROND[775504]: (claude) CMD (/home/claude/media-stack/drive-monitor.sh)",
           "2026-06-12T03:50:01+00:00 CROND[240708]: (claude) CMDEND (/home/claude/scripts/plex-monitor.sh)"
         ]
       },
@@ -433,10 +433,10 @@
           "spot_passes": 0
         },
         "examples": [
-          "2026-06-11T23:40:06+00:00 systemd[1]: Started libcontainer container 7f70f474b5c1feed089641e5c30e6b522340bd00664b0cd2a54601a4cd2f9d85.",
+          "2026-06-11T23:40:06+00:00 systemd[1]: Started libcontainer container 4fa5f12e719d9927.",
           "2026-06-12T00:00:01+00:00 systemd[1]: Started Verify integrity of password and group files.",
-          "2026-06-12T00:50:05+00:00 systemd[1]: Started libcontainer container 7f70f474b5c1feed089641e5c30e6b522340bd00664b0cd2a54601a4cd2f9d85.",
-          "2026-06-12T02:00:07+00:00 systemd[1]: Started libcontainer container 7f70f474b5c1feed089641e5c30e6b522340bd00664b0cd2a54601a4cd2f9d85."
+          "2026-06-12T00:50:05+00:00 systemd[1]: Started libcontainer container 4fa5f12e719d9927.",
+          "2026-06-12T02:00:07+00:00 systemd[1]: Started libcontainer container 4fa5f12e719d9927."
         ]
       },
       {

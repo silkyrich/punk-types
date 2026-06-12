@@ -1,0 +1,180 @@
+{"line":"Docker is used for versioning skip update check","path":null}
+{"line":"[custom-init] No custom files found, skipping...","path":null}
+{"line":"Starting Plex Media Server. . . (you can ignore the libusb_init error)","path":null}
+{"line":"Connection to localhost (127.0.0.1) 32400 port [tcp/*] succeeded!","path":null}
+{"line":"[ls.io-init] done.","path":null}
+{"line":"Critical: libusb_init failed","path":null}
+{"line":"[migrations] started","path":null}
+{"line":"[migrations] no migrations found","path":null}
+{"line":"usermod: no changes","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"      ██╗     ███████╗██╗ ██████╗","path":null}
+{"line":"      ██║     ██╔════╝██║██╔═══██╗","path":null}
+{"line":"      ██║     ███████╗██║██║   ██║","path":null}
+{"line":"      ██║     ╚════██║██║██║   ██║","path":null}
+{"line":"      ███████╗███████║██║╚██████╔╝","path":null}
+{"line":"      ╚══════╝╚══════╝╚═╝ ╚═════╝","path":null}
+{"line":"   Brought to you by linuxserver.io","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"To support LSIO projects visit:","path":null}
+{"line":"https://www.linuxserver.io/donate/","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"GID/UID","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"User UID:    1001","path":null}
+{"line":"User GID:    1001","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"Linuxserver.io version: 1.43.1.10611-1e34174b1-ls305","path":null}
+{"line":"Build-date: 2026-05-11T12:21:29+00:00","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"    ","path":null}
+{"line":"**** permissions for /dev/dri/renderD128 are good ****","path":null}
+{"line":"**** permissions for /dev/dri/card1 are good ****","path":null}
+{"line":"**** Server already claimed ****","path":null}
+{"line":"Docker is used for versioning skip update check","path":null}
+{"line":"[custom-init] No custom files found, skipping...","path":null}
+{"line":"Starting Plex Media Server. . . (you can ignore the libusb_init error)","path":null}
+{"line":"Connection to localhost (127.0.0.1) 32400 port [tcp/*] succeeded!","path":null}
+{"line":"[ls.io-init] done.","path":null}
+{"line":"Critical: libusb_init failed","path":null}
+{"line":"[migrations] started","path":null}
+{"line":"[migrations] no migrations found","path":null}
+{"line":"usermod: no changes","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"      ██╗     ███████╗██╗ ██████╗","path":null}
+{"line":"      ██║     ██╔════╝██║██╔═══██╗","path":null}
+{"line":"      ██║     ███████╗██║██║   ██║","path":null}
+{"line":"      ██║     ╚════██║██║██║   ██║","path":null}
+{"line":"      ███████╗███████║██║╚██████╔╝","path":null}
+{"line":"      ╚══════╝╚══════╝╚═╝ ╚═════╝","path":null}
+{"line":"   Brought to you by linuxserver.io","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"To support LSIO projects visit:","path":null}
+{"line":"https://www.linuxserver.io/donate/","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"GID/UID","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"User UID:    1001","path":null}
+{"line":"User GID:    1001","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"Linuxserver.io version: 1.43.1.10611-1e34174b1-ls305","path":null}
+{"line":"Build-date: 2026-05-11T12:21:29+00:00","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"    ","path":null}
+{"line":"**** permissions for /dev/dri/renderD128 are good ****","path":null}
+{"line":"**** permissions for /dev/dri/card1 are good ****","path":null}
+{"line":"**** Server already claimed ****","path":null}
+{"line":"Docker is used for versioning skip update check","path":null}
+{"line":"[custom-init] No custom files found, skipping...","path":null}
+{"line":"Starting Plex Media Server. . . (you can ignore the libusb_init error)","path":null}
+{"line":"Connection to localhost (127.0.0.1) 32400 port [tcp/*] succeeded!","path":null}
+{"line":"[ls.io-init] done.","path":null}
+{"line":"Critical: libusb_init failed","path":null}
+{"line":"ERROR: Empty fingerprint","path":null}
+{"line":"Generated new chapter thumbnails for Avatar: Fire and Ash.","path":null}
+{"line":"Generated new chapter thumbnails for Pokémon: The First Movie.","path":null}
+{"line":"Generated new chapter thumbnails for How to Train Your Dragon: The Hidden World.","path":null}
+{"line":"Generated new chapter thumbnails for How to Train Your Dragon: The Hidden World.","path":null}
+{"line":"Generated new chapter thumbnails for The Boy Next Door.","path":null}
+{"line":"Generated new chapter thumbnails for Avatar: Fire and Ash.","path":null}
+{"line":"Generated new chapter thumbnails for Pokémon: The First Movie.","path":null}
+{"line":"Generated new chapter thumbnails for How to Train Your Dragon: The Hidden World.","path":null}
+{"line":"Generated new chapter thumbnails for How to Train Your Dragon: The Hidden World.","path":null}
+{"line":"Generated new chapter thumbnails for The Boy Next Door.","path":null}
+{"line":"ERROR: Empty fingerprint","path":null}
+{"line":"ERROR: Empty fingerprint","path":null}
+{"line":"Generated new chapter thumbnails for Avatar: Fire and Ash.","path":null}
+{"line":"Generated new chapter thumbnails for Pokémon: The First Movie.","path":null}
+{"line":"Generated new chapter thumbnails for How to Train Your Dragon: The Hidden World.","path":null}
+{"line":"Generated new chapter thumbnails for How to Train Your Dragon: The Hidden World.","path":null}
+{"line":"Generated new chapter thumbnails for The Boy Next Door.","path":null}
+{"line":"Docker is used for versioning skip update check","path":null}
+{"line":"[custom-init] No custom files found, skipping...","path":null}
+{"line":"Starting Plex Media Server. . . (you can ignore the libusb_init error)","path":null}
+{"line":"Connection to localhost (127.0.0.1) 32400 port [tcp/*] succeeded!","path":null}
+{"line":"[ls.io-init] done.","path":null}
+{"line":"Critical: libusb_init failed","path":null}
+{"line":"[migrations] started","path":null}
+{"line":"[migrations] no migrations found","path":null}
+{"line":"usermod: no changes","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"      ██╗     ███████╗██╗ ██████╗","path":null}
+{"line":"      ██║     ██╔════╝██║██╔═══██╗","path":null}
+{"line":"      ██║     ███████╗██║██║   ██║","path":null}
+{"line":"      ██║     ╚════██║██║██║   ██║","path":null}
+{"line":"      ███████╗███████║██║╚██████╔╝","path":null}
+{"line":"      ╚══════╝╚══════╝╚═╝ ╚═════╝","path":null}
+{"line":"   Brought to you by linuxserver.io","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"To support LSIO projects visit:","path":null}
+{"line":"https://www.linuxserver.io/donate/","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"GID/UID","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"User UID:    1001","path":null}
+{"line":"User GID:    1001","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"Linuxserver.io version: 1.43.1.10611-1e34174b1-ls305","path":null}
+{"line":"Build-date: 2026-05-11T12:21:29+00:00","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"    ","path":null}
+{"line":"**** permissions for /dev/dri/renderD128 are good ****","path":null}
+{"line":"**** permissions for /dev/dri/card1 are good ****","path":null}
+{"line":"**** Server already claimed ****","path":null}
+{"line":"Docker is used for versioning skip update check","path":null}
+{"line":"[custom-init] No custom files found, skipping...","path":null}
+{"line":"Starting Plex Media Server. . . (you can ignore the libusb_init error)","path":null}
+{"line":"Connection to localhost (127.0.0.1) 32400 port [tcp/*] succeeded!","path":null}
+{"line":"[ls.io-init] done.","path":null}
+{"line":"Critical: libusb_init failed","path":null}
+{"line":"[migrations] started","path":null}
+{"line":"[migrations] no migrations found","path":null}
+{"line":"usermod: no changes","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"      ██╗     ███████╗██╗ ██████╗","path":null}
+{"line":"      ██║     ██╔════╝██║██╔═══██╗","path":null}
+{"line":"      ██║     ███████╗██║██║   ██║","path":null}
+{"line":"      ██║     ╚════██║██║██║   ██║","path":null}
+{"line":"      ███████╗███████║██║╚██████╔╝","path":null}
+{"line":"      ╚══════╝╚══════╝╚═╝ ╚═════╝","path":null}
+{"line":"   Brought to you by linuxserver.io","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"To support LSIO projects visit:","path":null}
+{"line":"https://www.linuxserver.io/donate/","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"GID/UID","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"User UID:    1001","path":null}
+{"line":"User GID:    1001","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"Linuxserver.io version: 1.43.1.10611-1e34174b1-ls305","path":null}
+{"line":"Build-date: 2026-05-11T12:21:29+00:00","path":null}
+{"line":"───────────────────────────────────────","path":null}
+{"line":"    ","path":null}
+{"line":"**** permissions for /dev/dri/renderD128 are good ****","path":null}
+{"line":"**** permissions for /dev/dri/card1 are good ****","path":null}
+{"line":"**** Server already claimed ****","path":null}
+{"line":"Docker is used for versioning skip update check","path":null}
+{"line":"[custom-init] No custom files found, skipping...","path":null}
+{"line":"Starting Plex Media Server. . . (you can ignore the libusb_init error)","path":null}
+{"line":"Connection to localhost (127.0.0.1) 32400 port [tcp/*] succeeded!","path":null}
+{"line":"[ls.io-init] done.","path":null}
+{"line":"Critical: libusb_init failed","path":null}
+{"line":"ERROR: Empty fingerprint","path":null}
+{"line":"Generated new chapter thumbnails for Avatar: Fire and Ash.","path":null}
+{"line":"Generated new chapter thumbnails for Pokémon: The First Movie.","path":null}
+{"line":"Generated new chapter thumbnails for How to Train Your Dragon: The Hidden World.","path":null}
+{"line":"Generated new chapter thumbnails for How to Train Your Dragon: The Hidden World.","path":null}
+{"line":"Generated new chapter thumbnails for The Boy Next Door.","path":null}
+{"line":"Generated new chapter thumbnails for Avatar: Fire and Ash.","path":null}
+{"line":"Generated new chapter thumbnails for Pokémon: The First Movie.","path":null}
+{"line":"Generated new chapter thumbnails for How to Train Your Dragon: The Hidden World.","path":null}
+{"line":"Generated new chapter thumbnails for How to Train Your Dragon: The Hidden World.","path":null}
+{"line":"Generated new chapter thumbnails for The Boy Next Door.","path":null}
+{"line":"ERROR: Empty fingerprint","path":null}
+{"line":"ERROR: Empty fingerprint","path":null}
+{"line":"Generated new chapter thumbnails for Avatar: Fire and Ash.","path":null}
+{"line":"Generated new chapter thumbnails for Pokémon: The First Movie.","path":null}
+{"line":"Generated new chapter thumbnails for How to Train Your Dragon: The Hidden World.","path":null}
+{"line":"Generated new chapter thumbnails for How to Train Your Dragon: The Hidden World.","path":null}
+{"line":"Generated new chapter thumbnails for The Boy Next Door.","path":null}

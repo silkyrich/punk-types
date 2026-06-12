@@ -1,0 +1,6 @@
+{"line":"2026-06-12 11:25:52 Local Management NOTICE [6046] Accessable mode change: Devices in the list.","path":"tplink"}
+{"line":"2026-06-12 11:25:48 Local Management INFO [5945] Insert device, MAC is 02:00:00:92:cb:8f.","path":"tplink/device_seen"}
+{"line":"2026-06-12 11:12:33 DHCPC INFO [27138] receive ack from server with ip 203.0.113.130, options(serverid=203.0.113.136;lease=3600;subnet=203.0.113.41;router=203.0.113.65;dns=203.0.113.201;cliid=01/02:00:00:67:08:82;)","path":"tplink/dhcp_ack"}
+{"line":"2026-06-12 11:25:52 Local Management NOTICE [6046] Accessable mode change: Devices in the list.","path":"tplink"}
+{"line":"2026-06-12 11:25:48 Local Management INFO [5945] Insert device, MAC is 02:00:00:92:cb:8f.","path":"tplink/device_seen"}
+{"line":"2026-06-12 11:12:33 DHCPC INFO [27138] receive ack from server with ip 203.0.113.130, options(serverid=203.0.113.136;lease=3600;subnet=203.0.113.41;router=203.0.113.65;dns=203.0.113.201;cliid=01/02:00:00:67:08:82;)","path":"tplink/dhcp_ack"}

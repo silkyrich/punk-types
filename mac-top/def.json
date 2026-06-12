@@ -16,7 +16,7 @@
     "max_bytes": 32768
   },
   "snapshot": {
-    "epoch": 24,
+    "epoch": 34,
     "lines_seen": 0,
     "nodes": [
       {
@@ -626,7 +626,7 @@
         "origin": "mined",
         "pattern": "^VM:\\s+(?P<f1>\\S+)\\s+vsize,\\s+6144M\\s+framework\\s+vsize,\\s+(?P<f2>\\S+)\\s+swapins,\\s+45996\\(0\\)\\s+swapouts\\.$",
         "parent": null,
-        "state": "active",
+        "state": "quarantined",
         "types": {
           "f1": "any",
           "f2": "any"
@@ -677,7 +677,7 @@
           "spot_passes": 0
         },
         "examples": [
-          "Networks: packets: 42110289/46G in, 14226974/10G out.",
+          "Networks: packets: 42393354/46G in, 14447429/10G out.",
           "Networks: packets: 35243447/36G in, 13424673/9281M out.",
           "Networks: packets: 35245035/36G in, 13426122/9286M out.",
           "Networks: packets: 35246895/37G in, 13427747/9290M out."
@@ -711,7 +711,7 @@
           "Disks: 173923346/2799G read, 140037546/2746G written.",
           "Disks: 169127326/2698G read, 138887874/2715G written.",
           "Disks: 169843776/2707G read, 139040810/2718G written.",
-          "Disks: 169130217/2699G read, 138890835/2715G written."
+          "Disks: 175738129/2826G read, 140560259/2752G written."
         ]
       },
       {
@@ -879,7 +879,7 @@
         "origin": "seed",
         "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2}) (?P<time>\\d{2}:\\d{2}:\\d{2}) (?P<facility>.+?) (?P<level>DEBUG|INFO|NOTICE|WARNING|ERROR|CRITICAL) \\[(?P<msg_id>\\d+)\\] (?P<msg>.*)$",
         "parent": null,
-        "state": "active",
+        "state": "quarantined",
         "types": {
           "date": "date",
           "msg_id": "int",
@@ -960,7 +960,7 @@
         "origin": "mined",
         "pattern": "^VM:\\s+(?P<f1>\\S+)\\s+vsize,\\s+6144M\\s+framework\\s+vsize,\\s+(?P<f2>\\S+)\\s+swapins,\\s+56828\\(0\\)\\s+swapouts\\.$",
         "parent": null,
-        "state": "candidate",
+        "state": "active",
         "types": {
           "f1": "any",
           "f2": "any"
@@ -980,7 +980,7 @@
           "spot_passes": 0
         },
         "examples": [
-          "VM: 460T vsize, 6144M framework vsize, 11773(0) swapins, 56828(0) swapouts.",
+          "VM: 446T vsize, 6144M framework vsize, 11953(0) swapins, 56828(0) swapouts.",
           "VM: 460T vsize, 6144M framework vsize, 11773(0) swapins, 56828(0) swapouts.",
           "VM: 461T vsize, 6144M framework vsize, 11773(0) swapins, 56828(0) swapouts.",
           "VM: 463T vsize, 6144M framework vsize, 11781(0) swapins, 56828(0) swapouts."
@@ -1080,6 +1080,202 @@
           "98952  mdworker_shared 0.0  2688K 3   sleeping",
           "98951  mdworker_shared 0.0  2688K 3   sleeping",
           "99163  mdworker_shared  0.0  2816K 5   sleeping"
+        ]
+      },
+      {
+        "name": "mined_callhistorysynch_sleeping_4",
+        "origin": "mined",
+        "pattern": "^(?P<callhistorysynch>-?\\d+)\\s+CallHistorySyncH\\s+(?P<f1>-?\\d+\\.\\d+)\\s+(?P<f2>\\S+)\\s+(?P<sleeping>-?\\d+)\\s+sleeping$",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "callhistorysynch": "int",
+          "f1": "float",
+          "f2": "any",
+          "sleeping": "int"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "96434  CallHistorySyncH 0.0  10M   2   sleeping",
+          "96434  CallHistorySyncH 0.0  10M   2   sleeping",
+          "96434  CallHistorySyncH 0.0  10M   2   sleeping",
+          "96434  CallHistorySyncH 0.0  10M   2   sleeping"
+        ]
+      },
+      {
+        "name": "mined_com_apple_webkit_sleeping_5",
+        "origin": "mined",
+        "pattern": "^(?P<f1>-?\\d+)\\s+com\\.apple\\.WebKit\\s+(?P<f2>-?\\d+\\.\\d+)\\s+(?P<f3>\\S+)\\s+(?P<sleeping>-?\\d+)\\s+sleeping$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "f1": "int",
+          "f2": "float",
+          "f3": "any",
+          "sleeping": "int"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "99092  com.apple.WebKit 0.0  18M   9   sleeping",
+          "99092  com.apple.WebKit 0.0  18M   9   sleeping",
+          "99092  com.apple.WebKit 0.0  18M   9   sleeping",
+          "99092  com.apple.WebKit 0.0  18M   9   sleeping"
+        ]
+      },
+      {
+        "name": "mined_vtencoderxpcserv_sleeping_6",
+        "origin": "mined",
+        "pattern": "^(?P<vtencoderxpcserv>-?\\d+)\\s+VTEncoderXPCServ\\s+(?P<f1>-?\\d+\\.\\d+)\\s+(?P<f2>\\S+)\\s+(?P<sleeping>-?\\d+)\\s+sleeping$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "f1": "float",
+          "f2": "any",
+          "sleeping": "int",
+          "vtencoderxpcserv": "int"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "96263  VTEncoderXPCServ 0.0  6049K 2   sleeping",
+          "96263  VTEncoderXPCServ 0.0  6049K 2   sleeping",
+          "96263  VTEncoderXPCServ 0.0  6049K 2   sleeping",
+          "96263  VTEncoderXPCServ 0.0  6049K 2   sleeping"
+        ]
+      },
+      {
+        "name": "mined_com_apple_audio__2912k_sleeping_7",
+        "origin": "mined",
+        "pattern": "^(?P<f1>-?\\d+)\\s+com\\.apple\\.audio\\.\\s+(?P<f2>-?\\d+\\.\\d+)\\s+2912K\\s+(?P<sleeping>-?\\d+)\\s+sleeping$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "f1": "int",
+          "f2": "float",
+          "sleeping": "int"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "96262  com.apple.audio. 0.0  2912K 2   sleeping",
+          "96262  com.apple.audio. 0.0  2912K 2   sleeping",
+          "96262  com.apple.audio. 0.0  2912K 2   sleeping",
+          "96262  com.apple.audio. 0.0  2912K 2   sleeping"
+        ]
+      },
+      {
+        "name": "mined_controlcenterhel_sleeping_8",
+        "origin": "mined",
+        "pattern": "^(?P<controlcenterhel>-?\\d+)\\s+ControlCenterHel\\s+(?P<f1>-?\\d+\\.\\d+)\\s+(?P<f2>\\S+)\\s+(?P<sleeping>-?\\d+)\\s+sleeping$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "controlcenterhel": "int",
+          "f1": "float",
+          "f2": "any",
+          "sleeping": "int"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "96221  ControlCenterHel 0.0  6544K 3   sleeping",
+          "96221  ControlCenterHel 0.0  6544K 3   sleeping",
+          "96221  ControlCenterHel 0.0  6544K 3   sleeping",
+          "96221  ControlCenterHel 0.0  6544K 3   sleeping"
+        ]
+      },
+      {
+        "name": "mined_dockhelper_20m_sleeping_9",
+        "origin": "mined",
+        "pattern": "^(?P<dockhelper>-?\\d+)\\s+DockHelper\\s+(?P<f1>-?\\d+\\.\\d+)\\s+20M\\s+(?P<sleeping>-?\\d+)\\s+sleeping$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "dockhelper": "int",
+          "f1": "float",
+          "sleeping": "int"
+        },
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "93853  DockHelper       0.0  20M   6   sleeping",
+          "93853  DockHelper       0.0  20M   6   sleeping",
+          "93853  DockHelper       0.0  20M   6   sleeping",
+          "93853  DockHelper       0.0  20M   6   sleeping"
         ]
       }
     ]

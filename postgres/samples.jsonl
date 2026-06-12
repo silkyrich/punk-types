@@ -1,0 +1,26 @@
+{"line":"PostgreSQL Database directory appears to contain a database; Skipping initialization","path":null}
+{"line":"2026-03-03 11:15:39.301 UTC [1] LOG:  starting PostgreSQL 16.11 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit","path":"pg_log"}
+{"line":"2026-03-03 11:15:39.301 UTC [1] LOG:  listening on IPv4 address \"0.0.0.0\", port 5432","path":"pg_log"}
+{"line":"2026-03-03 11:15:39.301 UTC [1] LOG:  listening on IPv6 address \"::\", port 5432","path":"pg_log"}
+{"line":"2026-03-03 11:15:39.334 UTC [1] LOG:  listening on Unix socket \"/var/run/postgresql/.s.PGSQL.5432\"","path":"pg_log"}
+{"line":"2026-03-03 11:15:39.368 UTC [29] LOG:  database system was shut down at 2026-03-02 01:51:27 UTC","path":"pg_log"}
+{"line":"2026-03-03 11:15:39.562 UTC [1] LOG:  database system is ready to accept connections","path":"pg_log"}
+{"line":"2026-03-03 11:20:39.453 UTC [27] LOG:  checkpoint starting: time","path":"pg_log"}
+{"line":"2026-03-03 11:20:40.030 UTC [27] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.095 s, total=0.578 s; sync files=2, longest=0.048 s, average=0.048 s; distance=0 kB, estimate=0 kB; lsn=0/1939738, redo lsn=0/1939700\nPostgreSQL Database directory appears to contain a database; Skipping initialization","path":"pg_log"}
+{"line":"2026-04-25 15:10:55.972 UTC [1] LOG:  starting PostgreSQL 16.11 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit","path":"pg_log"}
+{"line":"2026-04-25 15:10:55.972 UTC [1] LOG:  listening on IPv4 address \"0.0.0.0\", port 5432","path":"pg_log"}
+{"line":"2026-04-25 15:10:55.972 UTC [1] LOG:  listening on IPv6 address \"::\", port 5432","path":"pg_log"}
+{"line":"2026-04-25 15:10:55.982 UTC [1] LOG:  listening on Unix socket \"/var/run/postgresql/.s.PGSQL.5432\"","path":"pg_log"}
+{"line":"2026-04-25 15:10:55.996 UTC [29] LOG:  database system was interrupted; last known up at 2026-03-03 11:20:39 UTC","path":"pg_log"}
+{"line":"2026-04-25 15:10:56.143 UTC [29] LOG:  database system was not properly shut down; automatic recovery in progress","path":"pg_log"}
+{"line":"2026-04-25 15:10:56.147 UTC [29] LOG:  redo starts at 0/1939700","path":"pg_log"}
+{"line":"2026-04-25 15:10:56.147 UTC [29] LOG:  invalid record length at 0/19397E8: expected at least 24, got 0","path":"pg_log"}
+{"line":"2026-04-25 15:10:56.147 UTC [29] LOG:  redo done at 0/19397B0 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s","path":"pg_log"}
+{"line":"2026-04-25 15:10:56.170 UTC [27] LOG:  checkpoint starting: end-of-recovery immediate wait","path":"pg_log"}
+{"line":"2026-04-25 15:10:56.222 UTC [27] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.008 s, total=0.056 s; sync files=2, longest=0.005 s, average=0.004 s; distance=0 kB, estimate=0 kB; lsn=0/19397E8, redo lsn=0/19397E8","path":"pg_log"}
+{"line":"2026-04-25 15:10:56.240 UTC [1] LOG:  database system is ready to accept connections","path":"pg_log"}
+{"line":"PostgreSQL Database directory appears to contain a database; Skipping initialization","path":null}
+{"line":"2026-03-03 11:15:39.301 UTC [1] LOG:  starting PostgreSQL 16.11 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit","path":"pg_log"}
+{"line":"2026-03-03 11:15:39.301 UTC [1] LOG:  listening on IPv4 address \"0.0.0.0\", port 5432","path":"pg_log"}
+{"line":"2026-03-03 11:15:39.301 UTC [1] LOG:  listening on IPv6 address \"::\", port 5432","path":"pg_log"}
+{"line":"2026-03-03 11:15:39.334 UTC [1] LOG:  listening on Unix socket \"/var/run/postgresql/.s.PGSQL.5432\"","path":"pg_log"}

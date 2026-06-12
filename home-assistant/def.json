@@ -16,7 +16,7 @@
     "max_bytes": 32768
   },
   "snapshot": {
-    "epoch": 4,
+    "epoch": 6,
     "lines_seen": 0,
     "nodes": [
       {
@@ -24,7 +24,7 @@
         "origin": "seed",
         "pattern": "^(?P<ts>[A-Z][a-z]{2}\\s+\\d{1,2} \\d{2}:\\d{2}:\\d{2}) (?P<host>\\S+) (?P<proc>[\\w.\\-/]+)(?:\\[(?P<pid>\\d+)\\])?: (?P<msg>.*)$",
         "parent": null,
-        "state": "active",
+        "state": "quarantined",
         "types": {
           "pid": "int"
         },
@@ -123,7 +123,7 @@
         "origin": "seed",
         "pattern": "^(?P<client_ip>\\S+) \\S+ (?P<auth_user>\\S+) \\[(?P<ts>[^\\]]+)\\] \"(?P<method>[A-Z]+) (?P<path>\\S+)(?: (?P<proto>[^\"]*))?\" (?P<status>\\d{3}) (?P<bytes>\\d+|-)",
         "parent": null,
-        "state": "active",
+        "state": "quarantined",
         "types": {
           "status": "int"
         },
@@ -171,7 +171,7 @@
         "origin": "seed",
         "pattern": "^(?P<level>[IWEF])(?P<mmdd>\\d{4} \\d{2}:\\d{2}:\\d{2}\\.\\d+)\\s+(?P<tid>\\d+) (?P<src_file>[\\w.\\-]+):(?P<src_line>\\d+)\\] (?P<msg>.*)$",
         "parent": null,
-        "state": "active",
+        "state": "quarantined",
         "types": {
           "src_line": "int",
           "tid": "int"
@@ -214,10 +214,10 @@
           "spot_passes": 0
         },
         "examples": [
-          "2026-06-12 14:04:50.089 ERROR (MainThread) [habluetooth.scanner] hci0 (AC:7B:A1:4D:FB:0B): Failed to force stop scanner: 'NoneType' object has no attribute 'send'",
-          "2026-06-12 08:26:22.100 ERROR (MainThread) [habluetooth.scanner] hci0 (AC:7B:A1:4D:FB:0B): Failed to force stop scanner: 'NoneType' object has no attribute 'send'",
-          "2026-06-12 04:21:10.102 WARNING (MainThread) [homeassistant.components.sonos.speaker] Creating subscriptions failed for Archies Room",
-          "2026-06-12 13:07:31.105 ERROR (MainThread) [habluetooth.scanner] hci0 (AC:7B:A1:4D:FB:0B): Failed to force stop scanner: 'NoneType' object has no attribute 'send'"
+          "2026-06-12 14:04:50.089 ERROR (MainThread) [habluetooth.scanner] hci0 (02:00:00:77:84:d4): Failed to force stop scanner: 'NoneType' object has no attribute 'send'",
+          "2026-06-12 08:26:22.100 ERROR (MainThread) [habluetooth.scanner] hci0 (02:00:00:77:84:d4): Failed to force stop scanner: 'NoneType' object has no attribute 'send'",
+          "2026-06-12 04:21:10.102 WARNING (MainThread) [homeassistant.components.sonos.speaker] Creating subscriptions failed for redacted8",
+          "2026-06-12 16:11:54.040 ERROR (MainThread) [habluetooth.scanner] hci0 (02:00:00:77:84:d4): Failed to force stop scanner: 'NoneType' object has no attribute 'send'"
         ]
       },
       {
@@ -274,7 +274,7 @@
         "origin": "seed",
         "pattern": "^(?P<ts>\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?(?:Z|[+-][\\d:]{4,5})?) (?P<proc>[\\w.\\-/@]+)(?:\\[(?P<pid>\\d+)\\])?: (?P<msg>.*)$",
         "parent": null,
-        "state": "active",
+        "state": "quarantined",
         "types": {
           "pid": "int"
         },
@@ -370,7 +370,7 @@
         "origin": "seed",
         "pattern": "^\\[(?P<ts>[\\dT:+\\-]+)\\] \\[(?P<component>[A-Z][A-Z\\-]+)\\] (?P<msg>.*)$",
         "parent": null,
-        "state": "active",
+        "state": "quarantined",
         "types": {},
         "stats": {
           "attempts": 0,
@@ -465,7 +465,7 @@
         "origin": "seed",
         "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2}) (?P<time>\\d{2}:\\d{2}:\\d{2}) (?P<facility>.+?) (?P<level>DEBUG|INFO|NOTICE|WARNING|ERROR|CRITICAL) \\[(?P<msg_id>\\d+)\\] (?P<msg>.*)$",
         "parent": null,
-        "state": "active",
+        "state": "quarantined",
         "types": {
           "date": "date",
           "msg_id": "int",

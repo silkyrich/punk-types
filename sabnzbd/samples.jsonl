@@ -1,0 +1,48 @@
+{"line":"2026-06-08 03:02:22,166::INFO::[newswrapper:365] userc11d@example.com: Connected using TLSv1.3 (TLS_AES_256_GCM_SHA384)","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,167::INFO::[newswrapper:365] user658c@example.com: Connected using TLSv1.3 (TLS_AES_256_GCM_SHA384)","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,168::INFO::[newswrapper:365] user513f@example.com: Connected using TLSv1.3 (TLS_AES_256_GCM_SHA384)","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,186::INFO::[downloader:751] Connecting user79ef@example.com finished","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,187::INFO::[downloader:751] Connecting user8f9c@example.com finished","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,188::INFO::[downloader:751] Connecting user62e4@example.com finished","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,188::INFO::[downloader:751] Connecting user61d0@example.com finished","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,189::INFO::[downloader:751] Connecting user1c69@example.com finished","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,189::INFO::[downloader:751] Connecting userf52a@example.com finished","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,189::INFO::[downloader:751] Connecting user5b24@example.com finished","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,190::INFO::[downloader:751] Connecting usere6d8@example.com finished","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,190::INFO::[downloader:751] Connecting userbd19@example.com finished","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,191::INFO::[downloader:751] Connecting user48c2@example.com finished","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,191::INFO::[downloader:751] Connecting userb799@example.com finished","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,193::INFO::[downloader:751] Connecting user6bdd@example.com finished","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,194::INFO::[downloader:751] Connecting user9928@example.com finished","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,194::INFO::[downloader:751] Connecting userf1f9@example.com finished","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,195::INFO::[downloader:751] Connecting userfff0@example.com finished","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,195::INFO::[downloader:751] Connecting user8f87@example.com finished","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,197::INFO::[downloader:751] Connecting user5ef7@example.com finished","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,198::INFO::[downloader:751] Connecting user357f@example.com finished","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,199::INFO::[downloader:751] Connecting user4d81@example.com finished","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,200::INFO::[downloader:751] Connecting user0a14@example.com finished","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,200::INFO::[downloader:751] Connecting userb35a@example.com finished","path":"sab_log/sab_news_conn"}
+{"line":"2026-06-08 03:02:22,254::INFO::[assembler:88] Decoding finished /config/Downloads/incomplete/The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M/The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M.vol-05.par2","path":"sab_log"}
+{"line":"2026-06-08 03:02:22,497::INFO::[nzbstuff:1790] Checking all filenames for The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M","path":"sab_log"}
+{"line":"2026-06-08 03:02:22,497::INFO::[nzbstuff:1793] Re-sorting The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M after getting filename information","path":"sab_log"}
+{"line":"2026-06-08 03:02:23,386::INFO::[nzbstuff:1790] Checking all filenames for The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M","path":"sab_log"}
+{"line":"2026-06-08 03:02:23,386::INFO::[nzbstuff:1793] Re-sorting The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M after getting filename information","path":"sab_log"}
+{"line":"2026-06-08 03:04:31,168::INFO::[assembler:88] Decoding finished /config/Downloads/incomplete/The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M/The.Last.of.Us.S01E01.When.Youre.Lost.in.the.Darkness.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M.mkv","path":"sab_log"}
+{"line":"2026-06-08 03:05:54,212::INFO::[assembler:88] Decoding finished /config/Downloads/incomplete/The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M/The.Last.of.Us.S01E02.Infected.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M.mkv","path":"sab_log"}
+{"line":"2026-06-08 03:07:56,342::INFO::[assembler:88] Decoding finished /config/Downloads/incomplete/The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M/The.Last.of.Us.S01E03.Long.Long.Time.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M.mkv","path":"sab_log"}
+{"line":"2026-06-08 03:09:09,922::INFO::[assembler:88] Decoding finished /config/Downloads/incomplete/The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M/The.Last.of.Us.S01E04.Please.Hold.to.My.Hand.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M.mkv","path":"sab_log"}
+{"line":"2026-06-08 03:10:41,082::INFO::[assembler:88] Decoding finished /config/Downloads/incomplete/The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M/The.Last.of.Us.S01E05.Endure.and.Survive.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M.mkv","path":"sab_log"}
+{"line":"2026-06-08 03:12:15,690::INFO::[assembler:88] Decoding finished /config/Downloads/incomplete/The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M/The.Last.of.Us.S01E06.Kin.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M.mkv","path":"sab_log"}
+{"line":"2026-06-08 03:13:41,441::INFO::[assembler:88] Decoding finished /config/Downloads/incomplete/The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M/The.Last.of.Us.S01E07.Left.Behind.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M.mkv","path":"sab_log"}
+{"line":"2026-06-08 03:15:03,431::INFO::[assembler:88] Decoding finished /config/Downloads/incomplete/The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M/The.Last.of.Us.S01E08.When.We.Are.in.Need.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M.mkv","path":"sab_log"}
+{"line":"2026-06-08 03:16:12,168::INFO::[nzbqueue:767] [N/A] Ending job The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M","path":"sab_log"}
+{"line":"2026-06-08 03:16:12,223::INFO::[assembler:88] Decoding finished /config/Downloads/incomplete/The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M/The.Last.of.Us.S01E09.Look.for.the.Light.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M.mkv","path":"sab_log"}
+{"line":"2026-06-08 03:16:12,224::INFO::[nzbqueue:378] [N/A] Removing job The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M","path":"sab_log"}
+{"line":"2026-06-08 03:16:12,225::INFO::[nzbqueue:230] Saving queue","path":"sab_log"}
+{"line":"2026-06-08 03:16:12,225::INFO::[postproc:136] Saving postproc queue","path":"sab_log"}
+{"line":"2026-06-08 03:16:12,231::INFO::[postproc:396] Starting Post-Processing on The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M => Repair:True, Unpack:True, Delete:True, Script:None, Cat:tv","path":"sab_log"}
+{"line":"2026-06-08 03:16:12,237::INFO::[notifier:166] Sending notification: Post-processing - The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M (type=pp, job_cat=tv)","path":"sab_log"}
+{"line":"2026-06-08 03:16:12,239::INFO::[postproc:762] Starting verification and repair of The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M","path":"sab_log"}
+{"line":"2026-06-08 03:16:12,245::INFO::[filesystem:1089] [N/A] /config/Downloads/incomplete/The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M/__ADMIN__/__verified__ missing","path":"sab_log"}
+{"line":"2026-06-08 03:16:12,245::INFO::[postproc:785] Running verification and repair on set The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M","path":"sab_log"}
+{"line":"2026-06-08 03:16:12,291::INFO::[newsunpack:1035] Quick-check for The.Last.of.Us.S01.2160p.UHD.BDRip.HEVC.10bit.DV.HDR.TrueHD.7.1.Atmos-MUSHR00M is OK, skipping repair","path":"sab_log"}

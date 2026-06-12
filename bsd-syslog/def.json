@@ -43,10 +43,10 @@
           "spot_passes": 0
         },
         "examples": [
-          "Jun 11 00:00:17 Richards-MacBook-Pro syslogd[371]: ASL Sender Statistics",
-          "Jun 11 00:10:22 Richards-MacBook-Pro syslogd[371]: ASL Sender Statistics",
-          "Jun 11 00:20:42 Richards-MacBook-Pro syslogd[371]: ASL Sender Statistics",
-          "Jun 11 00:30:04 Richards-MacBook-Pro syslogd[371]: Configuration Notice:"
+          "Jun 11 00:00:17 redacted1 syslogd[371]: ASL Sender Statistics",
+          "Jun 11 00:10:22 redacted1 syslogd[371]: ASL Sender Statistics",
+          "Jun 11 00:20:42 redacted1 syslogd[371]: ASL Sender Statistics",
+          "Jun 11 00:30:04 redacted1 syslogd[371]: Configuration Notice:"
         ]
       },
       {

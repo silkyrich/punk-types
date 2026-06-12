@@ -1,24 +1,24 @@
-{"line":"2026-06-12 14:04:50.089 ERROR (MainThread) [habluetooth.scanner] hci0 (AC:7B:A1:4D:FB:0B): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
-{"line":"2026-06-12 13:32:57.027 ERROR (MainThread) [habluetooth.scanner] hci0 (AC:7B:A1:4D:FB:0B): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
-{"line":"2026-06-12 13:34:04.042 ERROR (MainThread) [habluetooth.scanner] hci0 (AC:7B:A1:4D:FB:0B): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
-{"line":"2026-06-12 13:34:17.488 ERROR (MainThread) [habluetooth.scanner] hci0 (AC:7B:A1:4D:FB:0B): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
-{"line":"2026-06-12 13:35:24.440 ERROR (MainThread) [habluetooth.scanner] hci0 (AC:7B:A1:4D:FB:0B): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
-{"line":"2026-06-12 13:35:37.907 ERROR (MainThread) [habluetooth.scanner] hci0 (AC:7B:A1:4D:FB:0B): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
-{"line":"2026-06-12 13:36:44.738 ERROR (MainThread) [habluetooth.scanner] hci0 (AC:7B:A1:4D:FB:0B): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
-{"line":"2026-06-12 13:36:58.310 ERROR (MainThread) [habluetooth.scanner] hci0 (AC:7B:A1:4D:FB:0B): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
-{"line":"2026-06-12 13:38:04.830 ERROR (MainThread) [habluetooth.scanner] hci0 (AC:7B:A1:4D:FB:0B): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
-{"line":"2026-06-12 13:38:18.494 ERROR (MainThread) [habluetooth.scanner] hci0 (AC:7B:A1:4D:FB:0B): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
-{"line":"2026-06-12 13:39:25.207 ERROR (MainThread) [habluetooth.scanner] hci0 (AC:7B:A1:4D:FB:0B): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
-{"line":"2026-06-12 13:39:38.947 ERROR (MainThread) [habluetooth.scanner] hci0 (AC:7B:A1:4D:FB:0B): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
-{"line":"2026-06-12 13:40:45.444 ERROR (MainThread) [habluetooth.scanner] hci0 (AC:7B:A1:4D:FB:0B): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
-{"line":"2026-06-12 13:40:59.401 ERROR (MainThread) [habluetooth.scanner] hci0 (AC:7B:A1:4D:FB:0B): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
-{"line":"2026-06-12 13:41:10.101 WARNING (MainThread) [homeassistant.components.sonos.speaker] Creating subscription failed for Archies Room: Request timed out","path":"app_iso"}
-{"line":"2026-06-12 13:41:10.102 WARNING (MainThread) [homeassistant.components.sonos.speaker] Creating subscription failed for Archies Room: Request timed out","path":"app_iso"}
-{"line":"2026-06-12 13:41:10.102 WARNING (MainThread) [homeassistant.components.sonos.speaker] Creating subscription failed for Archies Room: Request timed out","path":"app_iso"}
-{"line":"2026-06-12 13:41:10.102 WARNING (MainThread) [homeassistant.components.sonos.speaker] Creating subscription failed for Archies Room: Request timed out","path":"app_iso"}
-{"line":"2026-06-12 13:41:10.102 WARNING (MainThread) [homeassistant.components.sonos.speaker] Creating subscription failed for Archies Room: Request timed out","path":"app_iso"}
-{"line":"2026-06-12 13:41:10.102 WARNING (MainThread) [homeassistant.components.sonos.speaker] Creating subscription failed for Archies Room: Request timed out","path":"app_iso"}
-{"line":"2026-06-12 13:41:10.102 WARNING (MainThread) [homeassistant.components.sonos.speaker] Creating subscriptions failed for Archies Room","path":"app_iso"}
-{"line":"2026-06-12 13:42:05.577 ERROR (MainThread) [habluetooth.scanner] hci0 (AC:7B:A1:4D:FB:0B): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
-{"line":"2026-06-12 13:42:19.564 ERROR (MainThread) [habluetooth.scanner] hci0 (AC:7B:A1:4D:FB:0B): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
-{"line":"2026-06-12 13:43:25.937 ERROR (MainThread) [habluetooth.scanner] hci0 (AC:7B:A1:4D:FB:0B): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
+{"line":"2026-06-12 14:04:50.089 ERROR (MainThread) [habluetooth.scanner] hci0 (02:00:00:77:84:d4): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
+{"line":"2026-06-12 13:32:57.027 ERROR (MainThread) [habluetooth.scanner] hci0 (02:00:00:77:84:d4): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
+{"line":"2026-06-12 13:34:04.042 ERROR (MainThread) [habluetooth.scanner] hci0 (02:00:00:77:84:d4): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
+{"line":"2026-06-12 13:34:17.488 ERROR (MainThread) [habluetooth.scanner] hci0 (02:00:00:77:84:d4): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
+{"line":"2026-06-12 13:35:24.440 ERROR (MainThread) [habluetooth.scanner] hci0 (02:00:00:77:84:d4): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
+{"line":"2026-06-12 13:35:37.907 ERROR (MainThread) [habluetooth.scanner] hci0 (02:00:00:77:84:d4): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
+{"line":"2026-06-12 13:36:44.738 ERROR (MainThread) [habluetooth.scanner] hci0 (02:00:00:77:84:d4): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
+{"line":"2026-06-12 13:36:58.310 ERROR (MainThread) [habluetooth.scanner] hci0 (02:00:00:77:84:d4): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
+{"line":"2026-06-12 13:38:04.830 ERROR (MainThread) [habluetooth.scanner] hci0 (02:00:00:77:84:d4): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
+{"line":"2026-06-12 13:38:18.494 ERROR (MainThread) [habluetooth.scanner] hci0 (02:00:00:77:84:d4): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
+{"line":"2026-06-12 13:39:25.207 ERROR (MainThread) [habluetooth.scanner] hci0 (02:00:00:77:84:d4): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
+{"line":"2026-06-12 13:39:38.947 ERROR (MainThread) [habluetooth.scanner] hci0 (02:00:00:77:84:d4): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
+{"line":"2026-06-12 13:40:45.444 ERROR (MainThread) [habluetooth.scanner] hci0 (02:00:00:77:84:d4): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
+{"line":"2026-06-12 13:40:59.401 ERROR (MainThread) [habluetooth.scanner] hci0 (02:00:00:77:84:d4): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
+{"line":"2026-06-12 13:41:10.101 WARNING (MainThread) [homeassistant.components.sonos.speaker] Creating subscription failed for redacted8: Request timed out","path":"app_iso"}
+{"line":"2026-06-12 13:41:10.102 WARNING (MainThread) [homeassistant.components.sonos.speaker] Creating subscription failed for redacted8: Request timed out","path":"app_iso"}
+{"line":"2026-06-12 13:41:10.102 WARNING (MainThread) [homeassistant.components.sonos.speaker] Creating subscription failed for redacted8: Request timed out","path":"app_iso"}
+{"line":"2026-06-12 13:41:10.102 WARNING (MainThread) [homeassistant.components.sonos.speaker] Creating subscription failed for redacted8: Request timed out","path":"app_iso"}
+{"line":"2026-06-12 13:41:10.102 WARNING (MainThread) [homeassistant.components.sonos.speaker] Creating subscription failed for redacted8: Request timed out","path":"app_iso"}
+{"line":"2026-06-12 13:41:10.102 WARNING (MainThread) [homeassistant.components.sonos.speaker] Creating subscription failed for redacted8: Request timed out","path":"app_iso"}
+{"line":"2026-06-12 13:41:10.102 WARNING (MainThread) [homeassistant.components.sonos.speaker] Creating subscriptions failed for redacted8","path":"app_iso"}
+{"line":"2026-06-12 13:42:05.577 ERROR (MainThread) [habluetooth.scanner] hci0 (02:00:00:77:84:d4): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
+{"line":"2026-06-12 13:42:19.564 ERROR (MainThread) [habluetooth.scanner] hci0 (02:00:00:77:84:d4): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}
+{"line":"2026-06-12 13:43:25.937 ERROR (MainThread) [habluetooth.scanner] hci0 (02:00:00:77:84:d4): Failed to force stop scanner: 'NoneType' object has no attribute 'send'","path":"app_iso"}

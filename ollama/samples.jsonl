@@ -1,4 +1,4 @@
-{"line":"Couldn't find '/Users/richardmorgan/.ollama/id_ed25519'. Generating new private key.","path":null}
+{"line":"Couldn't find '/Users/redacted2/.ollama/id_ed25519'. Generating new private key.","path":null}
 {"line":"Your new public key is: ","path":null}
 {"line":"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPFuNOgwXGKWHJqPQ7TJLmG/4XztlLED3Mx8wJWqyal7","path":null}
 {"line":"time=2026-05-26T14:55:07.757+01:00 level=INFO source=model_recommendations.go:177 msg=\"model recommendations cache sleep scheduled\" wait=4h31m53.921976033s consecutive_failures=0","path":"builtin/logfmt"}
@@ -32,7 +32,7 @@
 {"line":"ggml_metal_device_init: use shared buffers    = true","path":null}
 {"line":"ggml_metal_device_init: recommendedMaxWorkingSetSize  = 26800.60 MB","path":"mined_ggml_metal_device_init__5"}
 {"line":"llama_model_load_from_file_impl: using device Metal (Apple M5) (unknown id) - 25558 MiB free","path":null}
-{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/richardmorgan/.ollama/models/blobs/sha256-dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff (version GGUF V3 (latest))","path":null}
+{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/redacted2/.ollama/models/blobs/sha256-eb7412a9f32a3e54 (version GGUF V3 (latest))","path":null}
 {"line":"llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.","path":null}
 {"line":"llama_model_loader: - kv   0:                       general.architecture str              = llama","path":"mined_llama_model_loader__kv_1"}
 {"line":"llama_model_loader: - kv   1:                               general.type str              = model","path":"mined_llama_model_loader__kv_1"}
@@ -95,7 +95,7 @@
 {"line":"print_info: max token length = 256","path":"mined_print_info__token_3"}
 {"line":"llama_model_load: vocab only - skipping tensors","path":null}
 {"line":"time=2025-12-07T22:28:25.883Z level=INFO source=server.go:209 msg=\"enabling flash attention\"","path":"builtin/logfmt"}
-{"line":"time=2025-12-07T22:28:25.883Z level=INFO source=server.go:392 msg=\"starting runner\" cmd=\"/opt/homebrew/Cellar/ollama/0.13.1/bin/ollama runner --model /Users/richardmorgan/.ollama/models/blobs/sha256-dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff --port 58912\"","path":"builtin/logfmt"}
+{"line":"time=2025-12-07T22:28:25.883Z level=INFO source=server.go:392 msg=\"starting runner\" cmd=\"/opt/homebrew/Cellar/ollama/0.13.1/bin/ollama runner --model /Users/redacted2/.ollama/models/blobs/sha256-eb7412a9f32a3e54 --port 58912\"","path":"builtin/logfmt"}
 {"line":"time=2025-12-07T22:28:25.886Z level=INFO source=sched.go:443 msg=\"system memory\" total=\"32.0 GiB\" free=\"11.9 GiB\" free_swap=\"0 B\"","path":"builtin/logfmt"}
 {"line":"time=2025-12-07T22:28:25.886Z level=INFO source=sched.go:450 msg=\"gpu memory\" id=0 library=Metal available=\"24.5 GiB\" free=\"25.0 GiB\" minimum=\"512.0 MiB\" overhead=\"0 B\"","path":"builtin/logfmt"}
 {"line":"time=2025-12-07T22:28:25.886Z level=INFO source=server.go:459 msg=\"loading model\" \"model layers\"=29 requested=-1","path":"builtin/logfmt"}
@@ -119,7 +119,7 @@
 {"line":"ggml_metal_device_init: recommendedMaxWorkingSetSize  = 26800.60 MB","path":"mined_ggml_metal_device_init__5"}
 {"line":"time=2025-12-07T22:28:25.899Z level=INFO source=ggml.go:104 msg=system Metal.0.EMBED_LIBRARY=1 CPU.0.NEON=1 CPU.0.ARM_FMA=1 CPU.0.FP16_VA=1 CPU.0.DOTPROD=1 CPU.0.LLAMAFILE=1 CPU.0.ACCELERATE=1 compiler=cgo(clang)","path":"builtin/logfmt"}
 {"line":"llama_model_load_from_file_impl: using device Metal (Apple M5) (unknown id) - 25558 MiB free","path":null}
-{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/richardmorgan/.ollama/models/blobs/sha256-dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff (version GGUF V3 (latest))","path":null}
+{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/redacted2/.ollama/models/blobs/sha256-eb7412a9f32a3e54 (version GGUF V3 (latest))","path":null}
 {"line":"llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.","path":null}
 {"line":"llama_model_loader: - kv   0:                       general.architecture str              = llama","path":"mined_llama_model_loader__kv_1"}
 {"line":"llama_model_loader: - kv   2:                               general.name str              = Llama 3.2 3B Instruct","path":null}
@@ -226,7 +226,7 @@
 {"line":"[GIN] 2025/12/07 - 22:37:00 | 200 |  8.312725875s |       127.0.0.1 | POST     \"/api/chat\"","path":"mined__gin__4"}
 {"line":"[GIN] 2025/12/07 - 22:38:15 | 200 |  6.541046917s |       127.0.0.1 | POST     \"/api/chat\"","path":"mined__gin__4"}
 {"line":"llama_model_load_from_file_impl: using device Metal (Apple M5) (unknown id) - 25558 MiB free","path":null}
-{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/richardmorgan/.ollama/models/blobs/sha256-dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff (version GGUF V3 (latest))","path":null}
+{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/redacted2/.ollama/models/blobs/sha256-eb7412a9f32a3e54 (version GGUF V3 (latest))","path":null}
 {"line":"llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.","path":null}
 {"line":"llama_model_loader: - kv   2:                               general.name str              = Llama 3.2 3B Instruct","path":null}
 {"line":"llama_model_loader: - kv   6:                               general.tags arr[str,6]       = [\"facebook\", \"meta\", \"pytorch\", \"llam...","path":null}
@@ -272,7 +272,7 @@
 {"line":"ggml_metal_device_init: use shared buffers    = true","path":null}
 {"line":"ggml_metal_device_init: recommendedMaxWorkingSetSize  = 26800.60 MB","path":"mined_ggml_metal_device_init__5"}
 {"line":"llama_model_load_from_file_impl: using device Metal (Apple M5) (unknown id) - 25558 MiB free","path":null}
-{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/richardmorgan/.ollama/models/blobs/sha256-dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff (version GGUF V3 (latest))","path":null}
+{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/redacted2/.ollama/models/blobs/sha256-eb7412a9f32a3e54 (version GGUF V3 (latest))","path":null}
 {"line":"llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.","path":null}
 {"line":"llama_model_loader: - kv   2:                               general.name str              = Llama 3.2 3B Instruct","path":null}
 {"line":"llama_model_loader: - kv   6:                               general.tags arr[str,6]       = [\"facebook\", \"meta\", \"pytorch\", \"llam...","path":null}
@@ -337,7 +337,7 @@
 {"line":"[GIN] 2025/12/07 - 22:53:30 | 200 |  6.137946875s |       127.0.0.1 | POST     \"/api/chat\"","path":"mined__gin__4"}
 {"line":"[GIN] 2025/12/07 - 22:55:12 | 200 |  5.713059416s |       127.0.0.1 | POST     \"/api/chat\"","path":"mined__gin__4"}
 {"line":"llama_model_load_from_file_impl: using device Metal (Apple M5) (unknown id) - 25558 MiB free","path":null}
-{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/richardmorgan/.ollama/models/blobs/sha256-dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff (version GGUF V3 (latest))","path":null}
+{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/redacted2/.ollama/models/blobs/sha256-eb7412a9f32a3e54 (version GGUF V3 (latest))","path":null}
 {"line":"llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.","path":null}
 {"line":"llama_model_loader: - kv   2:                               general.name str              = Llama 3.2 3B Instruct","path":null}
 {"line":"llama_model_loader: - kv   6:                               general.tags arr[str,6]       = [\"facebook\", \"meta\", \"pytorch\", \"llam...","path":null}
@@ -373,7 +373,7 @@
 {"line":"ggml_metal_device_init: use residency sets    = true","path":null}
 {"line":"ggml_metal_device_init: use shared buffers    = true","path":null}
 {"line":"llama_model_load_from_file_impl: using device Metal (Apple M5) (unknown id) - 25558 MiB free","path":null}
-{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/richardmorgan/.ollama/models/blobs/sha256-dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff (version GGUF V3 (latest))","path":null}
+{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/redacted2/.ollama/models/blobs/sha256-eb7412a9f32a3e54 (version GGUF V3 (latest))","path":null}
 {"line":"llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.","path":null}
 {"line":"llama_model_loader: - kv   2:                               general.name str              = Llama 3.2 3B Instruct","path":null}
 {"line":"llama_model_loader: - kv   6:                               general.tags arr[str,6]       = [\"facebook\", \"meta\", \"pytorch\", \"llam...","path":null}
@@ -430,7 +430,7 @@
 {"line":"[GIN] 2025/12/16 - 20:52:49 | 200 |  7.361296125s |       127.0.0.1 | POST     \"/api/chat\"","path":null}
 {"line":"[GIN] 2025/12/16 - 20:53:12 | 200 |  2.121908792s |       127.0.0.1 | POST     \"/api/chat\"","path":null}
 {"line":"llama_model_load_from_file_impl: using device Metal (Apple M5) (unknown id) - 25558 MiB free","path":null}
-{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/richardmorgan/.ollama/models/blobs/sha256-dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff (version GGUF V3 (latest))","path":null}
+{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/redacted2/.ollama/models/blobs/sha256-eb7412a9f32a3e54 (version GGUF V3 (latest))","path":null}
 {"line":"llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.","path":null}
 {"line":"llama_model_loader: - kv   2:                               general.name str              = Llama 3.2 3B Instruct","path":null}
 {"line":"llama_model_loader: - kv   6:                               general.tags arr[str,6]       = [\"facebook\", \"meta\", \"pytorch\", \"llam...","path":null}
@@ -461,7 +461,7 @@
 {"line":"ggml_metal_device_init: use residency sets    = true","path":null}
 {"line":"ggml_metal_device_init: use shared buffers    = true","path":null}
 {"line":"llama_model_load_from_file_impl: using device Metal (Apple M5) (unknown id) - 25558 MiB free","path":null}
-{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/richardmorgan/.ollama/models/blobs/sha256-dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff (version GGUF V3 (latest))","path":null}
+{"line":"llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from /Users/redacted2/.ollama/models/blobs/sha256-eb7412a9f32a3e54 (version GGUF V3 (latest))","path":null}
 {"line":"llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.","path":null}
 {"line":"llama_model_loader: - kv   2:                               general.name str              = Llama 3.2 3B Instruct","path":null}
 {"line":"llama_model_loader: - kv   6:                               general.tags arr[str,6]       = [\"facebook\", \"meta\", \"pytorch\", \"llam...","path":null}
