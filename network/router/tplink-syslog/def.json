@@ -17,7 +17,7 @@
     "max_bytes": 32768
   },
   "snapshot": {
-    "epoch": 1,
+    "epoch": 2,
     "lines_seen": 0,
     "nodes": [
       {
@@ -514,6 +514,12 @@
             "when": null
           },
           {
+            "op": "set",
+            "field": "event",
+            "value": "device-joined",
+            "when": null
+          },
+          {
             "op": "set_from",
             "field": "alert",
             "parts": [
@@ -695,6 +701,91 @@
             "op": "set",
             "field": "subsystem",
             "value": "wan-dhcp",
+            "when": null
+          }
+        ],
+        "otherwise_ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "dhcp_release",
+        "origin": "curated",
+        "pattern": "send dhcp release ip (?P<server_ip>[\\d.]+)",
+        "parent": 14,
+        "state": "active",
+        "types": {
+          "server_ip": "ip"
+        },
+        "input": "msg",
+        "guard": [],
+        "ops": [
+          {
+            "op": "set",
+            "field": "subsystem",
+            "value": "wan-dhcp",
+            "when": null
+          },
+          {
+            "op": "set",
+            "field": "event",
+            "value": "wan-ip-released",
+            "when": null
+          }
+        ],
+        "otherwise_ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "config_change",
+        "origin": "curated",
+        "pattern": "(?P<setting>[\\w ]+?) change: (?P<value>.+?)\\.?$",
+        "parent": 14,
+        "state": "active",
+        "types": {
+          "setting": "any",
+          "value": "any"
+        },
+        "input": "msg",
+        "guard": [],
+        "ops": [
+          {
+            "op": "set",
+            "field": "subsystem",
+            "value": "admin",
+            "when": null
+          },
+          {
+            "op": "set",
+            "field": "event",
+            "value": "config-change",
             "when": null
           }
         ],
