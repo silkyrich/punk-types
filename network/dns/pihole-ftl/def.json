@@ -1,0 +1,711 @@
+{
+  "name": "pihole-ftl",
+  "package": "network/dns",
+  "ts": {
+    "banks": [
+      "iso",
+      "syslog",
+      "clf",
+      "epoch"
+    ],
+    "custom": []
+  },
+  "brk": {
+    "mode": "line",
+    "start": null,
+    "max_lines": 100,
+    "max_bytes": 32768
+  },
+  "snapshot": {
+    "epoch": 6,
+    "lines_seen": 0,
+    "nodes": [
+      {
+        "name": "syslog",
+        "origin": "seed",
+        "pattern": "^(?P<ts>[A-Z][a-z]{2}\\s+\\d{1,2} \\d{2}:\\d{2}:\\d{2}) (?P<host>\\S+) (?P<proc>[\\w.\\-/]+)(?:\\[(?P<pid>\\d+)\\])?: (?P<msg>.*)$",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "pid": "int"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "sshd_auth",
+        "origin": "seed",
+        "pattern": "sshd\\[\\d+\\]: (?P<auth_result>Accepted|Failed) (?P<auth_method>\\w+) for (?:invalid user )?(?P<user>\\S+) from (?P<src_ip>\\d{1,3}(?:\\.\\d{1,3}){3}) port (?P<src_port>\\d+)",
+        "parent": 0,
+        "state": "active",
+        "types": {
+          "src_ip": "ip",
+          "src_port": "int"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "cron_session",
+        "origin": "seed",
+        "pattern": "CRON\\[\\d+\\]: pam_unix\\(cron:session\\): session (?P<session_action>opened|closed) for user (?P<user>\\S+)",
+        "parent": 0,
+        "state": "active",
+        "types": {},
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "oom_kill",
+        "origin": "seed",
+        "pattern": "Out of memory: Killed process (?P<oom_pid>\\d+) \\((?P<oom_proc>[^)]+)\\)",
+        "parent": 0,
+        "state": "active",
+        "types": {
+          "oom_pid": "int"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "access_log",
+        "origin": "seed",
+        "pattern": "^(?P<client_ip>\\S+) \\S+ (?P<auth_user>\\S+) \\[(?P<ts>[^\\]]+)\\] \"(?P<method>[A-Z]+) (?P<path>\\S+)(?: (?P<proto>[^\"]*))?\" (?P<status>\\d{3}) (?P<bytes>\\d+|-)",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "status": "int"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "access_combined",
+        "origin": "seed",
+        "pattern": "\" \\d{3} (?:\\d+|-) \"(?P<referer>[^\"]*)\" \"(?P<user_agent>[^\"]*)\"",
+        "parent": 4,
+        "state": "active",
+        "types": {},
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "klog",
+        "origin": "seed",
+        "pattern": "^(?P<level>[IWEF])(?P<mmdd>\\d{4} \\d{2}:\\d{2}:\\d{2}\\.\\d+)\\s+(?P<tid>\\d+) (?P<src_file>[\\w.\\-]+):(?P<src_line>\\d+)\\] (?P<msg>.*)$",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "src_line": "int",
+          "tid": "int"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "app_iso",
+        "origin": "seed",
+        "pattern": "^(?P<ts>\\d{4}-\\d{2}-\\d{2}[T ]\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?(?:Z|[+-][\\d:]{4,5})?)\\s+\\[?(?P<level>TRACE|DEBUG|INFO|WARN|WARNING|ERROR|FATAL|CRITICAL)\\]?\\s+(?P<msg>.*)$",
+        "parent": null,
+        "state": "active",
+        "types": {},
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "exception",
+        "origin": "seed",
+        "pattern": "(?P<exception>[\\w.$]+(?:Exception|Error)): (?P<exc_msg>.*)$",
+        "parent": 7,
+        "state": "active",
+        "types": {},
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "http_request",
+        "origin": "seed",
+        "pattern": "(?P<method>GET|POST|PUT|PATCH|DELETE|HEAD) (?P<path>/\\S*) (?:HTTP/[\\d.]+ )?(?P<status>\\d{3}) (?P<latency_ms>\\d+(?:\\.\\d+)?)ms",
+        "parent": 7,
+        "state": "active",
+        "types": {
+          "latency_ms": "float",
+          "status": "int"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "ftl_log",
+        "origin": "curated",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2}) (?P<time>\\S+) (?P<tz>[A-Z]+) \\[(?P<pid>\\d+)/(?P<tid>\\w+)\\] (?P<level>[A-Z]+): (?P<msg>.*)$",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "date": "date",
+          "level": "level",
+          "msg": "any",
+          "pid": "int",
+          "tid": "int",
+          "time": "time",
+          "tz": "any"
+        },
+        "input": null,
+        "ops": [
+          {
+            "op": "default",
+            "field": "msg",
+            "value": "(empty)"
+          }
+        ],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2026-05-31 04:25:02.033 BST [68/T167] INFO: Gravity database has been updated, reloading now",
+          "2026-05-31 04:25:02.173 BST [68/T167] INFO: Compiled 2 allow and 9 deny regex for 134 clients in 137.0 msec",
+          "2026-05-31 13:12:57.844 BST [68/T167] INFO: Optimized database in 4.815 seconds",
+          "2026-06-07 04:25:02.049 BST [68/T167] INFO: Gravity database has been updated, reloading now"
+        ]
+      },
+      {
+        "name": "ftl_upstream_err",
+        "origin": "curated",
+        "pattern": "Connection error \\((?P<upstream>[\\d.]+)#(?P<dns_port>\\d+)\\): (?P<err>.*)$",
+        "parent": 10,
+        "state": "active",
+        "types": {
+          "dns_port": "int",
+          "upstream": "ip"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "2026-05-28 10:13:11.859 BST [474429/F68] WARNING: Connection error (203.0.113.133#53): TCP connection failed while receiving payload length from upstream (Resource temporarily unavailable)",
+          "2026-05-28 10:13:12.369 BST [474462/F68] WARNING: Connection error (203.0.113.8#53): TCP connection failed while receiving payload length from upstream (Resource temporarily unavailable)",
+          "2026-05-28 10:13:12.369 BST [474464/F68] WARNING: Connection error (203.0.113.8#53): TCP connection failed while receiving payload length from upstream (Resource temporarily unavailable)",
+          "2026-05-28 10:13:12.369 BST [474461/F68] WARNING: Connection error (203.0.113.8#53): TCP connection failed while receiving payload length from upstream (Resource temporarily unavailable)"
+        ]
+      },
+      {
+        "name": "journald",
+        "origin": "seed",
+        "pattern": "^(?P<ts>\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?(?:Z|[+-][\\d:]{4,5})?) (?P<proc>[\\w.\\-/@]+)(?:\\[(?P<pid>\\d+)\\])?: (?P<msg>.*)$",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "pid": "int"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "cron_cmd",
+        "origin": "seed",
+        "pattern": "CROND\\[\\d+\\]: \\((?P<cron_user>[^)]+)\\) (?P<cron_action>CMD|CMDEND|CMDOUT|CMDERR) \\((?P<cron_cmd>.*)\\)$",
+        "parent": 12,
+        "state": "active",
+        "types": {},
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "sshd_auth_j",
+        "origin": "seed",
+        "pattern": "sshd\\[\\d+\\]: (?P<auth_result>Accepted|Failed) (?P<auth_method>\\w+) for (?:invalid user )?(?P<user>\\S+) from (?P<src_ip>\\S+) port (?P<src_port>\\d+)",
+        "parent": 12,
+        "state": "active",
+        "types": {
+          "src_port": "int"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "systemd_unit",
+        "origin": "seed",
+        "pattern": "systemd\\[\\d+\\]: (?P<sysd_action>Started|Starting|Stopped|Stopping|Finished|Failed|Reloading|Reached) (?P<unit>.*)$",
+        "parent": 12,
+        "state": "active",
+        "types": {},
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "pacman",
+        "origin": "seed",
+        "pattern": "^\\[(?P<ts>[\\dT:+\\-]+)\\] \\[(?P<component>[A-Z][A-Z\\-]+)\\] (?P<msg>.*)$",
+        "parent": null,
+        "state": "active",
+        "types": {},
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "pkg_op",
+        "origin": "seed",
+        "pattern": "\\] (?P<pkg_action>installed|upgraded|removed|reinstalled|downgraded) (?P<pkg>\\S+) \\((?P<pkg_version>[^)]+)\\)$",
+        "parent": 16,
+        "state": "active",
+        "types": {},
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "pacman_hook",
+        "origin": "seed",
+        "pattern": "running '(?P<hook>[^']+)'",
+        "parent": 16,
+        "state": "active",
+        "types": {},
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "tplink",
+        "origin": "seed",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2}) (?P<time>\\d{2}:\\d{2}:\\d{2}) (?P<facility>.+?) (?P<level>DEBUG|INFO|NOTICE|WARNING|ERROR|CRITICAL) \\[(?P<msg_id>\\d+)\\] (?P<msg>.*)$",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "date": "date",
+          "msg_id": "int",
+          "time": "time"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "device_seen",
+        "origin": "seed",
+        "pattern": "Insert device, MAC is (?P<mac>[0-9A-Fa-f]{2}(?:[:\\-][0-9A-Fa-f]{2}){5})",
+        "parent": 19,
+        "state": "active",
+        "types": {
+          "mac": "mac"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "dhcp_ack",
+        "origin": "seed",
+        "pattern": "receive ack from server with ip (?P<server_ip>[\\d.]+)(?:, options\\(serverid=(?P<dhcp_server>[\\d.]+);lease=(?P<lease_s>\\d+);subnet=(?P<subnet>[\\d.]+);router=(?P<gateway>[\\d.]+);dns=(?P<dns>[^;)]*))?",
+        "parent": 19,
+        "state": "active",
+        "types": {
+          "dhcp_server": "ip",
+          "gateway": "ip",
+          "lease_s": "int",
+          "server_ip": "ip",
+          "subnet": "ip"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "upstream_err",
+        "origin": "curated",
+        "pattern": "^Connection error \\((?P<upstream_ip>[\\d.]+)#(?P<dns_port>\\d+)\\): (?P<err>.*)$",
+        "parent": 10,
+        "state": "active",
+        "types": {
+          "dns_port": "int",
+          "err": "any",
+          "upstream_ip": "ip"
+        },
+        "input": "msg",
+        "ops": [
+          {
+            "op": "set",
+            "field": "subsystem",
+            "value": "dns-upstream",
+            "when": null
+          },
+          {
+            "op": "set",
+            "field": "alert",
+            "value": "upstream-flap",
+            "when": {
+              "field": "level",
+              "op": "eq",
+              "value": "WARNING"
+            }
+          }
+        ],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "config_reload",
+        "origin": "curated",
+        "pattern": "^Reloading config",
+        "parent": 10,
+        "state": "active",
+        "types": {},
+        "input": "msg",
+        "ops": [
+          {
+            "op": "set",
+            "field": "subsystem",
+            "value": "config",
+            "when": null
+          }
+        ],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      }
+    ]
+  }
+}

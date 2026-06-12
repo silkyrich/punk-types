@@ -1,0 +1,96 @@
+{"line":"2026-06-12T16:56:23+00:00 punk-it[773820]: [punk-it fwd] shipped 1 lines (207 -> 180 bytes)","path":"journald"}
+{"line":"2026-06-12T12:31:49+00:00 sh[598974]: [punk-it fwd] send failed: Connection refused (os error 111) (attempt 2)","path":"journald"}
+{"line":"2026-06-12T12:31:50+00:00 sh[598974]: [punk-it fwd] send failed: Connection refused (os error 111) (attempt 3)","path":"journald"}
+{"line":"2026-06-12T12:31:53+00:00 sh[598974]: [punk-it fwd] DROPPED batch of 1 lines after retries","path":"journald"}
+{"line":"2026-06-12T12:31:54+00:00 sh[598974]: [punk-it fwd] shipped 4 lines (760 -> 235 bytes)","path":"journald"}
+{"line":"2026-06-12T12:31:55+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 161 bytes)","path":"journald"}
+{"line":"2026-06-12T12:31:56+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 160 bytes)","path":"journald"}
+{"line":"2026-06-12T12:31:57+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 161 bytes)","path":"journald"}
+{"line":"2026-06-12T12:31:58+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 160 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:00+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 160 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:01+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 161 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:02+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 160 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:03+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 159 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:04+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 159 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:05+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 160 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:06+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 159 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:08+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 159 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:09+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 160 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:10+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 160 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:11+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 160 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:12+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 160 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:14+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 159 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:15+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 161 bytes)","path":"journald"}
+{"line":"2026-06-12T12:32:16+00:00 sh[598974]: [punk-it fwd] shipped 1 lines (171 -> 159 bytes)","path":"journald"}
+{"line":"2026-06-12T16:10:00+00:00 CROND[885207]: (claude) CMDOUT (grep: /home/claude/media-stack/config/plex/Library/Application Support/Plex Media Server/Logs/Plex Media Server.log: binary file matches)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:35:00+00:00 CROND[701604]: (claude) CMDEND (/home/claude/media-stack/drive-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T13:43:12+00:00 systemd[2117283]: Started punk-it universal forwarder.","path":"journald/systemd_unit"}
+{"line":"2026-06-12T12:38:50+00:00 systemd[1]: Started Session 25715 of User claude.","path":"journald/systemd_unit"}
+{"line":"2026-06-12T12:39:15+00:00 systemd[1]: Started Session 25716 of User claude.","path":"journald/systemd_unit"}
+{"line":"2026-06-12T12:40:00+00:00 CROND[706048]: (claude) CMD (/home/claude/media-stack/drive-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:40:00+00:00 CROND[706049]: (claude) CMD (/home/claude/scripts/plex-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:40:00+00:00 CROND[706044]: (claude) CMDEND (/home/claude/media-stack/drive-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:40:01+00:00 CROND[706043]: (claude) CMDEND (/home/claude/scripts/plex-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:45:00+00:00 CROND[710357]: (claude) CMD (/home/claude/media-stack/container-monitor.sh >> /home/claude/media-stack/container-monitor.log 2>&1)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:45:00+00:00 CROND[710360]: (claude) CMD (/home/claude/media-stack/drive-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:45:00+00:00 CROND[710354]: (claude) CMDEND (/home/claude/media-stack/drive-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:45:01+00:00 CROND[710355]: (claude) CMDEND (/home/claude/media-stack/container-monitor.sh >> /home/claude/media-stack/container-monitor.log 2>&1)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:50:00+00:00 CROND[714815]: (claude) CMD (/home/claude/media-stack/drive-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:50:00+00:00 CROND[714816]: (claude) CMD (/home/claude/scripts/plex-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:50:00+00:00 CROND[714812]: (claude) CMDEND (/home/claude/media-stack/drive-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:50:01+00:00 plex-monitor[714881]: OK: cert_days=51 mapping=Mapped remote=200 ipv6=0","path":"builtin/logfmt"}
+{"line":"2026-06-12T12:50:01+00:00 CROND[714811]: (claude) CMDEND (/home/claude/scripts/plex-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:55:00+00:00 CROND[719206]: (claude) CMD (/home/claude/media-stack/drive-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T12:55:00+00:00 CROND[719204]: (claude) CMDEND (/home/claude/media-stack/drive-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T13:00:00+00:00 CROND[723487]: (claude) CMD (/home/claude/media-stack/drive-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T13:00:00+00:00 CROND[723491]: (claude) CMD (/home/claude/scripts/plex-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T13:00:00+00:00 CROND[723494]: (claude) CMD (/home/claude/media-stack/container-monitor.sh >> /home/claude/media-stack/container-monitor.log 2>&1)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T13:00:01+00:00 CROND[723482]: (claude) CMDEND (/home/claude/media-stack/drive-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T13:00:01+00:00 CROND[723483]: (claude) CMDEND (/home/claude/media-stack/container-monitor.sh >> /home/claude/media-stack/container-monitor.log 2>&1)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T13:00:03+00:00 CROND[723481]: (claude) CMDEND (/home/claude/scripts/plex-monitor.sh)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T13:01:00+00:00 CROND[724539]: (root) CMD (run-parts /etc/cron.hourly)","path":"journald/cron_cmd"}
+{"line":"2026-06-12T13:01:00+00:00 CROND[724538]: (root) CMDEND (run-parts /etc/cron.hourly)","path":"journald/cron_cmd"}
+{"line":"2026-06-11T20:30:32+00:00 systemd[1]: Started Session 25348 of User claude.","path":"journald/systemd_unit"}
+{"line":"2026-06-11T20:30:33+00:00 systemd[2117283]: Reloading finished in 505 ms.","path":"journald/systemd_unit"}
+{"line":"2026-06-11T20:30:34+00:00 systemd[2117283]: Reloading finished in 529 ms.","path":"journald/systemd_unit"}
+{"line":"2026-06-11T20:30:34+00:00 systemd[2117283]: Started punk-it log feed materializer (journal, fail2ban, docker).","path":"journald/systemd_unit"}
+{"line":"2026-06-11T20:30:58+00:00 systemd[1]: Started Session 25349 of User claude.","path":"journald/systemd_unit"}
+{"line":"2026-06-11T20:44:02+00:00 systemd[1]: Started Session 25353 of User claude.","path":"journald/systemd_unit"}
+{"line":"2026-06-11T20:44:02+00:00 systemd[1]: Started Session 25354 of User claude.","path":"journald/systemd_unit"}
+{"line":"2026-06-11T20:44:03+00:00 containerd[548]: time=\"2026-06-11T20:44:03.229081896Z\" level=info msg=\"connecting to shim 611c5a8afc5b6c5f\" address=\"unix:///run/containerd/s/e6e7e44d6f303a45\" namespace=moby protocol=ttrpc version=3","path":"builtin/logfmt"}
+{"line":"2026-06-11T20:44:03+00:00 systemd[1]: Started libcontainer container 611c5a8afc5b6c5f.","path":"journald/systemd_unit"}
+{"line":"2026-06-11T20:44:03+00:00 dockerd[600]: time=\"2026-06-11T20:44:03.407459599Z\" level=info msg=\"sbJoin: gwep4 ''->'13f7ea131e03', gwep6 ''->''\" eid=13f7ea131e03 ep=peaceful_solomon net=bridge nid=10738ec6cf53","path":"builtin/logfmt"}
+{"line":"2026-06-11T20:50:01+00:00 plex-monitor[4074121]: OK: cert_days=52 mapping=Not Mapped remote=200 ipv6=0","path":"builtin/logfmt"}
+{"line":"2026-06-11T20:56:49+00:00 dockerd[600]: time=\"2026-06-11T20:56:49.750908772Z\" level=info msg=\"ignoring event\" container=611c5a8afc5b6c5f module=libcontainerd namespace=moby topic=/tasks/delete type=\"*events.TaskDelete\"","path":"builtin/logfmt"}
+{"line":"2026-06-11T20:56:49+00:00 containerd[548]: time=\"2026-06-11T20:56:49.752082004Z\" level=info msg=\"shim disconnected\" id=611c5a8afc5b6c5f namespace=moby","path":"builtin/logfmt"}
+{"line":"2026-06-11T20:56:49+00:00 containerd[548]: time=\"2026-06-11T20:56:49.752128146Z\" level=info msg=\"cleaning up after shim disconnected\" id=611c5a8afc5b6c5f namespace=moby","path":"builtin/logfmt"}
+{"line":"2026-06-11T20:56:49+00:00 containerd[548]: time=\"2026-06-11T20:56:49.752144152Z\" level=info msg=\"cleaning up dead shim\" id=611c5a8afc5b6c5f namespace=moby","path":"builtin/logfmt"}
+{"line":"2026-06-11T20:56:50+00:00 systemd[1]: Started Session 25360 of User claude.","path":"journald/systemd_unit"}
+{"line":"2026-06-11T20:57:28+00:00 systemd[1]: Started Session 25361 of User claude.","path":"journald/systemd_unit"}
+{"line":"2026-06-11T20:57:29+00:00 systemd[2117283]: Reloading finished in 506 ms.","path":"journald/systemd_unit"}
+{"line":"2026-06-11T20:57:29+00:00 systemd[2117283]: Reloading finished in 517 ms.","path":"journald/systemd_unit"}
+{"line":"2026-06-11T20:57:29+00:00 systemd[2117283]: Started punk-it universal forwarder.","path":"journald/systemd_unit"}
+{"line":"2026-06-11T21:50:01+00:00 plex-monitor[4124288]: OK: cert_days=51 mapping=Not Mapped remote=200 ipv6=0","path":"builtin/logfmt"}
+{"line":"2026-06-11T22:50:01+00:00 plex-monitor[4176153]: OK: cert_days=51 mapping=Not Mapped remote=200 ipv6=0","path":"builtin/logfmt"}
+{"line":"2026-06-11T23:40:05+00:00 dockerd[600]: time=\"2026-06-11T23:40:05.837171920Z\" level=info msg=\"ignoring event\" container=4fa5f12e719d9927 module=libcontainerd namespace=moby topic=/tasks/delete type=\"*events.TaskDelete\"","path":"builtin/logfmt"}
+{"line":"2026-06-11T23:40:05+00:00 containerd[548]: time=\"2026-06-11T23:40:05.838165513Z\" level=info msg=\"shim disconnected\" id=4fa5f12e719d9927 namespace=moby","path":"builtin/logfmt"}
+{"line":"2026-06-11T23:40:05+00:00 containerd[548]: time=\"2026-06-11T23:40:05.838220096Z\" level=info msg=\"cleaning up after shim disconnected\" id=4fa5f12e719d9927 namespace=moby","path":"builtin/logfmt"}
+{"line":"2026-06-11T23:40:05+00:00 containerd[548]: time=\"2026-06-11T23:40:05.838268473Z\" level=info msg=\"cleaning up dead shim\" id=4fa5f12e719d9927 namespace=moby","path":"builtin/logfmt"}
+{"line":"2026-06-11T23:40:05+00:00 containerd[548]: time=\"2026-06-11T23:40:05.972068056Z\" level=info msg=\"connecting to shim 4fa5f12e719d9927\" address=\"unix:///run/containerd/s/6aca2173b5ad97bb\" namespace=moby protocol=ttrpc version=3","path":"builtin/logfmt"}
+{"line":"2026-06-11T23:40:06+00:00 systemd[1]: Started libcontainer container 4fa5f12e719d9927.","path":"journald/systemd_unit"}
+{"line":"2026-06-11T23:40:06+00:00 dockerd[600]: time=\"2026-06-11T23:40:06.138964582Z\" level=info msg=\"sbJoin: gwep4 ''->'', gwep6 ''->''\" eid=10ef67de5d2f ep=plex net=host nid=6e3bf1eaddb8 spanID=5d742d84a98b87d2 traceID=e0e23e6f65926095","path":"builtin/logfmt"}
+{"line":"2026-06-11T23:50:01+00:00 plex-monitor[36039]: OK: cert_days=51 mapping=Mapped remote=200 ipv6=0","path":"builtin/logfmt"}
+{"line":"2026-06-12T00:00:01+00:00 systemd[1]: Started Verify integrity of password and group files.","path":"journald/systemd_unit"}
+{"line":"2026-06-12T00:50:05+00:00 containerd[548]: time=\"2026-06-12T00:50:05.000064192Z\" level=info msg=\"shim disconnected\" id=4fa5f12e719d9927 namespace=moby","path":"builtin/logfmt"}
+{"line":"2026-06-12T00:50:05+00:00 containerd[548]: time=\"2026-06-12T00:50:05.000116346Z\" level=info msg=\"cleaning up after shim disconnected\" id=4fa5f12e719d9927 namespace=moby","path":"builtin/logfmt"}
+{"line":"2026-06-12T00:50:05+00:00 containerd[548]: time=\"2026-06-12T00:50:05.000139312Z\" level=info msg=\"cleaning up dead shim\" id=4fa5f12e719d9927 namespace=moby","path":"builtin/logfmt"}
+{"line":"2026-06-12T00:50:05+00:00 containerd[548]: time=\"2026-06-12T00:50:05.129064962Z\" level=info msg=\"connecting to shim 4fa5f12e719d9927\" address=\"unix:///run/containerd/s/6aca2173b5ad97bb\" namespace=moby protocol=ttrpc version=3","path":"builtin/logfmt"}
+{"line":"2026-06-12T00:50:05+00:00 systemd[1]: Started libcontainer container 4fa5f12e719d9927.","path":"journald/systemd_unit"}
+{"line":"2026-06-12T00:50:05+00:00 dockerd[600]: time=\"2026-06-12T00:50:05.328231136Z\" level=info msg=\"sbJoin: gwep4 ''->'', gwep6 ''->''\" eid=a72b55e6a839 ep=plex net=host nid=6e3bf1eaddb8 spanID=f766e75261eb3433 traceID=87bcae1fc279617e","path":"builtin/logfmt"}
+{"line":"2026-06-12T01:50:01+00:00 plex-monitor[139948]: OK: cert_days=51 mapping=Mapped remote=200 ipv6=0","path":"builtin/logfmt"}
+{"line":"2026-06-12T02:00:07+00:00 dockerd[600]: time=\"2026-06-12T02:00:07.381342774Z\" level=info msg=\"ignoring event\" container=4fa5f12e719d9927 module=libcontainerd namespace=moby topic=/tasks/delete type=\"*events.TaskDelete\"","path":"builtin/logfmt"}
+{"line":"2026-06-12T02:00:07+00:00 systemd[1]: Started libcontainer container 4fa5f12e719d9927.","path":"journald/systemd_unit"}
+{"line":"2026-06-12T03:10:05+00:00 systemd[1]: Started libcontainer container 4fa5f12e719d9927.","path":"journald/systemd_unit"}
+{"line":"2026-06-12T04:20:05+00:00 systemd[1]: Started libcontainer container 4fa5f12e719d9927.","path":"journald/systemd_unit"}
+{"line":"2026-06-12T05:30:06+00:00 systemd[1]: Started libcontainer container 4fa5f12e719d9927.","path":"journald/systemd_unit"}
+{"line":"2026-06-12T06:40:04+00:00 systemd[1]: Started libcontainer container 4fa5f12e719d9927.","path":"journald/systemd_unit"}

@@ -1,0 +1,1826 @@
+{
+  "name": "mac-wifi",
+  "package": "os/macos",
+  "ts": {
+    "banks": [
+      "iso",
+      "syslog",
+      "clf",
+      "epoch"
+    ],
+    "custom": []
+  },
+  "brk": {
+    "mode": "line",
+    "start": null,
+    "max_lines": 100,
+    "max_bytes": 32768
+  },
+  "snapshot": {
+    "epoch": 50,
+    "lines_seen": 0,
+    "nodes": [
+      {
+        "name": "syslog",
+        "origin": "seed",
+        "pattern": "^(?P<ts>[A-Z][a-z]{2}\\s+\\d{1,2} \\d{2}:\\d{2}:\\d{2}) (?P<host>\\S+) (?P<proc>[\\w.\\-/]+)(?:\\[(?P<pid>\\d+)\\])?: (?P<msg>.*)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "pid": "int"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Jun 11 00:30:04 redacted1 newsyslog[23582]: logfile turned over"
+        ]
+      },
+      {
+        "name": "sshd_auth",
+        "origin": "seed",
+        "pattern": "sshd\\[\\d+\\]: (?P<auth_result>Accepted|Failed) (?P<auth_method>\\w+) for (?:invalid user )?(?P<user>\\S+) from (?P<src_ip>\\d{1,3}(?:\\.\\d{1,3}){3}) port (?P<src_port>\\d+)",
+        "parent": 0,
+        "state": "active",
+        "types": {
+          "src_ip": "ip",
+          "src_port": "int"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "cron_session",
+        "origin": "seed",
+        "pattern": "CRON\\[\\d+\\]: pam_unix\\(cron:session\\): session (?P<session_action>opened|closed) for user (?P<user>\\S+)",
+        "parent": 0,
+        "state": "active",
+        "types": {},
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "oom_kill",
+        "origin": "seed",
+        "pattern": "Out of memory: Killed process (?P<oom_pid>\\d+) \\((?P<oom_proc>[^)]+)\\)",
+        "parent": 0,
+        "state": "active",
+        "types": {
+          "oom_pid": "int"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "access_log",
+        "origin": "seed",
+        "pattern": "^(?P<client_ip>\\S+) \\S+ (?P<auth_user>\\S+) \\[(?P<ts>[^\\]]+)\\] \"(?P<method>[A-Z]+) (?P<path>\\S+)(?: (?P<proto>[^\"]*))?\" (?P<status>\\d{3}) (?P<bytes>\\d+|-)",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "status": "int"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "access_combined",
+        "origin": "seed",
+        "pattern": "\" \\d{3} (?:\\d+|-) \"(?P<referer>[^\"]*)\" \"(?P<user_agent>[^\"]*)\"",
+        "parent": 4,
+        "state": "active",
+        "types": {},
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "klog",
+        "origin": "seed",
+        "pattern": "^(?P<level>[IWEF])(?P<mmdd>\\d{4} \\d{2}:\\d{2}:\\d{2}\\.\\d+)\\s+(?P<tid>\\d+) (?P<src_file>[\\w.\\-]+):(?P<src_line>\\d+)\\] (?P<msg>.*)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "src_line": "int",
+          "tid": "int"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "app_iso",
+        "origin": "seed",
+        "pattern": "^(?P<ts>\\d{4}-\\d{2}-\\d{2}[T ]\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?(?:Z|[+-][\\d:]{4,5})?)\\s+\\[?(?P<level>TRACE|DEBUG|INFO|WARN|WARNING|ERROR|FATAL|CRITICAL)\\]?\\s+(?P<msg>.*)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {},
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "exception",
+        "origin": "seed",
+        "pattern": "(?P<exception>[\\w.$]+(?:Exception|Error)): (?P<exc_msg>.*)$",
+        "parent": 7,
+        "state": "active",
+        "types": {},
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "http_request",
+        "origin": "seed",
+        "pattern": "(?P<method>GET|POST|PUT|PATCH|DELETE|HEAD) (?P<path>/\\S*) (?:HTTP/[\\d.]+ )?(?P<status>\\d{3}) (?P<latency_ms>\\d+(?:\\.\\d+)?)ms",
+        "parent": 7,
+        "state": "active",
+        "types": {
+          "latency_ms": "float",
+          "status": "int"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "mined_thu_jun__airport__452_1",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\S+)\\s+\\[airport\\]/452\\s+(?P<f3>\\S+)\\s+\\(airportProcessCommand\\.m:1756\\)\\s+(?P<f4>\\S+)\\s+Processed\\s+events,\\s+count\\[\\s+(?P<f5>\\S+)\\s+(?P<f6>\\S+)\\s+took\\s+(?P<f7>-?\\d+\\.\\d+)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "int",
+          "f2": "any",
+          "f3": "any",
+          "f4": "any",
+          "f5": "any",
+          "f6": "any",
+          "f7": "float"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Thu Jun 11 23:43:25.064 [airport]/452 @[623059.189813] (airportProcessCommand.m:1756) dq:'com.apple.airportd.server.command.q'/tid[0x6f1d6c] Processed events, count[  1], @[623059.189795], took 0.000014",
+          "Thu Jun 11 17:52:07.047 [airport]/452 @[601981.254133] (airportProcessCommand.m:1756) dq:'com.apple.airportd.server.command.q'/tid[0x642628] Processed events, count[  1], @[601981.254116], took 0.000013",
+          "Thu Jun 11 23:43:25.063 [airport]/452 @[623059.188905] (airportProcessCommand.m:1756) dq:'com.apple.airportd.server.command.q'/tid[0x6f1ab9] Processed events, count[  1], @[623059.188886], took 0.000011",
+          "Thu Jun 11 20:33:24.786 [airport]/452 @[611658.948705] (airportProcessCommand.m:1756) dq:'com.apple.airportd.server.command.q'/tid[0x68da8a] Processed events, count[  1], @[611658.948688], took 0.000013"
+        ]
+      },
+      {
+        "name": "mined_thu_jun__airport__452_2",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\S+)\\s+\\[airport\\]/452\\s+(?P<f3>\\S+)\\s+\\(airportdMain\\.m:1902\\)\\s+(?P<f4>\\S+)\\s+Health\\s+check\\s+alive,\\s+(?P<f5>\\S+)\\s+fault\\[0\\]\\s+crash\\[0\\]\\s+threshold\\[5\\s+sec\\],\\s+(?P<f6>\\S+)\\s+gRunLoop:\\s+(?P<f7>\\S+)\\s+(?P<f8>\\S+)\\s+(?P<f9>\\S+)\\s+max\\[2\\.320381\\]\\s+(?P<f10>\\S+)\\s+faults\\[0\\],\\s+last\\s+faulted\\s+@count\\[0\\],\\s+thresholdExceeded\\[0\\]$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "int",
+          "f10": "any",
+          "f2": "any",
+          "f3": "any",
+          "f4": "any",
+          "f5": "any",
+          "f6": "any",
+          "f7": "any",
+          "f8": "any",
+          "f9": "any"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Thu Jun 11 00:53:00.272 [airport]/452 @[540834.630178] (airportdMain.m:1902) dq:'com.apple.airportd.server.timer.q'/tid[0x4b1716] Health check alive, checkin@[540834.630107], fault[0] crash[0] threshold[5 sec], count[281730], gRunLoop: checkin@[540834.081337] count[283226] last[540834.081337] max[2.320381] diff[0.548769], faults[0], last faulted @count[0], thresholdExceeded[0]",
+          "Thu Jun 11 13:26:45.189 [airport]/452 @[586059.469081] (airportdMain.m:1902) dq:'com.apple.airportd.server.timer.q'/tid[0x5e5090] Health check alive, checkin@[586059.469003], fault[0] crash[0] threshold[5 sec], count[325980], gRunLoop: checkin@[586059.468930] count[327750] last[586059.468930] max[2.320381] diff[0.000072], faults[0], last faulted @count[0], thresholdExceeded[0]",
+          "Thu Jun 11 21:49:43.239 [airport]/452 @[616237.374137] (airportdMain.m:1902) dq:'com.apple.airportd.server.timer.q'/tid[0x6b9c29] Health check alive, checkin@[616237.374072], fault[0] crash[0] threshold[5 sec], count[349230], gRunLoop: checkin@[616237.332372] count[351111] last[616237.332372] max[2.320381] diff[0.041699], faults[0], last faulted @count[0], thresholdExceeded[0]",
+          "Thu Jun 11 22:13:21.833 [airport]/452 @[617655.961873] (airportdMain.m:1902) dq:'com.apple.airportd.server.timer.q'/tid[0x6c5459] Health check alive, checkin@[617655.961826], fault[0] crash[0] threshold[5 sec], count[350640], gRunLoop: checkin@[617655.334371] count[352529] last[617655.334371] max[2.320381] diff[0.627455], faults[0], last faulted @count[0], thresholdExceeded[0]"
+        ]
+      },
+      {
+        "name": "mined_thu_jun__airport__452_3",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\S+)\\s+\\[airport\\]/452\\s+(?P<f3>\\S+)\\s+(?P<f4>\\S+)\\s+dq:'com\\.apple\\.main\\-thread'/tid\\[0x11fe\\]\\s+Acknowledging\\s+sleep\\s+event,\\s+connection\\[0xe0000090d0263a0\\]\\s+token\\[0x00000000\\]$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "int",
+          "f2": "any",
+          "f3": "any",
+          "f4": "any"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Thu Jun 11 14:39:07.347 [airport]/452 @[590401.588768] (configdIODriverInterface.m:6207) dq:'com.apple.main-thread'/tid[0x11fe] Acknowledging sleep event, connection[0xe0000090d0263a0] token[0x00000000]",
+          "Thu Jun 11 14:39:07.541 [airport]/452 @[590401.783603] (configdIODriverInterface.m:6207) dq:'com.apple.main-thread'/tid[0x11fe] Acknowledging sleep event, connection[0xe0000090d0263a0] token[0x00000000]",
+          "Thu Jun 11 14:52:59.230 [airport]/452 @[591233.457230] (configdIODriverInterface.m:6207) dq:'com.apple.main-thread'/tid[0x11fe] Acknowledging sleep event, connection[0xe0000090d0263a0] token[0x00000000]",
+          "Thu Jun 11 14:40:38.851 [airport]/452 @[590493.092481] (configdIODriverInterface.m:6207) dq:'com.apple.main-thread'/tid[0x11fe] Acknowledging sleep event, connection[0xe0000090d0263a0] token[0x00000000]"
+        ]
+      },
+      {
+        "name": "mined_thu_jun__airport__452_4",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\S+)\\s+\\[airport\\]/452\\s+(?P<f3>\\S+)\\s+\\(configdIODriverInterface\\.m:5596\\)\\s+dq:'com\\.apple\\.main\\-thread'/tid\\[0x11fe\\]\\s+'en0'\\s+TCP\\s+keep\\-alive\\s+offload:\\s+(?P<f4>\\S+)\\s+AC\\s+override\\[0\\]/value\\[0\\],\\s+allowed\\[1\\],\\s+recentWakeCount\\[0\\]\\s+\\(monitoring_period:15\\s+mins,\\s+limit:5\\)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "int",
+          "f2": "any",
+          "f3": "any",
+          "f4": "any"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Thu Jun 11 14:39:07.542 [airport]/452 @[590401.783741] (configdIODriverInterface.m:5596) dq:'com.apple.main-thread'/tid[0x11fe] 'en0' TCP keep-alive offload: isUsingACPower[1], AC override[0]/value[0], allowed[1], recentWakeCount[0] (monitoring_period:15 mins, limit:5)",
+          "Thu Jun 11 14:40:38.650 [airport]/452 @[590492.891973] (configdIODriverInterface.m:5596) dq:'com.apple.main-thread'/tid[0x11fe] 'en0' TCP keep-alive offload: isUsingACPower[1], AC override[0]/value[0], allowed[1], recentWakeCount[0] (monitoring_period:15 mins, limit:5)",
+          "Thu Jun 11 14:40:38.852 [airport]/452 @[590493.093433] (configdIODriverInterface.m:5596) dq:'com.apple.main-thread'/tid[0x11fe] 'en0' TCP keep-alive offload: isUsingACPower[1], AC override[0]/value[0], allowed[1], recentWakeCount[0] (monitoring_period:15 mins, limit:5)",
+          "Thu Jun 11 14:45:18.219 [airport]/452 @[590772.458828] (configdIODriverInterface.m:5596) dq:'com.apple.main-thread'/tid[0x11fe] 'en0' TCP keep-alive offload: isUsingACPower[1], AC override[0]/value[0], allowed[1], recentWakeCount[0] (monitoring_period:15 mins, limit:5)"
+        ]
+      },
+      {
+        "name": "mined_thu_jun__airport__452_5",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\S+)\\s+\\[airport\\]/452\\s+(?P<f3>\\S+)\\s+\\(configdIODriverInterface\\.m:5634\\)\\s+dq:'com\\.apple\\.main\\-thread'/tid\\[0x11fe\\]\\s+TCP\\s+keep\\-alive\\s+enabled\\s+on\\s+en0,\\s+allowed\\[1\\]$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "int",
+          "f2": "any",
+          "f3": "any"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Thu Jun 11 14:39:07.542 [airport]/452 @[590401.783882] (configdIODriverInterface.m:5634) dq:'com.apple.main-thread'/tid[0x11fe] TCP keep-alive enabled on en0, allowed[1]",
+          "Thu Jun 11 14:40:38.651 [airport]/452 @[590492.892288] (configdIODriverInterface.m:5634) dq:'com.apple.main-thread'/tid[0x11fe] TCP keep-alive enabled on en0, allowed[1]",
+          "Thu Jun 11 14:40:38.852 [airport]/452 @[590493.093706] (configdIODriverInterface.m:5634) dq:'com.apple.main-thread'/tid[0x11fe] TCP keep-alive enabled on en0, allowed[1]",
+          "Thu Jun 11 14:45:18.219 [airport]/452 @[590772.458987] (configdIODriverInterface.m:5634) dq:'com.apple.main-thread'/tid[0x11fe] TCP keep-alive enabled on en0, allowed[1]"
+        ]
+      },
+      {
+        "name": "mined_thu_jun__airport__452_6",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\S+)\\s+\\[airport\\]/452\\s+(?P<f3>\\S+)\\s+\\(configdIODriverInterface\\.m:2249\\)\\s+dq:'com\\.apple\\.main\\-thread'/tid\\[0x11fe\\]\\s+driver\\s+(?P<f4>\\S+)\\s+(?P<f5>\\S+)\\s+subreason=(?P<subreason>\\S+)\\s+flags=(?P<flags>\\S+)\\s+(?P<f6>\\S+)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "int",
+          "f2": "any",
+          "f3": "any",
+          "f4": "any",
+          "f5": "any",
+          "f6": "any",
+          "flags": "any",
+          "subreason": "any"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Thu Jun 11 14:46:21.114 [airport]/452 @[590835.353993] (configdIODriverInterface.m:2249) dq:'com.apple.main-thread'/tid[0x11fe] driver unavailable (reason=0xe0821804, subreason=0x0, flags=0x0), node:isDriverAvailable=1",
+          "Thu Jun 11 14:46:53.295 [airport]/452 @[590867.534070] (configdIODriverInterface.m:2249) dq:'com.apple.main-thread'/tid[0x11fe] driver available (reason=0xe0821803, subreason=0x0, flags=0x0), node:isDriverAvailable=0",
+          "Thu Jun 11 14:47:57.062 [airport]/452 @[590931.301038] (configdIODriverInterface.m:2249) dq:'com.apple.main-thread'/tid[0x11fe] driver unavailable (reason=0xe0821804, subreason=0x0, flags=0x0), node:isDriverAvailable=1",
+          "Thu Jun 11 14:50:18.473 [airport]/452 @[591072.711464] (configdIODriverInterface.m:2249) dq:'com.apple.main-thread'/tid[0x11fe] driver available (reason=0xe0821803, subreason=0x0, flags=0x0), node:isDriverAvailable=0"
+        ]
+      },
+      {
+        "name": "mined_thu_jun_usb_7",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\S+)\\s+Usb\\s+Host\\s+Notification\\s+metrics:\\s+usbChange=(?P<usbChange>\\S+)\\s+count=(?P<count>\\S+)\\s+noiseDelta=(?P<noiseDelta>-?\\d+)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "count": "any",
+          "f1": "int",
+          "f2": "any",
+          "noiseDelta": "int",
+          "usbChange": "any"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Thu Jun 11 14:46:53.411 Usb Host Notification metrics: usbChange=0, count=0, noiseDelta=0",
+          "Thu Jun 11 14:46:53.468 Usb Host Notification metrics: usbChange=0, count=0, noiseDelta=0",
+          "Thu Jun 11 14:50:18.589 Usb Host Notification metrics: usbChange=0, count=0, noiseDelta=0",
+          "Thu Jun 11 14:50:18.632 Usb Host Notification metrics: usbChange=0, count=0, noiseDelta=0"
+        ]
+      },
+      {
+        "name": "mined_thu_jun__airport__452_8",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\S+)\\s+\\[airport\\]/452\\s+(?P<f3>\\S+)\\s+(?P<f4>\\S+)\\s+(?P<f5>\\S+)\\s+(?P<f6>\\S+)\\s+(?P<f7>\\S+)\\s+(?P<f8>\\S+)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "int",
+          "f2": "any",
+          "f3": "any",
+          "f4": "any",
+          "f5": "any",
+          "f6": "any",
+          "f7": "any",
+          "f8": "any"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Thu Jun 11 15:22:48.742 [airport]/452 @[593022.963756] (configdIODriverInterface.m:2118) dq:'com.apple.main-thread'/tid[0x11fe] @[593022.848000] WoWWakeUpCommand: 'E_RX_IP_PACKET'",
+          "Thu Jun 11 15:33:26.894 [airport]/452 @[593661.113901] (configdIODriverInterface.m:2118) dq:'com.apple.main-thread'/tid[0x11fe] @[593660.995000] WoWWakeUpCommand: 'E_RX_IP_PACKET'",
+          "Thu Jun 11 15:48:00.217 [airport]/452 @[594534.431951] (configdIODriverInterface.m:2118) dq:'com.apple.main-thread'/tid[0x11fe] @[594534.283000] WoWWakeUpCommand: 'E_RX_IP_PACKET'",
+          "Thu Jun 11 15:49:18.345 [airport]/452 @[594612.559202] (configdIODriverInterface.m:2118) dq:'com.apple.main-thread'/tid[0x11fe] @[594612.411000] WoWWakeUpCommand: 'E_RX_IP_PACKET'"
+        ]
+      },
+      {
+        "name": "mined_thu_jun__airport__452_9",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\S+)\\s+\\[airport\\]/452\\s+(?P<f3>\\S+)\\s+\\(configdIODriverInterface\\.m:6109\\)\\s+dq:'com\\.apple\\.main\\-thread'/tid\\[0x11fe\\]\\s+(?P<f4>\\S+)\\s+caps\\s+=\\s+CPU\\s+Net\\s+Disk\\s+(?P<f5>\\S+)\\s+(?P<f6>\\S+)\\s+(?P<f7>\\S+)\\s+(?P<f8>\\S+)\\s+(?P<f9>\\S+)\\s+(?P<f10>\\S+)\\s+(?P<f11>\\S+)\\s+(?P<f12>\\S+)\\s+',\\s+lastSleepType\\[0x00000007\\]/'Deep\\s+Idle',\\s+hibernateStateFound\\[1\\]\\s+hibernateState\\[0x00000000/0\\]\\s+hibernateMode\\[0x00000003/3\\],\\s+(?P<f13>\\S+)\\s+sleep:0\\s+user:0\\s+dark:1\\],\\s+err\\[0\\]\\s+(?P<f14>\\S+)\\s+(?P<f15>\\S+)\\s+(?P<f16>\\S+)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "int",
+          "f10": "any",
+          "f11": "any",
+          "f12": "any",
+          "f13": "any",
+          "f14": "any",
+          "f15": "any",
+          "f16": "any",
+          "f2": "any",
+          "f3": "any",
+          "f4": "any",
+          "f5": "any",
+          "f6": "any",
+          "f7": "any",
+          "f8": "any",
+          "f9": "any"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Thu Jun 11 15:20:20.209 [airport]/452 @[592874.419554] (configdIODriverInterface.m:6109) dq:'com.apple.main-thread'/tid[0x11fe] UUID:'00000000-0000-4000-8000-56c288ae9fca': caps = CPU Net Disk Early , connection[0xe0000090d0263a0] token[0x00000000] capabilties[0x00008019], description:'DarkWake:cpu disk net ', lastSleepType[0x00000007]/'Deep Idle', hibernateStateFound[1] hibernateState[0x00000000/0] hibernateMode[0x00000003/3], PM:[early:1 sleep:0 user:0 dark:1], err[0] kern.wakereason['NUB.SPMI0.SW3 nub-spmi0.0x02 rtc']",
+          "Thu Jun 11 15:22:48.372 [airport]/452 @[593022.594272] (configdIODriverInterface.m:6109) dq:'com.apple.main-thread'/tid[0x11fe] UUID:'00000000-0000-4000-8000-56c288ae9fca': caps = CPU Net Disk Early , connection[0xe0000090d0263a0] token[0x00000000] capabilties[0x00008019], description:'DarkWake:cpu disk net ', lastSleepType[0x00000007]/'Deep Idle', hibernateStateFound[1] hibernateState[0x00000000/0] hibernateMode[0x00000003/3], PM:[early:1 sleep:0 user:0 dark:1], err[0] kern.wakereason['smc.sysState.Wake(0x70070000) wifibt SMC.OutboxNotEmpty']",
+          "Thu Jun 11 15:30:22.210 [airport]/452 @[593476.429857] (configdIODriverInterface.m:6109) dq:'com.apple.main-thread'/tid[0x11fe] UUID:'00000000-0000-4000-8000-56c288ae9fca': caps = CPU Net Disk Early , connection[0xe0000090d0263a0] token[0x00000000] capabilties[0x00008019], description:'DarkWake:cpu disk net ', lastSleepType[0x00000007]/'Deep Idle', hibernateStateFound[1] hibernateState[0x00000000/0] hibernateMode[0x00000003/3], PM:[early:1 sleep:0 user:0 dark:1], err[0] kern.wakereason['NUB.SPMI0.SW3 nub-spmi0.0x02 rtc']",
+          "Thu Jun 11 15:33:26.512 [airport]/452 @[593660.731459] (configdIODriverInterface.m:6109) dq:'com.apple.main-thread'/tid[0x11fe] UUID:'00000000-0000-4000-8000-56c288ae9fca': caps = CPU Net Disk Early , connection[0xe0000090d0263a0] token[0x00000000] capabilties[0x00008019], description:'DarkWake:cpu disk net ', lastSleepType[0x00000007]/'Deep Idle', hibernateStateFound[1] hibernateState[0x00000000/0] hibernateMode[0x00000003/3], PM:[early:1 sleep:0 user:0 dark:1], err[0] kern.wakereason['smc.sysState.Wake(0x70070000) wifibt SMC.OutboxNotEmpty']"
+        ]
+      },
+      {
+        "name": "mined_thu_jun__airport__452_10",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\S+)\\s+\\[airport\\]/452\\s+(?P<f3>\\S+)\\s+\\(configdIODriverInterface\\.m:5774\\)\\s+dq:'com\\.apple\\.main\\-thread'/tid\\[0x11fe\\]\\s+<en0>\\s+Scan\\s+offloads\\s+will\\s+be\\s+ENABLED\\s+\\(lpas_supported=yes,\\s+softap=(?P<softap>\\S+)\\s+wow=(?P<wow>\\S+)\\s+tcpka=(?P<tcpka>\\S+)\\s+allow_unassoc_wakes=(?P<allow_unassoc_wakes>\\S+)\\s+allow_disconn_sleeps=(?P<allow_disconn_sleeps>\\S+)\\s+aj_disabled=(?P<aj_disabled>\\S+)\\s+scan_offload_disabled_until=(?P<scan_offload_disabled_until>\\S+)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "aj_disabled": "any",
+          "allow_disconn_sleeps": "any",
+          "allow_unassoc_wakes": "any",
+          "f1": "int",
+          "f2": "any",
+          "f3": "any",
+          "scan_offload_disabled_until": "any",
+          "softap": "any",
+          "tcpka": "any",
+          "wow": "any"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Thu Jun 11 15:34:12.029 [airport]/452 @[593706.248703] (configdIODriverInterface.m:5774) dq:'com.apple.main-thread'/tid[0x11fe] <en0> Scan offloads will be ENABLED (lpas_supported=yes, softap=disabled, wow=disabled, tcpka=active, allow_unassoc_wakes=yes, allow_disconn_sleeps=yes, aj_disabled=no, scan_offload_disabled_until=(null))",
+          "Thu Jun 11 15:37:41.513 [airport]/452 @[593915.731072] (configdIODriverInterface.m:5774) dq:'com.apple.main-thread'/tid[0x11fe] <en0> Scan offloads will be ENABLED (lpas_supported=yes, softap=disabled, wow=disabled, tcpka=active, allow_unassoc_wakes=yes, allow_disconn_sleeps=yes, aj_disabled=no, scan_offload_disabled_until=(null))",
+          "Thu Jun 11 15:41:07.452 [airport]/452 @[594121.668367] (configdIODriverInterface.m:5774) dq:'com.apple.main-thread'/tid[0x11fe] <en0> Scan offloads will be ENABLED (lpas_supported=yes, softap=disabled, wow=disabled, tcpka=active, allow_unassoc_wakes=yes, allow_disconn_sleeps=yes, aj_disabled=no, scan_offload_disabled_until=(null))",
+          "Thu Jun 11 15:46:26.193 [airport]/452 @[594440.407844] (configdIODriverInterface.m:5774) dq:'com.apple.main-thread'/tid[0x11fe] <en0> Scan offloads will be ENABLED (lpas_supported=yes, softap=disabled, wow=disabled, tcpka=active, allow_unassoc_wakes=yes, allow_disconn_sleeps=yes, aj_disabled=no, scan_offload_disabled_until=(null))"
+        ]
+      },
+      {
+        "name": "mined_thu_jun__airport__452_11",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\S+)\\s+\\[airport\\]/452\\s+(?P<f3>\\S+)\\s+\\(configdIODriverInterface\\.m:5849\\)\\s+dq:'com\\.apple\\.main\\-thread'/tid\\[0x11fe\\]\\s+<en0>\\s+Successfully\\s+configured\\s+scan\\s+offloads,\\s+aj_disabled=(?P<aj_disabled>\\S+)\\s+PNO\\s+count\\[16\\]$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "aj_disabled": "any",
+          "f1": "int",
+          "f2": "any",
+          "f3": "any"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Thu Jun 11 15:34:12.085 [airport]/452 @[593706.304810] (configdIODriverInterface.m:5849) dq:'com.apple.main-thread'/tid[0x11fe] <en0> Successfully configured scan offloads, aj_disabled=no, PNO count[16]",
+          "Thu Jun 11 15:37:41.566 [airport]/452 @[593915.783432] (configdIODriverInterface.m:5849) dq:'com.apple.main-thread'/tid[0x11fe] <en0> Successfully configured scan offloads, aj_disabled=no, PNO count[16]",
+          "Thu Jun 11 15:41:07.505 [airport]/452 @[594121.721738] (configdIODriverInterface.m:5849) dq:'com.apple.main-thread'/tid[0x11fe] <en0> Successfully configured scan offloads, aj_disabled=no, PNO count[16]",
+          "Thu Jun 11 15:46:26.248 [airport]/452 @[594440.463573] (configdIODriverInterface.m:5849) dq:'com.apple.main-thread'/tid[0x11fe] <en0> Successfully configured scan offloads, aj_disabled=no, PNO count[16]"
+        ]
+      },
+      {
+        "name": "mined_thu_jun__airport__452_12",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\S+)\\s+\\[airport\\]/452\\s+(?P<f3>\\S+)\\s+\\(configdIODriverInterface\\.m:5001\\)\\s+dq:'com\\.apple\\.main\\-thread'/tid\\[0x11fe\\]\\s+Acknowledging\\s+sleep\\s+event,\\s+connection\\[0xe0000090d0263a0\\]\\s+(?P<f4>\\S+)\\s+gPMConnection\\[0xe0000090d0263a0\\]$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "int",
+          "f2": "any",
+          "f3": "any",
+          "f4": "any"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Thu Jun 11 08:34:06.258 [airport]/452 @[568500.586448] (configdIODriverInterface.m:5001) dq:'com.apple.main-thread'/tid[0x11fe] Acknowledging sleep event, connection[0xe0000090d0263a0] token[0x01f30014], gPMConnection[0xe0000090d0263a0]",
+          "Thu Jun 11 15:37:41.568 [airport]/452 @[593915.785521] (configdIODriverInterface.m:5001) dq:'com.apple.main-thread'/tid[0x11fe] Acknowledging sleep event, connection[0xe0000090d0263a0] token[0x020b0011], gPMConnection[0xe0000090d0263a0]",
+          "Thu Jun 11 15:41:07.507 [airport]/452 @[594121.723665] (configdIODriverInterface.m:5001) dq:'com.apple.main-thread'/tid[0x11fe] Acknowledging sleep event, connection[0xe0000090d0263a0] token[0x020c0011], gPMConnection[0xe0000090d0263a0]",
+          "Thu Jun 11 15:46:26.251 [airport]/452 @[594440.465690] (configdIODriverInterface.m:5001) dq:'com.apple.main-thread'/tid[0x11fe] Acknowledging sleep event, connection[0xe0000090d0263a0] token[0x020d0011], gPMConnection[0xe0000090d0263a0]"
+        ]
+      },
+      {
+        "name": "mined_thu_jun_usb_13",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\S+)\\s+Usb\\s+Host\\s+Notification\\s+Error\\s+Apple80211Set:\\s+Device\\s+power\\s+is\\s+off\\s+seqNum\\s+(?P<f3>-?\\d+)\\s+Total\\s+(?P<f4>-?\\d+)\\s+chg\\s+(?P<f5>-?\\d+)\\s+en0$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "int",
+          "f2": "any",
+          "f3": "int",
+          "f4": "int",
+          "f5": "int"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Thu Jun 11 15:34:13.788 Usb Host Notification Error Apple80211Set: Device power is off seqNum 408 Total 0 chg 0 en0",
+          "Thu Jun 11 15:37:43.581 Usb Host Notification Error Apple80211Set: Device power is off seqNum 411 Total 0 chg 0 en0",
+          "Thu Jun 11 15:41:09.356 Usb Host Notification Error Apple80211Set: Device power is off seqNum 414 Total 0 chg 0 en0",
+          "Thu Jun 11 15:46:28.034 Usb Host Notification Error Apple80211Set: Device power is off seqNum 416 Total 0 chg 0 en0"
+        ]
+      },
+      {
+        "name": "mined_thu_jun__airport__452_14",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\S+)\\s+\\[airport\\]/452\\s+(?P<f3>\\S+)\\s+\\(configdIODriverInterface\\.m:6109\\)\\s+dq:'com\\.apple\\.main\\-thread'/tid\\[0x11fe\\]\\s+(?P<f4>\\S+)\\s+caps\\s+=\\s+,\\s+connection\\[0xe0000090d0263a0\\]\\s+(?P<f5>\\S+)\\s+capabilties\\[0x00000000\\],\\s+description:'Sleep:<off>\\s+',\\s+lastSleepType\\[0x00000007\\]/'Deep\\s+Idle',\\s+hibernateStateFound\\[1\\]\\s+hibernateState\\[0x00000000/0\\]\\s+hibernateMode\\[0x00000003/3\\],\\s+PM:\\[early:0\\s+sleep:1\\s+user:0\\s+dark:0\\],\\s+err\\[0\\]\\s+(?P<f6>\\S+)\\s+(?P<f7>\\S+)\\s+(?P<f8>\\S+)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "int",
+          "f2": "any",
+          "f3": "any",
+          "f4": "any",
+          "f5": "any",
+          "f6": "any",
+          "f7": "any",
+          "f8": "any"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Thu Jun 11 15:37:41.506 [airport]/452 @[593915.723251] (configdIODriverInterface.m:6109) dq:'com.apple.main-thread'/tid[0x11fe] UUID:'00000000-0000-4000-8000-56c288ae9fca': caps = , connection[0xe0000090d0263a0] token[0x020b0011] capabilties[0x00000000], description:'Sleep:<off> ', lastSleepType[0x00000007]/'Deep Idle', hibernateStateFound[1] hibernateState[0x00000000/0] hibernateMode[0x00000003/3], PM:[early:0 sleep:1 user:0 dark:0], err[0] kern.wakereason['NUB.SPMI0.SW3 nub-spmi0.0x02 rtc']",
+          "Thu Jun 11 15:41:07.444 [airport]/452 @[594121.660572] (configdIODriverInterface.m:6109) dq:'com.apple.main-thread'/tid[0x11fe] UUID:'00000000-0000-4000-8000-56c288ae9fca': caps = , connection[0xe0000090d0263a0] token[0x020c0011] capabilties[0x00000000], description:'Sleep:<off> ', lastSleepType[0x00000007]/'Deep Idle', hibernateStateFound[1] hibernateState[0x00000000/0] hibernateMode[0x00000003/3], PM:[early:0 sleep:1 user:0 dark:0], err[0] kern.wakereason['NUB.SPMI0.SW3 nub-spmi0.0x02 rtc']",
+          "Thu Jun 11 15:46:26.185 [airport]/452 @[594440.398705] (configdIODriverInterface.m:6109) dq:'com.apple.main-thread'/tid[0x11fe] UUID:'00000000-0000-4000-8000-56c288ae9fca': caps = , connection[0xe0000090d0263a0] token[0x020d0011] capabilties[0x00000000], description:'Sleep:<off> ', lastSleepType[0x00000007]/'Deep Idle', hibernateStateFound[1] hibernateState[0x00000000/0] hibernateMode[0x00000003/3], PM:[early:0 sleep:1 user:0 dark:0], err[0] kern.wakereason['NUB.SPMI0.SW3 nub-spmi0.0x02 rtc']",
+          "Thu Jun 11 15:48:59.703 [airport]/452 @[594593.917687] (configdIODriverInterface.m:6109) dq:'com.apple.main-thread'/tid[0x11fe] UUID:'00000000-0000-4000-8000-56c288ae9fca': caps = , connection[0xe0000090d0263a0] token[0x020e0011] capabilties[0x00000000], description:'Sleep:<off> ', lastSleepType[0x00000007]/'Deep Idle', hibernateStateFound[1] hibernateState[0x00000000/0] hibernateMode[0x00000003/3], PM:[early:0 sleep:1 user:0 dark:0], err[0] kern.wakereason['smc.sysState.Wake(0x70070000) wifibt SMC.OutboxNotEmpty']"
+        ]
+      },
+      {
+        "name": "mined_thu_jun__airport__452_15",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\S+)\\s+\\[airport\\]/452\\s+(?P<f3>\\S+)\\s+\\(configdIODriverInterface\\.m:6109\\)\\s+dq:'com\\.apple\\.main\\-thread'/tid\\[0x11fe\\]\\s+UUID:'14C95D61\\-621D\\-45B2\\-9E08\\-3D5E0CD19CDD':\\s+caps\\s+=\\s+CPU\\s+Net\\s+Disk\\s+,\\s+connection\\[0xe0000090d0263a0\\]\\s+token\\[0x00000000\\]\\s+capabilties\\[0x000000f9\\],\\s+description:'DarkWake:cpu\\s+disk\\s+net\\s+push\\s+bg\\s+',\\s+lastSleepType\\[0x00000007\\]/'Deep\\s+Idle',\\s+hibernateStateFound\\[1\\]\\s+hibernateState\\[0x00000000/0\\]\\s+hibernateMode\\[0x00000003/3\\],\\s+PM:\\[early:0\\s+sleep:0\\s+user:0\\s+dark:1\\],\\s+err\\[0\\]\\s+(?P<f4>\\S+)\\s+(?P<f5>\\S+)\\s+(?P<f6>\\S+)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "int",
+          "f2": "any",
+          "f3": "any",
+          "f4": "any",
+          "f5": "any",
+          "f6": "any"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Thu Jun 11 15:55:22.382 [airport]/452 @[594976.605891] (configdIODriverInterface.m:6109) dq:'com.apple.main-thread'/tid[0x11fe] UUID:'00000000-0000-4000-8000-56c288ae9fca': caps = CPU Net Disk , connection[0xe0000090d0263a0] token[0x00000000] capabilties[0x000000f9], description:'DarkWake:cpu disk net push bg ', lastSleepType[0x00000007]/'Deep Idle', hibernateStateFound[1] hibernateState[0x00000000/0] hibernateMode[0x00000003/3], PM:[early:0 sleep:0 user:0 dark:1], err[0] kern.wakereason['NUB.SPMI0.SW3 nub-spmi0.0x02 rtc']",
+          "Thu Jun 11 16:00:22.416 [airport]/452 @[595276.640161] (configdIODriverInterface.m:6109) dq:'com.apple.main-thread'/tid[0x11fe] UUID:'00000000-0000-4000-8000-56c288ae9fca': caps = CPU Net Disk , connection[0xe0000090d0263a0] token[0x00000000] capabilties[0x000000f9], description:'DarkWake:cpu disk net push bg ', lastSleepType[0x00000007]/'Deep Idle', hibernateStateFound[1] hibernateState[0x00000000/0] hibernateMode[0x00000003/3], PM:[early:0 sleep:0 user:0 dark:1], err[0] kern.wakereason['NUB.SPMI0.SW3 nub-spmi0.0x02 rtc']",
+          "Thu Jun 11 16:05:22.400 [airport]/452 @[595576.624173] (configdIODriverInterface.m:6109) dq:'com.apple.main-thread'/tid[0x11fe] UUID:'00000000-0000-4000-8000-56c288ae9fca': caps = CPU Net Disk , connection[0xe0000090d0263a0] token[0x00000000] capabilties[0x000000f9], description:'DarkWake:cpu disk net push bg ', lastSleepType[0x00000007]/'Deep Idle', hibernateStateFound[1] hibernateState[0x00000000/0] hibernateMode[0x00000003/3], PM:[early:0 sleep:0 user:0 dark:1], err[0] kern.wakereason['NUB.SPMI0.SW3 nub-spmi0.0x02 rtc']",
+          "Thu Jun 11 16:10:22.384 [airport]/452 @[595876.624742] (configdIODriverInterface.m:6109) dq:'com.apple.main-thread'/tid[0x11fe] UUID:'00000000-0000-4000-8000-56c288ae9fca': caps = CPU Net Disk , connection[0xe0000090d0263a0] token[0x00000000] capabilties[0x000000f9], description:'DarkWake:cpu disk net push bg ', lastSleepType[0x00000007]/'Deep Idle', hibernateStateFound[1] hibernateState[0x00000000/0] hibernateMode[0x00000003/3], PM:[early:0 sleep:0 user:0 dark:1], err[0] kern.wakereason['NUB.SPMI0.SW3 nub-spmi0.0x02 rtc']"
+        ]
+      },
+      {
+        "name": "journald",
+        "origin": "seed",
+        "pattern": "^(?P<ts>\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?(?:Z|[+-][\\d:]{4,5})?) (?P<proc>[\\w.\\-/@]+)(?:\\[(?P<pid>\\d+)\\])?: (?P<msg>.*)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "pid": "int"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "cron_cmd",
+        "origin": "seed",
+        "pattern": "CROND\\[\\d+\\]: \\((?P<cron_user>[^)]+)\\) (?P<cron_action>CMD|CMDEND|CMDOUT|CMDERR) \\((?P<cron_cmd>.*)\\)$",
+        "parent": 25,
+        "state": "active",
+        "types": {},
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "sshd_auth_j",
+        "origin": "seed",
+        "pattern": "sshd\\[\\d+\\]: (?P<auth_result>Accepted|Failed) (?P<auth_method>\\w+) for (?:invalid user )?(?P<user>\\S+) from (?P<src_ip>\\S+) port (?P<src_port>\\d+)",
+        "parent": 25,
+        "state": "active",
+        "types": {
+          "src_port": "int"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "systemd_unit",
+        "origin": "seed",
+        "pattern": "systemd\\[\\d+\\]: (?P<sysd_action>Started|Starting|Stopped|Stopping|Finished|Failed|Reloading|Reached) (?P<unit>.*)$",
+        "parent": 25,
+        "state": "active",
+        "types": {},
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "pacman",
+        "origin": "seed",
+        "pattern": "^\\[(?P<ts>[\\dT:+\\-]+)\\] \\[(?P<component>[A-Z][A-Z\\-]+)\\] (?P<msg>.*)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {},
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "pkg_op",
+        "origin": "seed",
+        "pattern": "\\] (?P<pkg_action>installed|upgraded|removed|reinstalled|downgraded) (?P<pkg>\\S+) \\((?P<pkg_version>[^)]+)\\)$",
+        "parent": 29,
+        "state": "active",
+        "types": {},
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "pacman_hook",
+        "origin": "seed",
+        "pattern": "running '(?P<hook>[^']+)'",
+        "parent": 29,
+        "state": "active",
+        "types": {},
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "mined_thu_jun_usb_1",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?)\\s+Usb\\s+Host\\s+Notification\\s+Apple80211Set:\\s+seqNum\\s+(?P<f3>-?\\d+)\\s+Total\\s+(?P<f4>-?\\d+)\\s+chg\\s+(?P<f5>-?\\d+)\\s+en0$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "int",
+          "f2": "time",
+          "f3": "int",
+          "f4": "int",
+          "f5": "int"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Thu Jun 11 14:46:53.411 Usb Host Notification Apple80211Set: seqNum 374 Total 0 chg 0 en0",
+          "Thu Jun 11 14:46:53.468 Usb Host Notification Apple80211Set: seqNum 375 Total 0 chg 0 en0",
+          "Thu Jun 11 14:50:18.589 Usb Host Notification Apple80211Set: seqNum 377 Total 0 chg 0 en0",
+          "Thu Jun 11 14:50:18.626 Usb Host Notification Apple80211Set: seqNum 378 Total 0 chg 0 en0"
+        ]
+      },
+      {
+        "name": "mined_thu_jun__airport__452_1",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?)\\s+\\[airport\\]/452\\s+(?P<f3>\\S+)\\s+(?P<f4>\\S+)\\s+dq:'com\\.apple\\.main\\-thread'/tid\\[0x11fe\\]\\s+Acknowledging\\s+sleep\\s+event,\\s+connection\\[0xe0000090d0263a0\\]\\s+token\\[0x00000000\\]$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "int",
+          "f2": "time",
+          "f3": "any",
+          "f4": "any"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Thu Jun 11 14:39:07.347 [airport]/452 @[590401.588768] (configdIODriverInterface.m:6207) dq:'com.apple.main-thread'/tid[0x11fe] Acknowledging sleep event, connection[0xe0000090d0263a0] token[0x00000000]",
+          "Thu Jun 11 14:39:07.541 [airport]/452 @[590401.783603] (configdIODriverInterface.m:6207) dq:'com.apple.main-thread'/tid[0x11fe] Acknowledging sleep event, connection[0xe0000090d0263a0] token[0x00000000]",
+          "Thu Jun 11 14:52:59.230 [airport]/452 @[591233.457230] (configdIODriverInterface.m:6207) dq:'com.apple.main-thread'/tid[0x11fe] Acknowledging sleep event, connection[0xe0000090d0263a0] token[0x00000000]",
+          "Thu Jun 11 14:40:38.851 [airport]/452 @[590493.092481] (configdIODriverInterface.m:6207) dq:'com.apple.main-thread'/tid[0x11fe] Acknowledging sleep event, connection[0xe0000090d0263a0] token[0x00000000]"
+        ]
+      },
+      {
+        "name": "mined_thu_jun__airport__452_2",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?)\\s+\\[airport\\]/452\\s+(?P<f3>\\S+)\\s+\\(configdIODriverInterface\\.m:5596\\)\\s+dq:'com\\.apple\\.main\\-thread'/tid\\[0x11fe\\]\\s+'en0'\\s+TCP\\s+keep\\-alive\\s+offload:\\s+(?P<f4>\\S+)\\s+AC\\s+override\\[0\\]/value\\[0\\],\\s+allowed\\[1\\],\\s+recentWakeCount\\[0\\]\\s+\\(monitoring_period:15\\s+mins,\\s+limit:5\\)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "int",
+          "f2": "time",
+          "f3": "any",
+          "f4": "any"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Thu Jun 11 14:39:07.542 [airport]/452 @[590401.783741] (configdIODriverInterface.m:5596) dq:'com.apple.main-thread'/tid[0x11fe] 'en0' TCP keep-alive offload: isUsingACPower[1], AC override[0]/value[0], allowed[1], recentWakeCount[0] (monitoring_period:15 mins, limit:5)",
+          "Thu Jun 11 14:40:38.650 [airport]/452 @[590492.891973] (configdIODriverInterface.m:5596) dq:'com.apple.main-thread'/tid[0x11fe] 'en0' TCP keep-alive offload: isUsingACPower[1], AC override[0]/value[0], allowed[1], recentWakeCount[0] (monitoring_period:15 mins, limit:5)",
+          "Thu Jun 11 14:40:38.852 [airport]/452 @[590493.093433] (configdIODriverInterface.m:5596) dq:'com.apple.main-thread'/tid[0x11fe] 'en0' TCP keep-alive offload: isUsingACPower[1], AC override[0]/value[0], allowed[1], recentWakeCount[0] (monitoring_period:15 mins, limit:5)",
+          "Thu Jun 11 14:45:18.219 [airport]/452 @[590772.458828] (configdIODriverInterface.m:5596) dq:'com.apple.main-thread'/tid[0x11fe] 'en0' TCP keep-alive offload: isUsingACPower[1], AC override[0]/value[0], allowed[1], recentWakeCount[0] (monitoring_period:15 mins, limit:5)"
+        ]
+      },
+      {
+        "name": "mined_thu_jun__airport__452_3",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?)\\s+\\[airport\\]/452\\s+(?P<f3>\\S+)\\s+\\(configdIODriverInterface\\.m:5634\\)\\s+dq:'com\\.apple\\.main\\-thread'/tid\\[0x11fe\\]\\s+TCP\\s+keep\\-alive\\s+enabled\\s+on\\s+en0,\\s+allowed\\[1\\]$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "int",
+          "f2": "time",
+          "f3": "any"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Thu Jun 11 14:39:07.542 [airport]/452 @[590401.783882] (configdIODriverInterface.m:5634) dq:'com.apple.main-thread'/tid[0x11fe] TCP keep-alive enabled on en0, allowed[1]",
+          "Thu Jun 11 14:40:38.651 [airport]/452 @[590492.892288] (configdIODriverInterface.m:5634) dq:'com.apple.main-thread'/tid[0x11fe] TCP keep-alive enabled on en0, allowed[1]",
+          "Thu Jun 11 14:40:38.852 [airport]/452 @[590493.093706] (configdIODriverInterface.m:5634) dq:'com.apple.main-thread'/tid[0x11fe] TCP keep-alive enabled on en0, allowed[1]",
+          "Thu Jun 11 14:45:18.219 [airport]/452 @[590772.458987] (configdIODriverInterface.m:5634) dq:'com.apple.main-thread'/tid[0x11fe] TCP keep-alive enabled on en0, allowed[1]"
+        ]
+      },
+      {
+        "name": "mined_thu_jun__airport__452_4",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?)\\s+\\[airport\\]/452\\s+(?P<f3>\\S+)\\s+\\(configdIODriverInterface\\.m:2249\\)\\s+dq:'com\\.apple\\.main\\-thread'/tid\\[0x11fe\\]\\s+driver\\s+(?P<f4>\\S+)\\s+(?P<f5>\\S+)\\s+subreason=(?P<subreason>\\S+)\\s+flags=(?P<flags>\\S+)\\s+(?P<f6>\\S+)$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "f1": "int",
+          "f2": "time",
+          "f3": "any",
+          "f4": "any",
+          "f5": "any",
+          "f6": "any",
+          "flags": "any",
+          "subreason": "any"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Thu Jun 11 14:46:21.114 [airport]/452 @[590835.353993] (configdIODriverInterface.m:2249) dq:'com.apple.main-thread'/tid[0x11fe] driver unavailable (reason=0xe0821804, subreason=0x0, flags=0x0), node:isDriverAvailable=1",
+          "Thu Jun 11 14:46:53.295 [airport]/452 @[590867.534070] (configdIODriverInterface.m:2249) dq:'com.apple.main-thread'/tid[0x11fe] driver available (reason=0xe0821803, subreason=0x0, flags=0x0), node:isDriverAvailable=0",
+          "Thu Jun 11 14:47:57.062 [airport]/452 @[590931.301038] (configdIODriverInterface.m:2249) dq:'com.apple.main-thread'/tid[0x11fe] driver unavailable (reason=0xe0821804, subreason=0x0, flags=0x0), node:isDriverAvailable=1",
+          "Thu Jun 11 14:50:18.473 [airport]/452 @[591072.711464] (configdIODriverInterface.m:2249) dq:'com.apple.main-thread'/tid[0x11fe] driver available (reason=0xe0821803, subreason=0x0, flags=0x0), node:isDriverAvailable=0"
+        ]
+      },
+      {
+        "name": "mined_thu_jun_usb_5",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?)\\s+Usb\\s+Host\\s+Notification\\s+Apple80211Set:\\s+seqNum\\s+(?P<f3>-?\\d+)\\s+Total\\s+(?P<f4>-?\\d+)\\s+chg\\s+(?P<f5>-?\\d+)\\s+en0$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "int",
+          "f2": "time",
+          "f3": "int",
+          "f4": "int",
+          "f5": "int"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Thu Jun 11 14:46:53.411 Usb Host Notification Apple80211Set: seqNum 374 Total 0 chg 0 en0",
+          "Thu Jun 11 14:46:53.468 Usb Host Notification Apple80211Set: seqNum 375 Total 0 chg 0 en0",
+          "Thu Jun 11 14:50:18.589 Usb Host Notification Apple80211Set: seqNum 377 Total 0 chg 0 en0",
+          "Thu Jun 11 14:50:18.626 Usb Host Notification Apple80211Set: seqNum 378 Total 0 chg 0 en0"
+        ]
+      },
+      {
+        "name": "mined_thu_jun_usb_6",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?)\\s+Usb\\s+Host\\s+Notification\\s+metrics:\\s+usbChange=(?P<usbChange>\\S+)\\s+count=(?P<count>\\S+)\\s+noiseDelta=(?P<noiseDelta>-?\\d+)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "count": "any",
+          "f1": "int",
+          "f2": "time",
+          "noiseDelta": "int",
+          "usbChange": "any"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Thu Jun 11 14:46:53.411 Usb Host Notification metrics: usbChange=0, count=0, noiseDelta=0",
+          "Thu Jun 11 14:46:53.468 Usb Host Notification metrics: usbChange=0, count=0, noiseDelta=0",
+          "Thu Jun 11 14:50:18.589 Usb Host Notification metrics: usbChange=0, count=0, noiseDelta=0",
+          "Thu Jun 11 14:50:18.632 Usb Host Notification metrics: usbChange=0, count=0, noiseDelta=0"
+        ]
+      },
+      {
+        "name": "mined_thu_jun__airport__452_7",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?)\\s+\\[airport\\]/452\\s+(?P<f3>\\S+)\\s+\\(configdIODriverInterface\\.m:6109\\)\\s+dq:'com\\.apple\\.main\\-thread'/tid\\[0x11fe\\]\\s+(?P<f4>\\S+)\\s+caps\\s+=\\s+CPU\\s+Net\\s+Disk\\s+(?P<f5>\\S+)\\s+(?P<f6>\\S+)\\s+(?P<f7>\\S+)\\s+(?P<f8>\\S+)\\s+(?P<f9>\\S+)\\s+(?P<f10>\\S+)\\s+(?P<f11>\\S+)\\s+(?P<f12>\\S+)\\s+',\\s+lastSleepType\\[0x00000007\\]/'Deep\\s+Idle',\\s+hibernateStateFound\\[1\\]\\s+hibernateState\\[0x00000000/0\\]\\s+hibernateMode\\[0x00000003/3\\],\\s+(?P<f13>\\S+)\\s+sleep:0\\s+user:0\\s+dark:1\\],\\s+err\\[0\\]\\s+(?P<f14>\\S+)\\s+(?P<f15>\\S+)\\s+(?P<f16>\\S+)$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "f1": "int",
+          "f10": "any",
+          "f11": "any",
+          "f12": "any",
+          "f13": "any",
+          "f14": "any",
+          "f15": "any",
+          "f16": "any",
+          "f2": "time",
+          "f3": "any",
+          "f4": "any",
+          "f5": "any",
+          "f6": "any",
+          "f7": "any",
+          "f8": "any",
+          "f9": "any"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Thu Jun 11 15:20:20.209 [airport]/452 @[592874.419554] (configdIODriverInterface.m:6109) dq:'com.apple.main-thread'/tid[0x11fe] UUID:'00000000-0000-4000-8000-56c288ae9fca': caps = CPU Net Disk Early , connection[0xe0000090d0263a0] token[0x00000000] capabilties[0x00008019], description:'DarkWake:cpu disk net ', lastSleepType[0x00000007]/'Deep Idle', hibernateStateFound[1] hibernateState[0x00000000/0] hibernateMode[0x00000003/3], PM:[early:1 sleep:0 user:0 dark:1], err[0] kern.wakereason['NUB.SPMI0.SW3 nub-spmi0.0x02 rtc']",
+          "Thu Jun 11 15:22:48.372 [airport]/452 @[593022.594272] (configdIODriverInterface.m:6109) dq:'com.apple.main-thread'/tid[0x11fe] UUID:'00000000-0000-4000-8000-56c288ae9fca': caps = CPU Net Disk Early , connection[0xe0000090d0263a0] token[0x00000000] capabilties[0x00008019], description:'DarkWake:cpu disk net ', lastSleepType[0x00000007]/'Deep Idle', hibernateStateFound[1] hibernateState[0x00000000/0] hibernateMode[0x00000003/3], PM:[early:1 sleep:0 user:0 dark:1], err[0] kern.wakereason['smc.sysState.Wake(0x70070000) wifibt SMC.OutboxNotEmpty']",
+          "Thu Jun 11 15:30:22.210 [airport]/452 @[593476.429857] (configdIODriverInterface.m:6109) dq:'com.apple.main-thread'/tid[0x11fe] UUID:'00000000-0000-4000-8000-56c288ae9fca': caps = CPU Net Disk Early , connection[0xe0000090d0263a0] token[0x00000000] capabilties[0x00008019], description:'DarkWake:cpu disk net ', lastSleepType[0x00000007]/'Deep Idle', hibernateStateFound[1] hibernateState[0x00000000/0] hibernateMode[0x00000003/3], PM:[early:1 sleep:0 user:0 dark:1], err[0] kern.wakereason['NUB.SPMI0.SW3 nub-spmi0.0x02 rtc']",
+          "Thu Jun 11 15:33:26.512 [airport]/452 @[593660.731459] (configdIODriverInterface.m:6109) dq:'com.apple.main-thread'/tid[0x11fe] UUID:'00000000-0000-4000-8000-56c288ae9fca': caps = CPU Net Disk Early , connection[0xe0000090d0263a0] token[0x00000000] capabilties[0x00008019], description:'DarkWake:cpu disk net ', lastSleepType[0x00000007]/'Deep Idle', hibernateStateFound[1] hibernateState[0x00000000/0] hibernateMode[0x00000003/3], PM:[early:1 sleep:0 user:0 dark:1], err[0] kern.wakereason['smc.sysState.Wake(0x70070000) wifibt SMC.OutboxNotEmpty']"
+        ]
+      },
+      {
+        "name": "mined_thu_jun__airport__452_9",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?)\\s+\\[airport\\]/452\\s+(?P<f3>\\S+)\\s+\\(airportProcessCommand\\.m:191\\)\\s+(?P<f4>\\S+)\\s+State:/Network/Service/5458E8DE\\-8072\\-467A\\-8461\\-148DFFD25560/DHCP$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "f1": "int",
+          "f2": "time",
+          "f3": "any",
+          "f4": "any"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "mined_thu_jun__airport__452_10",
+        "origin": "mined",
+        "pattern": "^Thu\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?)\\s+\\[airport\\]/452\\s+(?P<f3>\\S+)\\s+\\(airportProcessCommand\\.m:220\\)\\s+(?P<f4>\\S+)\\s+DHCP\\s+airport_changed\\s+=\\s+1,\\s+service:5458E8DE\\-8072\\-467A\\-8461\\-148DFFD25560$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "f1": "int",
+          "f2": "time",
+          "f3": "any",
+          "f4": "any"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "mined_fri_jun__airport__452_11",
+        "origin": "mined",
+        "pattern": "^Fri\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?)\\s+\\[airport\\]/452\\s+(?P<f3>\\S+)\\s+\\(airportProcessCommand\\.m:1756\\)\\s+(?P<f4>\\S+)\\s+Processed\\s+events,\\s+count\\[\\s+(?P<f5>\\S+)\\s+(?P<f6>\\S+)\\s+took\\s+(?P<f7>-?\\d+\\.\\d+)$",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "f1": "int",
+          "f2": "time",
+          "f3": "any",
+          "f4": "any",
+          "f5": "any",
+          "f6": "any",
+          "f7": "float"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Fri Jun 12 16:11:51.755 [airport]/452 @[682365.661138] (airportProcessCommand.m:1756) dq:'com.apple.airportd.server.command.q'/tid[0x87fd4b] Processed events, count[  1], @[682365.661120], took 0.000013",
+          "Fri Jun 12 17:52:51.063 [airport]/452 @[688424.942570] (airportProcessCommand.m:1756) dq:'com.apple.airportd.server.command.q'/tid[0x8a3c20] Processed events, count[  1], @[688424.942548], took 0.000016",
+          "Fri Jun 12 12:37:02.158 [airport]/452 @[669476.140866] (airportProcessCommand.m:1756) dq:'com.apple.airportd.server.command.q'/tid[0x82dbd1] Processed events, count[  1], @[669476.140852], took 0.000011",
+          "Fri Jun 12 17:07:36.259 [airport]/452 @[685710.147758] (airportProcessCommand.m:1756) dq:'com.apple.airportd.server.command.q'/tid[0x8965e8] Processed events, count[  1], @[685710.147730], took 0.000016"
+        ]
+      },
+      {
+        "name": "mined_fri_jun__airport__452_12",
+        "origin": "mined",
+        "pattern": "^Fri\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<f2>\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?)\\s+\\[airport\\]/452\\s+(?P<f3>\\S+)\\s+\\(airportdMain\\.m:1902\\)\\s+(?P<f4>\\S+)\\s+Health\\s+check\\s+alive,\\s+(?P<f5>\\S+)\\s+fault\\[0\\]\\s+crash\\[0\\]\\s+threshold\\[5\\s+sec\\],\\s+(?P<f6>\\S+)\\s+gRunLoop:\\s+(?P<f7>\\S+)\\s+(?P<f8>\\S+)\\s+(?P<f9>\\S+)\\s+max\\[2\\.320381\\]\\s+(?P<f10>\\S+)\\s+faults\\[0\\],\\s+last\\s+faulted\\s+@count\\[0\\],\\s+thresholdExceeded\\[0\\]$",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "f1": "int",
+          "f10": "any",
+          "f2": "time",
+          "f3": "any",
+          "f4": "any",
+          "f5": "any",
+          "f6": "any",
+          "f7": "any",
+          "f8": "any",
+          "f9": "any"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Fri Jun 12 16:42:48.077 [airport]/452 @[684221.973128] (airportdMain.m:1902) dq:'com.apple.airportd.server.timer.q'/tid[0x88c86e] Health check alive, checkin@[684221.973024], fault[0] crash[0] threshold[5 sec], count[416820], gRunLoop: checkin@[684221.332043] count[419095] last[684221.332043] max[2.320381] diff[0.640980], faults[0], last faulted @count[0], thresholdExceeded[0]",
+          "Fri Jun 12 00:13:01.252 [airport]/452 @[624835.381645] (airportdMain.m:1902) dq:'com.apple.airportd.server.timer.q'/tid[0x6fdbf5] Health check alive, checkin@[624835.381571], fault[0] crash[0] threshold[5 sec], count[357780], gRunLoop: checkin@[624835.334918] count[359709] last[624835.334918] max[2.320381] diff[0.046652], faults[0], last faulted @count[0], thresholdExceeded[0]",
+          "Fri Jun 12 09:19:10.830 [airport]/452 @[657604.810033] (airportdMain.m:1902) dq:'com.apple.airportd.server.timer.q'/tid[0x7f5d99] Health check alive, checkin@[657604.809950], fault[0] crash[0] threshold[5 sec], count[390330], gRunLoop: checkin@[657604.332617] count[392478] last[657604.332617] max[2.320381] diff[0.477332], faults[0], last faulted @count[0], thresholdExceeded[0]",
+          "Fri Jun 12 00:14:01.707 [airport]/452 @[624895.836852] (airportdMain.m:1902) dq:'com.apple.airportd.server.timer.q'/tid[0x6fe0ad] Health check alive, checkin@[624895.836798], fault[0] crash[0] threshold[5 sec], count[357840], gRunLoop: checkin@[624895.336353] count[359769] last[624895.336353] max[2.320381] diff[0.500444], faults[0], last faulted @count[0], thresholdExceeded[0]"
+        ]
+      },
+      {
+        "name": "tplink",
+        "origin": "seed",
+        "pattern": "^(?P<date>\\d{4}-\\d{2}-\\d{2}) (?P<time>\\d{2}:\\d{2}:\\d{2}) (?P<facility>.+?) (?P<level>DEBUG|INFO|NOTICE|WARNING|ERROR|CRITICAL) \\[(?P<msg_id>\\d+)\\] (?P<msg>.*)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "date": "date",
+          "msg_id": "int",
+          "time": "time"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "device_seen",
+        "origin": "seed",
+        "pattern": "Insert device, MAC is (?P<mac>[0-9A-Fa-f]{2}(?:[:\\-][0-9A-Fa-f]{2}){5})",
+        "parent": 44,
+        "state": "active",
+        "types": {
+          "mac": "mac"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "dhcp_ack",
+        "origin": "seed",
+        "pattern": "receive ack from server with ip (?P<server_ip>[\\d.]+)(?:, options\\(serverid=(?P<dhcp_server>[\\d.]+);lease=(?P<lease_s>\\d+);subnet=(?P<subnet>[\\d.]+);router=(?P<gateway>[\\d.]+);dns=(?P<dns>[^;)]*))?",
+        "parent": 44,
+        "state": "active",
+        "types": {
+          "dhcp_server": "ip",
+          "gateway": "ip",
+          "lease_s": "int",
+          "server_ip": "ip",
+          "subnet": "ip"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": []
+      },
+      {
+        "name": "mined_fri_jun__airport__452_1",
+        "origin": "mined",
+        "pattern": "^Fri\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<time>\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?)\\s+\\[airport\\]/452\\s+@\\[(?P<f2>-?\\d+\\.\\d+)\\]\\s+\\(airportProcessCommand\\.m:1756\\)\\s+(?P<f3>\\S+)\\s+Processed\\s+events,\\s+count\\[\\s+(?P<f4>-?\\d+)\\],\\s+@\\[(?P<f5>-?\\d+\\.\\d+)\\],\\s+took\\s+(?P<f6>-?\\d+\\.\\d+)$",
+        "parent": null,
+        "state": "quarantined",
+        "types": {
+          "f1": "int",
+          "f2": "float",
+          "f3": "any",
+          "f4": "int",
+          "f5": "float",
+          "f6": "float",
+          "time": "time"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Fri Jun 12 13:26:35.513 [airport]/452 @[672449.461012] (airportProcessCommand.m:1756) dq:'com.apple.airportd.server.command.q'/tid[0x842860] Processed events, count[  1], @[672449.460995], took 0.000013",
+          "Fri Jun 12 10:37:26.519 [airport]/452 @[662300.496548] (airportProcessCommand.m:1756) dq:'com.apple.airportd.server.command.q'/tid[0x80a1f8] Processed events, count[  1], @[662300.496529], took 0.000015",
+          "Fri Jun 12 12:37:02.158 [airport]/452 @[669476.140866] (airportProcessCommand.m:1756) dq:'com.apple.airportd.server.command.q'/tid[0x82dbd1] Processed events, count[  1], @[669476.140852], took 0.000011",
+          "Fri Jun 12 02:23:36.085 [airport]/452 @[632670.175400] (airportProcessCommand.m:1756) dq:'com.apple.airportd.server.command.q'/tid[0x732cd4] Processed events, count[  1], @[632670.175367], took 0.000026"
+        ]
+      },
+      {
+        "name": "mined_fri_jun__airport__452_1",
+        "origin": "mined",
+        "pattern": "^Fri\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<time>\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?)\\s+\\[airport\\]/452\\s+@\\[(?P<f2>-?\\d+\\.\\d+)\\]\\s+(?P<f3>\\S+)\\s+(?P<f4>\\S+)\\s+Processing\\s+(?P<f5>\\S+)\\s+(?P<f6>\\S+)$",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "f1": "int",
+          "f2": "float",
+          "f3": "any",
+          "f4": "any",
+          "f5": "any",
+          "f6": "any",
+          "time": "time"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Fri Jun 12 13:50:03.615 [airport]/452 @[673857.651239] (airportProcessCommand.m:1674) dq:'com.apple.airportd.server.command.q'/tid[0x84dbed] Processing IPv4: 'State:/Network/Global/IPv4'",
+          "Fri Jun 12 13:50:03.627 [airport]/452 @[673857.663211] (airportProcessCommand.m:1674) dq:'com.apple.airportd.server.command.q'/tid[0x84f545] Processing IPv4: 'State:/Network/Global/IPv4'",
+          "Fri Jun 12 13:54:06.762 [airport]/452 @[674100.802890] (airportProcessCommand.m:1674) dq:'com.apple.airportd.server.command.q'/tid[0x8507ca] Processing IPv4: 'State:/Network/Service/00000000-0000-4000-8000-8d53f43951c8/IPv4'",
+          "Fri Jun 12 13:54:06.774 [airport]/452 @[674100.814086] (airportProcessCommand.m:1674) dq:'com.apple.airportd.server.command.q'/tid[0x8507ca] Processing IPv4: 'State:/Network/Global/IPv4'"
+        ]
+      },
+      {
+        "name": "mined_fri_jun__airport__452_2",
+        "origin": "mined",
+        "pattern": "^Fri\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<time>\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?)\\s+\\[airport\\]/452\\s+@\\[(?P<f2>-?\\d+\\.\\d+)\\]\\s+(?P<f3>\\S+)\\s+(?P<f4>\\S+)\\s+(?P<f5>\\S+)$",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "f1": "int",
+          "f2": "float",
+          "f3": "any",
+          "f4": "any",
+          "f5": "any",
+          "time": "time"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Fri Jun 12 13:50:03.615 [airport]/452 @[673857.651300] (airportProcessCommand.m:458) dq:'com.apple.airportd.server.command.q'/tid[0x84dbed] State:/Network/Global/IPv4",
+          "Fri Jun 12 13:50:03.627 [airport]/452 @[673857.663267] (airportProcessCommand.m:458) dq:'com.apple.airportd.server.command.q'/tid[0x84f545] State:/Network/Global/IPv4",
+          "Fri Jun 12 13:54:06.762 [airport]/452 @[674100.802977] (airportProcessCommand.m:458) dq:'com.apple.airportd.server.command.q'/tid[0x8507ca] State:/Network/Service/00000000-0000-4000-8000-8d53f43951c8/IPv4",
+          "Fri Jun 12 13:54:06.774 [airport]/452 @[674100.814200] (airportProcessCommand.m:458) dq:'com.apple.airportd.server.command.q'/tid[0x8507ca] State:/Network/Global/IPv4"
+        ]
+      },
+      {
+        "name": "mined_fri_jun__airport__452_3",
+        "origin": "mined",
+        "pattern": "^Fri\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<time>\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?)\\s+\\[airport\\]/452\\s+@\\[(?P<f2>-?\\d+\\.\\d+)\\]\\s+(?P<f3>\\S+)\\s+(?P<f4>\\S+)\\s+(?P<f5>\\S+)\\s+(?P<f6>\\S+)\\s+(?P<f7>\\S+)\\s+(?P<f8>\\S+)\\s+(?P<f9>\\S+)$",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "f1": "int",
+          "f2": "float",
+          "f3": "any",
+          "f4": "any",
+          "f5": "any",
+          "f6": "any",
+          "f7": "any",
+          "f8": "any",
+          "f9": "any",
+          "time": "time"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Fri Jun 12 14:10:30.477 [airport]/452 @[675084.442730] (configdIODriverInterface.m:4306) dq:'com.apple.main-thread'/tid[0x11fe] utun8 Adding, eventClass[0x00000002] eventType[0x00000009], function:'_dlilEventCallback'/4612",
+          "Fri Jun 12 14:10:30.552 [airport]/452 @[675084.517653] (airportProcessCommand.m:1681) dq:'com.apple.airportd.server.command.q'/tid[0x855249] Processing IPv6 (not supported): 'State:/Network/Service/00000000-0000-4000-8000-978e42037a79/IPv6'",
+          "Fri Jun 12 14:10:44.360 [airport]/452 @[675098.325640] (configdIODriverInterface.m:4392) dq:'com.apple.main-thread'/tid[0x11fe] utun8 Removing, eventClass[0x00000002] eventType[0x0000000b], function:'_dlilEventCallback'/4617",
+          "Fri Jun 12 14:10:44.362 [airport]/452 @[675098.327486] (airportProcessCommand.m:1681) dq:'com.apple.airportd.server.command.q'/tid[0x8562f4] Processing IPv6 (not supported): 'State:/Network/Service/00000000-0000-4000-8000-978e42037a79/IPv6'"
+        ]
+      },
+      {
+        "name": "mined_fri_jun__airport__452_1",
+        "origin": "mined",
+        "pattern": "^Fri\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<time>\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?)\\s+\\[airport\\]/452\\s+@\\[(?P<f2>-?\\d+\\.\\d+)\\]\\s+(?P<f3>\\S+)\\s+dq:'com\\.apple\\.main\\-thread'/tid\\[0x11fe\\]\\s+(?P<f4>\\S+)\\s+(?P<f5>\\S+)$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "f1": "int",
+          "f2": "float",
+          "f3": "any",
+          "f4": "any",
+          "f5": "any",
+          "time": "time"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Fri Jun 12 14:23:58.010 [airport]/452 @[675891.964730] (configdIODriverInterface.m:4616) dq:'com.apple.main-thread'/tid[0x11fe] utun8: KEV_DL_IF_DETACHED",
+          "Fri Jun 12 14:43:04.878 [airport]/452 @[677038.811614] (configdIODriverInterface.m:4616) dq:'com.apple.main-thread'/tid[0x11fe] en9: KEV_DL_IF_DETACHED",
+          "Fri Jun 12 14:43:04.887 [airport]/452 @[677038.820942] (configdIODriverInterface.m:4616) dq:'com.apple.main-thread'/tid[0x11fe] en12: KEV_DL_IF_DETACHED",
+          "Fri Jun 12 14:43:04.888 [airport]/452 @[677038.821704] (configdIODriverInterface.m:4616) dq:'com.apple.main-thread'/tid[0x11fe] en8: KEV_DL_IF_DETACHED"
+        ]
+      },
+      {
+        "name": "mined_fri_jun__airport__452_2",
+        "origin": "mined",
+        "pattern": "^Fri\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<time>\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?)\\s+\\[airport\\]/452\\s+@\\[(?P<f2>-?\\d+\\.\\d+)\\]\\s+\\(airportProcessCommand\\.m:1756\\)\\s+(?P<processed>\\S+)\\s+Processed\\s+events,\\s+count\\[\\s+(?P<f3>-?\\d+)\\],\\s+@\\[(?P<took>-?\\d+\\.\\d+)\\],\\s+took\\s+(?P<f4>-?\\d+\\.\\d+)$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "f1": "int",
+          "f2": "float",
+          "f3": "int",
+          "f4": "float",
+          "processed": "any",
+          "time": "time",
+          "took": "float"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Fri Jun 12 14:37:34.104 [airport]/452 @[676708.049136] (airportProcessCommand.m:1756) dq:'com.apple.airportd.server.command.q'/tid[0x860645] Processed events, count[  1], @[676708.049117], took 0.000013",
+          "Fri Jun 12 14:37:34.105 [airport]/452 @[676708.049283] (airportProcessCommand.m:1756) dq:'com.apple.airportd.server.command.q'/tid[0x860645] Processed events, count[  1], @[676708.049265], took 0.000013",
+          "Fri Jun 12 14:37:34.105 [airport]/452 @[676708.049442] (airportProcessCommand.m:1756) dq:'com.apple.airportd.server.command.q'/tid[0x861110] Processed events, count[  1], @[676708.049415], took 0.000022",
+          "Fri Jun 12 14:37:34.105 [airport]/452 @[676708.049590] (airportProcessCommand.m:1756) dq:'com.apple.airportd.server.command.q'/tid[0x861110] Processed events, count[  1], @[676708.049573], took 0.000013"
+        ]
+      },
+      {
+        "name": "mined_fri_jun__airport__452_3",
+        "origin": "mined",
+        "pattern": "^Fri\\s+Jun\\s+(?P<f1>-?\\d+)\\s+(?P<time>\\d{2}:\\d{2}:\\d{2}(?:[.,]\\d+)?)\\s+\\[airport\\]/452\\s+@\\[(?P<f2>-?\\d+\\.\\d+)\\]\\s+\\(airportProcessCommand\\.m:466\\)\\s+(?P<no>\\S+)\\s+No\\s+valid\\s+components\\s+format\\s+from\\s+SCDynamicStore:\\s+serviceKey:'State:/Network/Global/IPv4'$",
+        "parent": null,
+        "state": "candidate",
+        "types": {
+          "f1": "int",
+          "f2": "float",
+          "no": "any",
+          "time": "time"
+        },
+        "input": null,
+        "ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Fri Jun 12 14:45:27.356 [airport]/452 @[677181.287565] (airportProcessCommand.m:466) dq:'com.apple.airportd.server.command.q'/tid[0x8655fb] No valid components format from SCDynamicStore: serviceKey:'State:/Network/Global/IPv4'",
+          "Fri Jun 12 14:45:42.011 [airport]/452 @[677195.942290] (airportProcessCommand.m:466) dq:'com.apple.airportd.server.command.q'/tid[0x864c52] No valid components format from SCDynamicStore: serviceKey:'State:/Network/Global/IPv4'",
+          "Fri Jun 12 14:45:59.819 [airport]/452 @[677213.750430] (airportProcessCommand.m:466) dq:'com.apple.airportd.server.command.q'/tid[0x865e48] No valid components format from SCDynamicStore: serviceKey:'State:/Network/Global/IPv4'",
+          "Fri Jun 12 14:46:52.099 [airport]/452 @[677266.029364] (airportProcessCommand.m:466) dq:'com.apple.airportd.server.command.q'/tid[0x864c52] No valid components format from SCDynamicStore: serviceKey:'State:/Network/Global/IPv4'"
+        ]
+      }
+    ]
+  }
+}

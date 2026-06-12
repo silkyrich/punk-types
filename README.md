@@ -1,11 +1,12 @@
 # punk-types — the sourcetype library
 
 Community-evolvable parsing knowledge for [punk-it](https://github.com/silkyrich/punk-it):
-one directory per **sourcetype**, each holding the full parsing definition and a
-pool of real sample lines to evolve it against.
+organized as **group/package/sourcetype** (so a thousand types stay navigable),
+each type holding the full parsing definition and a pool of real (redacted)
+sample lines to evolve it against.
 
 ```
-<sourcetype>/
+<group>/<package>/<sourcetype>/   e.g. network/dns/pihole-ftl, os/linux/systemd-journal
   def.json        the type definition:
                     ts       timestamp spec (locator regexes + strftime formats)
                     brk      event line-breaking (line | timestamp | starts+regex)
@@ -29,6 +30,31 @@ pool of real sample lines to evolve it against.
 - **Samples are evidence.** Improve a tree by testing against the pool
   (punk-it's Workbench tab, or any regex tool). Grow the pool with lines your
   pattern *fails* on. Redact anything sensitive before submitting.
+
+## punkscript — trees as programs
+
+Every tree has a textual form (mtail-flavored): nesting is the cascade,
+`from <field>` steers a child to parse a parent capture instead of the raw
+line, and statements compile to field ops. Edit trees as text, compile back:
+
+```
+type pihole-ftl in network/dns
+
+`^(?P<date>\d{4}-\d{2}-\d{2}) (?P<time>\S+) (?P<level>[A-Z]+): (?P<msg>.*)$` as ftl_log {
+    msg ?= "(empty)"                       # default
+    `^Connection error \((?P<upstream_ip>[\d.]+)#(?P<dns_port>\d+)\)` from msg as upstream_err {
+        subsystem = "dns-upstream"
+        if level == "WARNING" { alert = "upstream-flap" }
+    }
+}
+```
+
+```sh
+punk-it decompile pihole-ftl --lib .   # tree -> text
+punk-it compile my-edit.punk --lib .   # text -> tree (upsert; stats kept)
+punk-it serve --lib . --addr 127.0.0.1:7676   # design mode: workbench +
+    # sample pools + install straight into this checkout, no engine needed
+```
 
 ## Using the library
 
