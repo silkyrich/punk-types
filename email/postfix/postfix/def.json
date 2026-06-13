@@ -1,0 +1,216 @@
+{
+  "name": "postfix",
+  "package": "email/postfix",
+  "ts": {
+    "banks": [
+      "iso",
+      "syslog",
+      "clf",
+      "epoch"
+    ],
+    "custom": []
+  },
+  "brk": {
+    "mode": "line",
+    "start": null,
+    "max_lines": 100,
+    "max_bytes": 32768
+  },
+  "snapshot": {
+    "epoch": 1,
+    "lines_seen": 0,
+    "nodes": [
+      {
+        "name": "postfix",
+        "origin": "curated",
+        "pattern": "^(?P<ts>\\w+\\s+\\d+\\s+[\\d:]+) (?P<host>\\S+) postfix/(?P<component>[\\w-]+)\\[(?P<pid>\\d+)\\]: (?P<msg>.*)$",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "component": "any",
+          "host": "any",
+          "msg": "any",
+          "pid": "int",
+          "ts": "ts"
+        },
+        "input": null,
+        "guard": [],
+        "ops": [],
+        "otherwise_ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Jun 13 11:05:00 mail01 postfix/smtpd[3120]: connect from unknown[203.0.113.181]",
+          "Jun 13 11:05:01 mail01 postfix/smtpd[3120]: B2C4D6E8A0: client=unknown[203.0.113.181]",
+          "Jun 13 11:05:01 mail01 postfix/cleanup[3125]: B2C4D6E8A0: message-id=<user39ca@example.com>",
+          "Jun 13 11:05:02 mail01 postfix/qmgr[1180]: B2C4D6E8A0: from=<user5930@example.com>, size=2451, nrcpt=1 (queue active)"
+        ]
+      },
+      {
+        "name": "connect",
+        "origin": "curated",
+        "pattern": "connect from (?P<client_host>\\S+)\\[(?P<src>[\\d.]+)\\]",
+        "parent": 0,
+        "state": "active",
+        "types": {
+          "client_host": "any",
+          "src": "any"
+        },
+        "input": "msg",
+        "guard": [],
+        "ops": [
+          {
+            "op": "set",
+            "field": "action",
+            "value": "connected",
+            "when": null
+          }
+        ],
+        "otherwise_ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "connect from unknown[203.0.113.181]"
+        ]
+      },
+      {
+        "name": "client",
+        "origin": "curated",
+        "pattern": "(?P<queue_id>[A-F0-9]{8,}): client=(?P<client_host>\\S+)\\[(?P<src>[\\d.]+)\\]",
+        "parent": 0,
+        "state": "active",
+        "types": {
+          "client_host": "any",
+          "queue_id": "any",
+          "src": "any"
+        },
+        "input": "msg",
+        "guard": [],
+        "ops": [],
+        "otherwise_ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "B2C4D6E8A0: client=unknown[203.0.113.181]"
+        ]
+      },
+      {
+        "name": "mailfrom",
+        "origin": "curated",
+        "pattern": "(?P<queue_id>[A-F0-9]{8,}): from=<(?P<from>[^>]*)>, size=(?P<size>\\d+), nrcpt=(?P<nrcpt>\\d+)",
+        "parent": 0,
+        "state": "active",
+        "types": {
+          "from": "any",
+          "nrcpt": "any",
+          "queue_id": "any",
+          "size": "any"
+        },
+        "input": "msg",
+        "guard": [],
+        "ops": [
+          {
+            "op": "set",
+            "field": "action",
+            "value": "queued",
+            "when": null
+          }
+        ],
+        "otherwise_ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "B2C4D6E8A0: from=<user5930@example.com>, size=2451, nrcpt=1 (queue active)"
+        ]
+      },
+      {
+        "name": "delivery",
+        "origin": "curated",
+        "pattern": "(?P<queue_id>[A-F0-9]{8,}): to=<(?P<to>[^>]*)>.* status=(?P<delivery_status>\\w+)",
+        "parent": 0,
+        "state": "active",
+        "types": {
+          "delivery_status": "any",
+          "queue_id": "any",
+          "to": "any"
+        },
+        "input": "msg",
+        "guard": [],
+        "ops": [
+          {
+            "op": "set",
+            "field": "action",
+            "value": "delivered",
+            "when": null
+          }
+        ],
+        "otherwise_ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "B2C4D6E8A0: to=<user8944@example.com>, relay=mx.example.net[203.0.113.7]:25, delay=1.2, status=sent (250 OK)"
+        ]
+      }
+    ]
+  }
+}

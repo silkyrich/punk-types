@@ -1,0 +1,5 @@
+{"line":"Jun 13 11:05:00 mail01 postfix/smtpd[3120]: connect from unknown[203.0.113.181]","path":"postfix/connect"}
+{"line":"Jun 13 11:05:01 mail01 postfix/smtpd[3120]: B2C4D6E8A0: client=unknown[203.0.113.181]","path":"postfix/client"}
+{"line":"Jun 13 11:05:01 mail01 postfix/cleanup[3125]: B2C4D6E8A0: message-id=<user39ca@example.com>","path":"postfix"}
+{"line":"Jun 13 11:05:02 mail01 postfix/qmgr[1180]: B2C4D6E8A0: from=<user5930@example.com>, size=2451, nrcpt=1 (queue active)","path":"postfix/mailfrom"}
+{"line":"Jun 13 11:05:03 mail01 postfix/smtp[3130]: B2C4D6E8A0: to=<user8944@example.com>, relay=mx.example.net[203.0.113.7]:25, delay=1.2, status=sent (250 OK)","path":"postfix/delivery"}

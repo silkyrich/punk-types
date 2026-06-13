@@ -1,0 +1,98 @@
+{
+  "name": "sudo",
+  "package": "os/linux/sudo",
+  "ts": {
+    "banks": [
+      "iso",
+      "syslog",
+      "clf",
+      "epoch"
+    ],
+    "custom": []
+  },
+  "brk": {
+    "mode": "line",
+    "start": null,
+    "max_lines": 100,
+    "max_bytes": 32768
+  },
+  "snapshot": {
+    "epoch": 1,
+    "lines_seen": 0,
+    "nodes": [
+      {
+        "name": "sudo",
+        "origin": "curated",
+        "pattern": "^(?P<ts>\\w+\\s+\\d+\\s+[\\d:]+) (?P<host>\\S+) sudo:\\s+(?P<user>\\S+) : TTY=(?P<tty>\\S+) ; PWD=(?P<pwd>\\S+) ; USER=(?P<target_user>\\S+) ; COMMAND=(?P<command>.*)$",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "command": "any",
+          "host": "any",
+          "pwd": "any",
+          "target_user": "any",
+          "ts": "ts",
+          "tty": "any",
+          "user": "any"
+        },
+        "input": null,
+        "guard": [],
+        "ops": [
+          {
+            "op": "set",
+            "field": "app",
+            "value": "sudo",
+            "when": null
+          },
+          {
+            "op": "set",
+            "field": "action",
+            "value": "executed",
+            "when": null
+          },
+          {
+            "op": "set_from",
+            "field": "object",
+            "parts": [
+              {
+                "p": "lit",
+                "v": ""
+              },
+              {
+                "p": "field",
+                "v": "command"
+              }
+            ],
+            "when": null
+          },
+          {
+            "op": "set",
+            "field": "object_category",
+            "value": "command",
+            "when": null
+          }
+        ],
+        "otherwise_ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Jun 13 11:01:00 web01 sudo:   deploy : TTY=pts/0 ; PWD=/home/deploy ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx",
+          "Jun 13 11:02:14 web01 sudo:    alice : TTY=pts/1 ; PWD=/var/log ; USER=root ; COMMAND=/usr/bin/tail -f messages",
+          "Jun 13 11:03:31 db01 sudo:      bob : TTY=pts/2 ; PWD=/home/bob ; USER=postgres ; COMMAND=/usr/bin/psql"
+        ]
+      }
+    ]
+  }
+}

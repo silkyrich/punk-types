@@ -1,0 +1,3 @@
+{"line":"Jun 13 11:01:00 web01 sudo:   deploy : TTY=pts/0 ; PWD=/home/deploy ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx","path":"sudo"}
+{"line":"Jun 13 11:02:14 web01 sudo:    alice : TTY=pts/1 ; PWD=/var/log ; USER=root ; COMMAND=/usr/bin/tail -f messages","path":"sudo"}
+{"line":"Jun 13 11:03:31 db01 sudo:      bob : TTY=pts/2 ; PWD=/home/bob ; USER=postgres ; COMMAND=/usr/bin/psql","path":"sudo"}

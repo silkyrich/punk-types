@@ -1,0 +1,4 @@
+{"line":"1718276400.231 234 192.0.2.15 TCP_MISS/200 4321 GET http://example.com/index.html - HIER_DIRECT/203.0.113.174 text/html","path":"squid"}
+{"line":"1718276401.012 12 192.0.2.50 TCP_DENIED/403 1876 GET http://blocked.example.net/ - HIER_NONE/- text/html","path":"squid"}
+{"line":"1718276402.500 88 192.0.2.15 TCP_HIT/200 932 GET http://example.com/logo.png - HIER_NONE/- image/png","path":"squid"}
+{"line":"1718276405.118 410 192.0.2.97 TCP_TUNNEL/200 5821 CONNECT secure.example.com:443 alice HIER_DIRECT/203.0.113.174 -","path":"squid"}

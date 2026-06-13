@@ -1,0 +1,70 @@
+{
+  "name": "squid",
+  "package": "network/proxy/squid",
+  "ts": {
+    "banks": [
+      "iso",
+      "syslog",
+      "clf",
+      "epoch"
+    ],
+    "custom": []
+  },
+  "brk": {
+    "mode": "line",
+    "start": null,
+    "max_lines": 100,
+    "max_bytes": 32768
+  },
+  "snapshot": {
+    "epoch": 1,
+    "lines_seen": 0,
+    "nodes": [
+      {
+        "name": "squid",
+        "origin": "curated",
+        "pattern": "^(?P<epoch>\\d+\\.\\d+)\\s+(?P<duration>\\d+) (?P<src>[\\d.]+) (?P<squid_result>[A-Z_]+)/(?P<status>\\d{3}) (?P<bytes>\\d+) (?P<method>\\w+) (?P<uri>\\S+) (?P<auth_user>\\S+) (?P<hierarchy>[A-Z_]+)/(?P<dest>\\S+) (?P<content_type>\\S+)",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "auth_user": "any",
+          "bytes": "any",
+          "content_type": "any",
+          "dest": "any",
+          "duration": "any",
+          "epoch": "any",
+          "hierarchy": "any",
+          "method": "any",
+          "squid_result": "any",
+          "src": "any",
+          "status": "any",
+          "uri": "any"
+        },
+        "input": null,
+        "guard": [],
+        "ops": [],
+        "otherwise_ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "1718276400.231 234 192.0.2.15 TCP_MISS/200 4321 GET http://example.com/index.html - HIER_DIRECT/203.0.113.174 text/html",
+          "1718276401.012 12 192.0.2.50 TCP_DENIED/403 1876 GET http://blocked.example.net/ - HIER_NONE/- text/html",
+          "1718276402.500 88 192.0.2.15 TCP_HIT/200 932 GET http://example.com/logo.png - HIER_NONE/- image/png",
+          "1718276405.118 410 192.0.2.97 TCP_TUNNEL/200 5821 CONNECT secure.example.com:443 alice HIER_DIRECT/203.0.113.174 -"
+        ]
+      }
+    ]
+  }
+}

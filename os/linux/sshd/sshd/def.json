@@ -1,0 +1,213 @@
+{
+  "name": "sshd",
+  "package": "os/linux/sshd",
+  "ts": {
+    "banks": [
+      "iso",
+      "syslog",
+      "clf",
+      "epoch"
+    ],
+    "custom": []
+  },
+  "brk": {
+    "mode": "line",
+    "start": null,
+    "max_lines": 100,
+    "max_bytes": 32768
+  },
+  "snapshot": {
+    "epoch": 1,
+    "lines_seen": 0,
+    "nodes": [
+      {
+        "name": "sshd",
+        "origin": "curated",
+        "pattern": "^(?P<ts>\\w+\\s+\\d+\\s+[\\d:]+) (?P<host>\\S+) sshd\\[(?P<pid>\\d+)\\]: (?P<msg>.*)$",
+        "parent": null,
+        "state": "active",
+        "types": {
+          "host": "any",
+          "msg": "any",
+          "pid": "int",
+          "ts": "ts"
+        },
+        "input": null,
+        "guard": [],
+        "ops": [],
+        "otherwise_ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Jun 13 11:00:01 web01 sshd[20913]: Accepted publickey for deploy from 192.0.2.37 port 54012 ssh2: RSA SHA256:abcd",
+          "Jun 13 11:00:05 web01 sshd[20920]: Failed password for invalid user admin from 203.0.113.181 port 41122 ssh2",
+          "Jun 13 11:00:06 web01 sshd[20920]: Failed password for root from 203.0.113.142 port 50012 ssh2",
+          "Jun 13 11:00:07 web01 sshd[20921]: Invalid user oracle from 203.0.113.25 port 33001"
+        ]
+      },
+      {
+        "name": "auth",
+        "origin": "curated",
+        "pattern": "(?P<result>Accepted|Failed) (?P<auth_method>\\w+) for (?:invalid user )?(?P<user>\\S+) from (?P<src>[\\d.]+) port (?P<src_port>\\d+)",
+        "parent": 0,
+        "state": "active",
+        "types": {
+          "auth_method": "any",
+          "result": "any",
+          "src": "any",
+          "src_port": "int",
+          "user": "any"
+        },
+        "input": "msg",
+        "guard": [],
+        "ops": [
+          {
+            "op": "set",
+            "field": "app",
+            "value": "ssh",
+            "when": null
+          },
+          {
+            "op": "set",
+            "field": "action",
+            "value": "success",
+            "when": {
+              "field": "result",
+              "op": "eq",
+              "value": "Accepted"
+            }
+          },
+          {
+            "op": "set",
+            "field": "action",
+            "value": "failure",
+            "when": {
+              "field": "result",
+              "op": "eq",
+              "value": "Failed"
+            }
+          }
+        ],
+        "otherwise_ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Accepted publickey for deploy from 192.0.2.37 port 54012 ssh2: RSA SHA256:abcd",
+          "Failed password for invalid user admin from 203.0.113.181 port 41122 ssh2",
+          "Failed password for root from 203.0.113.142 port 50012 ssh2",
+          "Accepted password for alice from 192.0.2.15 port 60112 ssh2"
+        ]
+      },
+      {
+        "name": "invalid_user",
+        "origin": "curated",
+        "pattern": "Invalid user (?P<user>\\S+) from (?P<src>[\\d.]+) port (?P<src_port>\\d+)",
+        "parent": 0,
+        "state": "active",
+        "types": {
+          "src": "any",
+          "src_port": "int",
+          "user": "any"
+        },
+        "input": "msg",
+        "guard": [],
+        "ops": [
+          {
+            "op": "set",
+            "field": "app",
+            "value": "ssh",
+            "when": null
+          },
+          {
+            "op": "set",
+            "field": "action",
+            "value": "failure",
+            "when": null
+          }
+        ],
+        "otherwise_ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Invalid user oracle from 203.0.113.25 port 33001"
+        ]
+      },
+      {
+        "name": "disconnect",
+        "origin": "curated",
+        "pattern": "Disconnected from (?:authenticating |invalid )?user (?P<user>\\S+) (?P<src>[\\d.]+) port (?P<src_port>\\d+)",
+        "parent": 0,
+        "state": "active",
+        "types": {
+          "src": "any",
+          "src_port": "int",
+          "user": "any"
+        },
+        "input": "msg",
+        "guard": [],
+        "ops": [
+          {
+            "op": "set",
+            "field": "app",
+            "value": "ssh",
+            "when": null
+          }
+        ],
+        "otherwise_ops": [],
+        "stats": {
+          "attempts": 0,
+          "hits": 0,
+          "interval_attempts": 0,
+          "interval_hits": 0,
+          "ewma_rate": 0.0,
+          "fill": {
+            "n": 0,
+            "mean": 0.0,
+            "m2": 0.0
+          },
+          "spot_checks": 0,
+          "spot_passes": 0
+        },
+        "examples": [
+          "Disconnected from invalid user admin 203.0.113.181 port 41122 [preauth]"
+        ]
+      }
+    ]
+  }
+}

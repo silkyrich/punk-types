@@ -1,0 +1,4 @@
+{"line":"%ASA-6-302013: Built outbound TCP connection 1410010 for outside:203.0.113.174/443 (203.0.113.174/443) to inside:192.0.2.15/52344 (192.0.2.15/52344)","path":"cisco_asa/built"}
+{"line":"%ASA-6-106023: Deny tcp src outside:203.0.113.181/44321 dst inside:192.0.2.254/22 by access-group \"outside_access_in\" [0x0, 0x0]","path":"cisco_asa/deny"}
+{"line":"%ASA-6-302014: Teardown TCP connection 1410010 for outside:203.0.113.174/443 to inside:192.0.2.15/52344 duration 0:01:32 bytes 8421 TCP FINs","path":"cisco_asa/teardown"}
+{"line":"%ASA-4-106023: Deny udp src outside:203.0.113.142/5060 dst inside:192.0.2.237/5060 by access-group \"outside_access_in\"","path":"cisco_asa/deny"}

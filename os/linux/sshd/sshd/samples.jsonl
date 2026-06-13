@@ -1,0 +1,6 @@
+{"line":"Jun 13 11:00:01 web01 sshd[20913]: Accepted publickey for deploy from 192.0.2.37 port 54012 ssh2: RSA SHA256:abcd","path":"sshd/auth"}
+{"line":"Jun 13 11:00:05 web01 sshd[20920]: Failed password for invalid user admin from 203.0.113.181 port 41122 ssh2","path":"sshd/auth"}
+{"line":"Jun 13 11:00:06 web01 sshd[20920]: Failed password for root from 203.0.113.142 port 50012 ssh2","path":"sshd/auth"}
+{"line":"Jun 13 11:00:07 web01 sshd[20921]: Invalid user oracle from 203.0.113.25 port 33001","path":"sshd/invalid_user"}
+{"line":"Jun 13 11:00:09 web01 sshd[20920]: Disconnected from invalid user admin 203.0.113.181 port 41122 [preauth]","path":"sshd/disconnect"}
+{"line":"Jun 13 11:00:11 web01 sshd[20933]: Accepted password for alice from 192.0.2.15 port 60112 ssh2","path":"sshd/auth"}
